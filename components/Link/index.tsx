@@ -1,25 +1,28 @@
+import React from 'react';
 import clsx from 'clsx';
+import { default as NextLink } from 'next/link';
 
-interface ButtonProps {
+type LinkProps = {
   label?: string;
   className?: string;
   icon?: string;
   fullWidth?: boolean;
-  onClick?: () => void;
   variant?: 'accent' | 'danger' | 'outline';
-}
+  children?: React.ReactNode;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-const Button: React.FC<ButtonProps> = ({
+const Link: React.FC<LinkProps> = ({
   label = 'Button',
   className = '',
   icon,
   fullWidth = false,
-  onClick,
+  href = '',
   variant = 'accent',
+  children,
 }) => {
   return (
-    <button
-      onClick={onClick}
+    <NextLink
+      href={href}
       className={clsx(
         'flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium shadow-lg transition-all duration-300',
         {
@@ -43,9 +46,9 @@ const Button: React.FC<ButtonProps> = ({
           {icon}
         </span>
       )}
-      {label}
-    </button>
+      {children || label}
+    </NextLink>
   );
 };
 
-export default Button;
+export default Link;
