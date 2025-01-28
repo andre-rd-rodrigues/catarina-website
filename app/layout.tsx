@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { marcellus, ibmPlexSans } from '@/assets/fonts';
 import './globals.scss';
-import Button from '@/components/Button';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,9 +17,6 @@ export default function RootLayout({
       <body
         className={`${marcellus.variable} ${ibmPlexSans.variable} p-5 antialiased`}
       >
-        <Button label="Agendar" variant="accent" />
-        {/*  <Button label="Agendar" variant="danger" />
-        <Button label="Agendar" variant="outline" /> */}
         {children}
       </body>
     </html>

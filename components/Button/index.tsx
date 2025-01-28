@@ -5,7 +5,7 @@ interface ButtonProps {
   className?: string;
   icon?: string;
   fullWidth?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
   variant?: 'accent' | 'danger' | 'outline';
 }
 

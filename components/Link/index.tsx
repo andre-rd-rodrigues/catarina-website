@@ -12,13 +12,12 @@ type LinkProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link: React.FC<LinkProps> = ({
-  label = 'Button',
+  label = 'Link',
   className = '',
   icon,
   fullWidth = false,
   href = '',
   variant = 'accent',
-  children,
 }) => {
   return (
     <NextLink
@@ -46,7 +45,7 @@ const Link: React.FC<LinkProps> = ({
           {icon}
         </span>
       )}
-      {children || label}
+      {label}
     </NextLink>
   );
 };
