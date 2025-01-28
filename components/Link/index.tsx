@@ -1,15 +1,32 @@
 import React from 'react';
 import clsx from 'clsx';
 import { default as NextLink } from 'next/link';
+import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 
 type LinkProps = {
   label?: string;
   className?: string;
-  icon?: string;
+  icon?: IconName;
   fullWidth?: boolean;
-  variant?: 'accent' | 'danger' | 'outline';
+  variant?: 'accent' | 'danger' | 'outline' | 'none';
   children?: React.ReactNode;
+  unstyled?: boolean;
+  iconPrefix?: boolean;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+// Separate variant styles for better maintainability
+const variantStyles = {
+  accent:
+    'bg-[var(--color-accent)] text-white hover:bg-[var(--color-secondary)]',
+  danger: 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]',
+  outline:
+    'border border-[var(--color-border-primary)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)] hover:text-white',
+  none: 'text-[var(--color-primary)]',
+} as const;
+
+// Separate base styles
+const baseStyles =
+  'flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium transition-all duration-300';
 
 const Link: React.FC<LinkProps> = ({
   label = 'Link',
@@ -18,34 +35,40 @@ const Link: React.FC<LinkProps> = ({
   fullWidth = false,
   href = '',
   variant = 'accent',
+  unstyled = false,
+  iconPrefix = true,
+  children,
+  ...restProps
 }) => {
+  const getIconColor = () =>
+    unstyled && variant === 'accent'
+      ? 'var(--color-accent)'
+      : 'var(--color-primary)';
+
+  const IconComponent = icon ? (
+    <DynamicIcon name={icon} color={getIconColor()} size={16} />
+  ) : null;
+
   return (
     <NextLink
       href={href}
       className={clsx(
-        'flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium shadow-lg transition-all duration-300',
+        'text-sm font-medium',
         {
-          'bg-[var(--color-accent)] text-white hover:bg-[var(--color-secondary)]':
-            variant === 'accent',
-          'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]':
-            variant === 'danger',
-          'border border-[var(--color-border-primary)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)] hover:text-white':
-            variant === 'outline',
+          [baseStyles]: !unstyled,
+          [variantStyles[variant]]: !unstyled,
+          'text-[var(--color-accent)]': variant === 'accent',
+          'shadow-lg': variant !== 'none' && !unstyled,
           'w-full': fullWidth,
+          'flex items-center gap-2': icon,
         },
         className,
       )}
+      {...restProps}
     >
-      {icon && (
-        <span
-          className={clsx('material-icons', {
-            'text-white': variant !== 'outline',
-          })}
-        >
-          {icon}
-        </span>
-      )}
-      {label}
+      {iconPrefix && IconComponent}
+      {children || label}
+      {!iconPrefix && IconComponent}
     </NextLink>
   );
 };

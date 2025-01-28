@@ -1,3 +1,4 @@
+import ServiceCard from '@/components/Cards/ServiceCard';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Section from '@/components/Section';
@@ -11,15 +12,55 @@ export default function Home() {
         content="Suspendisse rhoncus neque elementum malesuada gravida. Donec gravida enim est, non tincidunt magna pellentesque ac. Duis posuere tellus non ex porttitor, eget pretium ipsum iaculis. Praesent consequat felis at mollis consequat."
         actionButton={<Link href="/" label="Agendar" />}
       />
+
       <Section>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-          voluptates ad asperiores eum labore natus autem sint. Cupiditate,
-          saepe aspernatur. Sunt dolore officiis placeat molestias, veritatis
-          minus pariatur quia nobis delectus, rerum veniam voluptates nam,
-          maiores tempora architecto maxime. A vero ex expedita aliquid libero
-          alias porro autem nemo voluptate.
-        </p>
+        <div className="flex gap-4">
+          <ServiceCard
+            number="01."
+            title="Lorem ipsum dolor sit amet"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            action={
+              <Link
+                href="/"
+                label="Agendar"
+                variant="accent"
+                icon="arrow-right"
+                unstyled
+                iconPrefix={false}
+              />
+            }
+          />
+          <ServiceCard
+            number="01."
+            title="Lorem ipsum dolor sit amet"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            action={
+              <Link
+                href="/"
+                label="Agendar"
+                variant="accent"
+                icon="arrow-right"
+                unstyled
+                iconPrefix={false}
+              />
+            }
+          />
+          <ServiceCard
+            number="01."
+            title="Lorem ipsum dolor sit amet"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            action={
+              <Link
+                href="/"
+                label="Agendar"
+                variant="accent"
+                icon="arrow-right"
+                unstyled
+                iconPrefix={false}
+              />
+            }
+          />
+        </div>
       </Section>
     </>
   );

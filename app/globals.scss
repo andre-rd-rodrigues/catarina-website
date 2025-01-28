@@ -4,7 +4,7 @@
 
 :root {
   /* Colors */
-  --color-background: #f3f3e7;
+  --color-background: #faf9f0;
   --color-background-alt: #f1f1e4;
   --color-foreground: #171717;
   --color-primary: #333333;
@@ -41,4 +41,8 @@ h5,
 h6 {
   font-family: var(--font-marcellus);
   font-weight: 500;
+}
+
+p {
+  color: var(--color-text);
 }
