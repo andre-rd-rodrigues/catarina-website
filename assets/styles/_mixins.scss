@@ -1,0 +1,21 @@
+//Sizes
+$breaking-point-xxl: 1400px;
+$breaking-point-xl: 1200px;
+$breaking-point-lg: 992px;
+$breaking-point-md: 768px;
+$breaking-point-sm: 576px;
+$breaking-point-xs: 380px;
+$breaking-point-xxs: 330px;
+
+@mixin hover_scale($size, $time) {
+  transition: $time ease;
+  cursor: pointer;
+  &:hover {
+    transform: scale($size);
+  }
+}
+
+//Exports
+:export {
+  mobile_breaking_point: $breaking-point-sm;
+}

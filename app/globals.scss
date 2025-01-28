@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --background: #f3f3e7;
+  --background-alt: #f1f1e4;
+  --foreground: #171717;
+  --primary: #333333;
+  --secondary: #182d27;
+  --text: #7a7a7a;
+  --accent: #568673;
+  --danger: #cb6a61;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #171717;
+    --background-alt: #1a1a1a;
+    --foreground: #ffffff;
+    --primary: #f5f5f5;
+    --secondary: #568673;
+    --text: #a3a3a3;
+    --accent: #6b9885;
+    --danger: #e17a71;
+  }
+}
+
+/* Basic resets and defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-ibm-plex-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--primary);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-marcellus);
+  font-weight: 500;
+}
