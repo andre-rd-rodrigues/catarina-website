@@ -14,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${marcellus.variable} ${ibmPlexSans.variable} p-5 antialiased`}
-      >
+      <body className={`${marcellus.variable} ${ibmPlexSans.variable}`}>
         {children}
       </body>
     </html>

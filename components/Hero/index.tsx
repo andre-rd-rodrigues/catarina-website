@@ -1,4 +1,5 @@
 import React from 'react';
+import Section from '../Section';
 
 interface HeroProps {
   subtitle: string;
@@ -14,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({
   actionButton,
 }) => {
   return (
-    <section className="flex flex-col items-center text-center">
+    <Section className="flex flex-col items-center text-center">
       <p className="text-md mb-3 max-w-2xl font-medium uppercase tracking-wider text-[var(--color-accent)]">
         {subtitle}
       </p>
@@ -25,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({
         {content}
       </p>
       {actionButton && actionButton}
-    </section>
+    </Section>
   );
 };
 
