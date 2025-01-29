@@ -1,9 +1,7 @@
-import ServiceCard from '@/components/Cards/ServiceCard';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
-import SectionTitle from '@/components/SectionTitle';
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
       />
 
       <Section>
-        <SectionTitle title="Lorem ipsum dolor sit amet" subtitle="Lorem" />
+        <Section.Title title="Lorem ipsum dolor sit amet" subtitle="Lorem" />
       </Section>
     </Page>
   );
