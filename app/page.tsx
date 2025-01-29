@@ -1,11 +1,13 @@
 import ServiceCard from '@/components/Cards/ServiceCard';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
+import Page from '@/components/Page';
 import Section from '@/components/Section';
+import SectionTitle from '@/components/SectionTitle';
 
 export default function Home() {
   return (
-    <>
+    <Page>
       <Hero
         subtitle="About Medral"
         title="The Best Thing You Can Do to Your Health. Lorem ipsum dolor sit amet, consec tetur adipiscing elit."
@@ -14,54 +16,8 @@ export default function Home() {
       />
 
       <Section>
-        <div className="flex gap-4">
-          <ServiceCard
-            number="01."
-            title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            action={
-              <Link
-                href="/"
-                label="Agendar"
-                variant="accent"
-                icon="arrow-right"
-                unstyled
-                iconPrefix={false}
-              />
-            }
-          />
-          <ServiceCard
-            number="01."
-            title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            action={
-              <Link
-                href="/"
-                label="Agendar"
-                variant="accent"
-                icon="arrow-right"
-                unstyled
-                iconPrefix={false}
-              />
-            }
-          />
-          <ServiceCard
-            number="01."
-            title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            action={
-              <Link
-                href="/"
-                label="Agendar"
-                variant="accent"
-                icon="arrow-right"
-                unstyled
-                iconPrefix={false}
-              />
-            }
-          />
-        </div>
+        <SectionTitle title="Lorem ipsum dolor sit amet" subtitle="Lorem" />
       </Section>
-    </>
+    </Page>
   );
 }

@@ -13,6 +13,10 @@
   --color-accent: #568673;
   --color-danger: #cb6a61;
   --color-border-primary: #33333338;
+
+  /* Fonts */
+  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+  --font-marcellus: 'Marcellus', serif;
 }
 
 /* Basic resets and defaults */
@@ -45,4 +49,12 @@ h6 {
 
 p {
   color: var(--color-text);
+}
+
+.font-ibm-plex-sans {
+  font-family: var(--font-ibm-plex-sans);
+}
+
+.font-marcellus {
+  font-family: var(--font-marcellus);
 }
