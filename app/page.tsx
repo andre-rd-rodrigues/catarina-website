@@ -8,8 +8,6 @@ import SplitLeaf from "@/components/SplitLeaf";
 export default function Home() {
   return (
     <Page>
-  
-
       {/* Sobre mim */}
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
@@ -105,7 +103,7 @@ export default function Home() {
         subtitle="Sentir é sentir"
         title="The Best Thing You Can Do to Your Health. Lorem ipsum dolor sit amet, consec tetur adipiscing elit."
         content="Suspendisse rhoncus neque elementum malesuada gravida. Donec gravida enim est, non tincidunt magna pellentesque ac. Duis posuere tellus non ex porttitor, eget pretium ipsum iaculis. Praesent consequat felis at mollis consequat."
-        actionButton={<Link href="/" label="Saber mais" variant="outline"/>}
+        actionButton={<Link href="/" label="Saber mais" variant="outline" />}
       />
 
       {/* Áreas de atuação */}
@@ -114,10 +112,9 @@ export default function Home() {
           subtitle="sentir apoio"
           title="
 Avoid Sickness, the Natural Way"
-color="text-white"
+          color="text-white"
         />
       </Section>
     </Page>
   );
 }
-

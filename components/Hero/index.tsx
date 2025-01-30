@@ -1,5 +1,5 @@
-import React from 'react';
-import Section from '../Section';
+import React from "react";
+import Section from "../Section";
 
 interface HeroProps {
   subtitle: string;
@@ -16,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <Section className="flex flex-col justify-center items-center text-center">
-      <p className="text-md mb-5  font-medium uppercase tracking-[5px] text-[var(--color-accent)]">
+      <p className="text-md mb-5 font-medium uppercase tracking-[5px] text-[var(--color-accent)]">
         {subtitle}
       </p>
       <h3 className="mb-5 max-w-4xl text-4xl leading-tight">{title}</h3>
