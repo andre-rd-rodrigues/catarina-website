@@ -1,3 +1,6 @@
+"use client";
+import React from "react";
+import { fadeInSlideLeftVariant, containerVariant, motion, fadeInSlideInVariant } from "@/motion/variants";
 import clsx from "clsx";
 
 type SectionTitleProps = {
@@ -5,6 +8,7 @@ type SectionTitleProps = {
   subtitle: string;
   className?: string;
   color?: string;
+  animation?:'left'|'top'
 };
 
 const SectionTitle = ({
@@ -12,26 +16,37 @@ const SectionTitle = ({
   subtitle,
   className,
   color,
+  animation
 }: SectionTitleProps) => {
+  const renderAnimation = animation === 'left' ? fadeInSlideLeftVariant : fadeInSlideInVariant;
+  
   return (
-    <div className={className}>
-      <h2
+    <motion.div
+      variants={containerVariant}
+      whileInView="visible"
+      initial="hidden"
+      viewport={{ once: true }}
+      className={className}
+    >
+      <motion.h2
+       variants={renderAnimation}
         className={clsx(
           "text-md font-ibm-plex-sans mb-5 uppercase tracking-[5px]",
           color ? color : "text-[var(--color-accent)]",
         )}
       >
         {subtitle}
-      </h2>
-      <h3
+      </motion.h2>
+      <motion.h3
+       variants={renderAnimation}
         className={clsx(
           "text-4xl",
           color ? color : "text-[var(--color-primary)]",
         )}
       >
         {title}
-      </h3>
-    </div>
+      </motion.h3>
+    </motion.div>
   );
 };
 

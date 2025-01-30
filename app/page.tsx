@@ -1,9 +1,11 @@
+"use client";
 import ServiceCard from "@/components/Cards/ServiceCard";
 import Hero from "@/components/Hero";
 import Link from "@/components/Link";
 import Page from "@/components/Page";
 import Section from "@/components/Section";
 import SplitLeaf from "@/components/SplitLeaf";
+import { containerVariant, fadeInSlideInVariant, motion } from '@/motion/variants';
 
 export default function Home() {
   return (
@@ -15,6 +17,7 @@ export default function Home() {
             <Section.Title
               title="Paixão é sinónimo de cuidar"
               subtitle="Sobre mim"
+              animation="left"
             />
             <p className="mt-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
@@ -48,8 +51,27 @@ export default function Home() {
           subtitle="Serviços"
           title="Cuidar é mais do que uma profissão"
           className="text-center"
+          animation="left"
         />
-        <div className="flex gap-8 mt-16">
+        <motion.div variants={containerVariant} whileInView="visible" initial="hidden" viewport={{ once: true }} className="flex gap-5 mt-16">
+          <motion.span variants={fadeInSlideInVariant}>
+            <ServiceCard
+              number="01."
+              title="Lorem ipsum dolor sit amet"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
+              action={
+                <Link
+                  href="/"
+                  label="Saber mais"
+                  variant="none"
+                  icon="arrow-right"
+                  iconPrefix={false}
+                  unstyled
+                />
+              }
+            />
+          </motion.span>
+          <motion.span variants={fadeInSlideInVariant}>
           <ServiceCard
             number="02."
             title="Lorem ipsum dolor sit amet"
@@ -64,10 +86,12 @@ export default function Home() {
                 unstyled
               />
             }
-          />
-          <ServiceCard
-            number="02."
-            title="Lorem ipsum dolor sit amet"
+            />
+          </motion.span>
+          <motion.span variants={fadeInSlideInVariant}>
+            <ServiceCard
+              number="03."
+              title="Lorem ipsum dolor sit amet"
             description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
             action={
               <Link
@@ -77,25 +101,11 @@ export default function Home() {
                 icon="arrow-right"
                 iconPrefix={false}
                 unstyled
-              />
-            }
-          />
-          <ServiceCard
-            number="03."
-            title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-            action={
-              <Link
-                href="/"
-                label="Saber mais"
-                variant="none"
-                icon="arrow-right"
-                iconPrefix={false}
-                unstyled
-              />
-            }
-          />
-        </div>
+                />
+              }
+            />
+          </motion.span>
+        </motion.div>
       </Section>
 
       {/* Promoção de serviços */}
