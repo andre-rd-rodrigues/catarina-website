@@ -4,7 +4,7 @@
 
 :root {
   /* Colors */
-  --color-background: #faf9f0;
+  --color-background: #fefdf7;
   --color-background-alt: #f1f1e4;
   --color-foreground: #171717;
   --color-primary: #333333;
@@ -15,8 +15,8 @@
   --color-border-primary: #33333338;
 
   /* Fonts */
-  --font-ibm-plex-sans: 'IBM Plex Sans', sans-serif;
-  --font-marcellus: 'Marcellus', serif;
+  --font-ibm-plex-sans: "IBM Plex Sans", sans-serif;
+  --font-marcellus: "Marcellus", serif;
 }
 
 /* Basic resets and defaults */
@@ -49,6 +49,7 @@ h6 {
 
 p {
   color: var(--color-text);
+  font-weight: lighter;
 }
 
 .font-ibm-plex-sans {

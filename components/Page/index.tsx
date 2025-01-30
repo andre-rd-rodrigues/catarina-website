@@ -1,7 +1,5 @@
 const Page = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="mx-auto max-w-7xl overflow-hidden px-5">{children}</div>
-  );
+  return <div className="overflow-hidden">{children}</div>;
 };
 
 export default Page;
