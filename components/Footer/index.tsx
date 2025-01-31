@@ -90,10 +90,10 @@ const Footer = () => (
         </p>
         <div className="mt-4 flex gap-4 text-sm md:mt-0">
           <Link href="/" className="duration-200 hover:text-white">
-            Privacy Policy
+            Política de Privacidade
           </Link>
           <Link href="/" className="duration-200 hover:text-white">
-            Terms & Services
+            Termos e Condições
           </Link>
         </div>
       </div>

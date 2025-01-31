@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   containerVariant,
   fadeInSlideInVariant,
-  fadeInSlideLeftVariant,
   motion,
 } from '@/motion/variants';
 import { ChevronDown } from 'lucide-react';

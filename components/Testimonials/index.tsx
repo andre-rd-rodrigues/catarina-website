@@ -2,13 +2,19 @@ import { TESTIMONIALS } from '@/constants/testimonials';
 import Testimonial from './Testimonial';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { containerVariant, motion } from '@/motion/variants';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 const Testimonials: React.FC = () => {
   return (
-    <>
+    <motion.span
+      variants={containerVariant}
+      whileInView="visible"
+      initial="hidden"
+      viewport={{ once: true }}
+    >
       <Swiper
         spaceBetween={20}
         slidesPerView={1}
@@ -29,7 +35,7 @@ const Testimonials: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </motion.span>
   );
 };
 
