@@ -1,14 +1,35 @@
+import { TESTIMONIALS } from '@/constants/testimonials';
 import Testimonial from './Testimonial';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Testimonials: React.FC = () => {
   return (
-    <div className="mx-auto px-6 py-12 text-center">
-      <Testimonial
-        quote=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit perspiciatis ad deserunt, dolorem assumenda iure facilis voluptates repellendus eius cum, dicta reiciendis obcaecati quam voluptas nemo."
-        author="Joana Marques"
-        role="Customer"
-      />
-    </div>
+    <>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        pagination={{
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active',
+          dynamicBullets: true,
+        }}
+        autoplay={{
+          delay: 5000,
+        }}
+        modules={[Autoplay, Pagination]}
+      >
+        {TESTIMONIALS.map((testimonial, index) => (
+          <SwiperSlide key={index}>
+            <Testimonial {...testimonial} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };
 

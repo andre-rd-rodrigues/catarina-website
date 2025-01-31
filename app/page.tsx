@@ -142,7 +142,7 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="relative rounded-md bg-[url('https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/man-pouring-tea-during-tea-ceremony-at-home-NSQZ9AE.jpg')] bg-cover bg-center p-20"
+          className="relative mb-10 rounded-md bg-[url('https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/man-pouring-tea-during-tea-ceremony-at-home-NSQZ9AE.jpg')] bg-cover bg-center p-20"
         >
           <div className="absolute inset-0 rounded-md bg-emerald-950/45"></div>
           <div className="relative z-10">
