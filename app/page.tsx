@@ -1,6 +1,7 @@
 'use client';
 import ServiceCard from '@/components/Cards/ServiceCard';
 import FAQs from '@/components/FAQS';
+import Fireball from '@/components/Fireball';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
@@ -14,10 +15,27 @@ import {
   fadeInSlideLeftVariant,
   motion,
 } from '@/motion/variants';
+import Image from 'next/image';
 
 export default function Home() {
   return (
     <Page>
+      <Section className="flex min-h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
+        <div className="relative mx-auto h-28 w-28">
+          <Fireball className="-translate-y-9 translate-x-9" />
+
+          <Image
+            src="/lotus.png"
+            fill
+            objectFit="cover"
+            alt="Catarina Paixão Logo"
+          />
+        </div>
+        <h1 className="text-6xl text-white">Catarina Paixão</h1>
+        <p className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]">
+          Soluções Naturais
+        </p>
+      </Section>
       {/* Sobre mim */}
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">

@@ -11,6 +11,7 @@
   --color-secondary: #182d27;
   --color-text: #7a7a7a;
   --color-accent: #568673;
+  --color-accent-light: #a5d7bf;
   --color-danger: #cb6a61;
   --color-border-primary: #33333338;
 
@@ -66,4 +67,25 @@ p {
 
 .swiper-pagination-bullet-active {
   background-color: #f95445 !important;
+}
+
+@keyframes fireballPulse {
+  0% {
+    box-shadow:
+      0px 0px 20px 10px #ffffff,
+      0px 0px 50px 30px #ff9d00d3,
+      0px 0px 80px 50px #f8ae3798;
+  }
+  30% {
+    box-shadow:
+      0px 0px 50px 25px #ffffff,
+      0px 0px 80px 50px #ff9d00,
+      0px 0px 120px 80px #f8ae37;
+  }
+  100% {
+    box-shadow:
+      0px 0px 20px 10px #ffffff,
+      0px 0px 50px 30px #ff9d00d3,
+      0px 0px 80px 50px #f8ae3798;
+  }
 }
