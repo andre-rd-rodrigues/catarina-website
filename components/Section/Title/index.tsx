@@ -1,14 +1,19 @@
-"use client";
-import React from "react";
-import { fadeInSlideLeftVariant, containerVariant, motion, fadeInSlideInVariant } from "@/motion/variants";
-import clsx from "clsx";
+'use client';
+import React from 'react';
+import {
+  fadeInSlideLeftVariant,
+  containerVariant,
+  motion,
+  fadeInSlideInVariant,
+} from '@/motion/variants';
+import clsx from 'clsx';
 
 type SectionTitleProps = {
   title: string;
   subtitle: string;
   className?: string;
   color?: string;
-  animation?:'left'|'top'
+  animation?: 'left' | 'top';
 };
 
 const SectionTitle = ({
@@ -16,10 +21,11 @@ const SectionTitle = ({
   subtitle,
   className,
   color,
-  animation
+  animation,
 }: SectionTitleProps) => {
-  const renderAnimation = animation === 'left' ? fadeInSlideLeftVariant : fadeInSlideInVariant;
-  
+  const renderAnimation =
+    animation === 'left' ? fadeInSlideLeftVariant : fadeInSlideInVariant;
+
   return (
     <motion.div
       variants={containerVariant}
@@ -29,19 +35,19 @@ const SectionTitle = ({
       className={className}
     >
       <motion.h2
-       variants={renderAnimation}
+        variants={renderAnimation}
         className={clsx(
-          "text-md font-ibm-plex-sans mb-5 uppercase tracking-[5px]",
-          color ? color : "text-[var(--color-accent)]",
+          'text-md font-ibm-plex-sans mb-5 uppercase tracking-[5px]',
+          color ? color : 'text-[var(--color-accent)]',
         )}
       >
         {subtitle}
       </motion.h2>
       <motion.h3
-       variants={renderAnimation}
+        variants={renderAnimation}
         className={clsx(
-          "text-4xl",
-          color ? color : "text-[var(--color-primary)]",
+          'text-4xl',
+          color ? color : 'text-[var(--color-primary)]',
         )}
       >
         {title}

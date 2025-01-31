@@ -1,11 +1,17 @@
-"use client";
-import ServiceCard from "@/components/Cards/ServiceCard";
-import Hero from "@/components/Hero";
-import Link from "@/components/Link";
-import Page from "@/components/Page";
-import Section from "@/components/Section";
-import SplitLeaf from "@/components/SplitLeaf";
-import { containerVariant, fadeInSlideInVariant, motion } from '@/motion/variants';
+'use client';
+import ServiceCard from '@/components/Cards/ServiceCard';
+import Hero from '@/components/Hero';
+import Link from '@/components/Link';
+import Page from '@/components/Page';
+import Section from '@/components/Section';
+import SplitLeaf from '@/components/SplitLeaf';
+import { HOMEPAGE_CHOOSE_US_SECTION } from '@/constants/homepage';
+import {
+  containerVariant,
+  fadeInSlideInVariant,
+  fadeInSlideLeftVariant,
+  motion,
+} from '@/motion/variants';
 
 export default function Home() {
   return (
@@ -13,13 +19,19 @@ export default function Home() {
       {/* Sobre mim */}
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-          <div className="flex-1">
+          <motion.div
+            variants={containerVariant}
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+            className="flex-1"
+          >
             <Section.Title
               title="Paixão é sinónimo de cuidar"
               subtitle="Sobre mim"
               animation="left"
             />
-            <p className="mt-8">
+            <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
               natus illo voluptate laborum, itaque ullam atque repellendus
               praesentium quo officiis, sapiente optio perferendis similique
@@ -32,13 +44,13 @@ export default function Home() {
               deserunt cum vel dolores facilis expedita debitis ab modi. Illum
               sequi optio, nam, repellendus reiciendis, quae dolor corrupti
               porro voluptatem quaerat iure quis quibusdam expedita quidem.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
           <div className="flex-1">
             <SplitLeaf
               images={[
-                "https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg",
-                "https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg",
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
               ]}
             />
           </div>
@@ -53,7 +65,13 @@ export default function Home() {
           className="text-center"
           animation="left"
         />
-        <motion.div variants={containerVariant} whileInView="visible" initial="hidden" viewport={{ once: true }} className="flex gap-5 mt-16">
+        <motion.div
+          variants={containerVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+          className="mt-16 flex gap-5"
+        >
           <motion.span variants={fadeInSlideInVariant}>
             <ServiceCard
               number="01."
@@ -72,35 +90,35 @@ export default function Home() {
             />
           </motion.span>
           <motion.span variants={fadeInSlideInVariant}>
-          <ServiceCard
-            number="02."
-            title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-            action={
-              <Link
-                href="/"
-                label="Saber mais"
-                variant="none"
-                icon="arrow-right"
-                iconPrefix={false}
-                unstyled
-              />
-            }
+            <ServiceCard
+              number="02."
+              title="Lorem ipsum dolor sit amet"
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
+              action={
+                <Link
+                  href="/"
+                  label="Saber mais"
+                  variant="none"
+                  icon="arrow-right"
+                  iconPrefix={false}
+                  unstyled
+                />
+              }
             />
           </motion.span>
           <motion.span variants={fadeInSlideInVariant}>
             <ServiceCard
               number="03."
               title="Lorem ipsum dolor sit amet"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-            action={
-              <Link
-                href="/"
-                label="Saber mais"
-                variant="none"
-                icon="arrow-right"
-                iconPrefix={false}
-                unstyled
+              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
+              action={
+                <Link
+                  href="/"
+                  label="Saber mais"
+                  variant="none"
+                  icon="arrow-right"
+                  iconPrefix={false}
+                  unstyled
                 />
               }
             />
@@ -118,12 +136,44 @@ export default function Home() {
 
       {/* Áreas de atuação */}
       <Section className="bg-[var(--color-secondary)]">
-        <Section.Title
-          subtitle="sentir apoio"
-          title="
-Avoid Sickness, the Natural Way"
-          color="text-white"
-        />
+        <motion.div
+          variants={containerVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+          className="relative rounded-md bg-[url('https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/man-pouring-tea-during-tea-ceremony-at-home-NSQZ9AE.jpg')] bg-cover bg-center p-20"
+        >
+          <div className="absolute inset-0 rounded-md bg-emerald-950/45"></div>
+          <div className="relative z-10">
+            <Section.Title
+              subtitle="sentir apoio"
+              title="Avoid Sickness, the Natural Way"
+              color="text-white"
+              className="mb-20"
+              animation="left"
+            />
+            <motion.div
+              variants={containerVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 gap-12 md:grid-cols-2"
+            >
+              {HOMEPAGE_CHOOSE_US_SECTION.map(
+                ({ title, description }, index) => (
+                  <motion.div
+                    variants={fadeInSlideInVariant}
+                    key={index}
+                    className="flex-1 border-b border-gray-600 pb-10"
+                  >
+                    <h5 className="mb-4 text-xl text-white">{title}</h5>
+                    <p className="text-gray-300">{description}</p>
+                  </motion.div>
+                ),
+              )}
+            </motion.div>
+          </div>
+        </motion.div>
       </Section>
     </Page>
   );

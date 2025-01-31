@@ -1,14 +1,14 @@
-import React from "react";
-import clsx from "clsx";
-import { default as NextLink } from "next/link";
-import { DynamicIcon, IconName } from "lucide-react/dynamic";
+import React from 'react';
+import clsx from 'clsx';
+import { default as NextLink } from 'next/link';
+import { DynamicIcon, IconName } from 'lucide-react/dynamic';
 
 type LinkProps = {
   label?: string;
   className?: string;
   icon?: IconName;
   fullWidth?: boolean;
-  variant?: "accent" | "danger" | "outline" | "none";
+  variant?: 'accent' | 'danger' | 'outline' | 'none';
   children?: React.ReactNode;
   unstyled?: boolean;
   iconPrefix?: boolean;
@@ -17,33 +17,33 @@ type LinkProps = {
 // Separate variant styles for better maintainability
 const variantStyles = {
   accent:
-    "bg-[var(--color-accent)] text-white hover:bg-[var(--color-secondary)]",
-  danger: "bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]",
+    'bg-[var(--color-accent)] text-white hover:bg-[var(--color-secondary)]',
+  danger: 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]',
   outline:
-    "border border-[var(--color-border-primary)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)] hover:text-white",
-  none: "text-[var(--color-primary)]",
+    'border border-[var(--color-border-primary)] text-[var(--color-primary)] hover:bg-[var(--color-secondary)] hover:text-white',
+  none: 'text-[var(--color-primary)]',
 } as const;
 
 // Separate base styles
 const baseStyles =
-  "flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-normal transition-all duration-300";
+  'flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-normal transition-all duration-300';
 
 const Link: React.FC<LinkProps> = ({
-  label = "Link",
-  className = "",
+  label = 'Link',
+  className = '',
   icon,
   fullWidth = false,
-  href = "",
-  variant = "accent",
+  href = '',
+  variant = 'accent',
   unstyled = false,
   iconPrefix = true,
   children,
   ...restProps
 }) => {
   const getIconColor = () =>
-    unstyled && variant === "accent"
-      ? "var(--color-accent)"
-      : "var(--color-primary)";
+    unstyled && variant === 'accent'
+      ? 'var(--color-accent)'
+      : 'var(--color-primary)';
 
   const IconComponent = icon ? (
     <DynamicIcon name={icon} color={getIconColor()} size={16} />
@@ -53,14 +53,14 @@ const Link: React.FC<LinkProps> = ({
     <NextLink
       href={href}
       className={clsx(
-        "text-sm font-normal",
+        'text-sm font-normal',
         {
           [baseStyles]: !unstyled,
           [variantStyles[variant]]: !unstyled,
-          "text-[var(--color-accent)]": variant === "accent",
-          "shadow-md": variant !== "none" && !unstyled,
-          "w-full": fullWidth,
-          "flex items-center gap-2": icon,
+          'text-[var(--color-accent)]': variant === 'accent',
+          'shadow-md': variant !== 'none' && !unstyled,
+          'w-full': fullWidth,
+          'flex items-center gap-2': icon,
         },
         className,
       )}

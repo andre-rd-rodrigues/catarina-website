@@ -81,7 +81,6 @@ const fadeInSlideLeftVariant = {
   },
 };
 
-
 const slowRotateVariant = {
   rotate: [0, 360],
   transition: {

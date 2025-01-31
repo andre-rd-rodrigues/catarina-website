@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import SectionTitle from "./Title";
+import clsx from 'clsx';
+import SectionTitle from './Title';
 
 type SectionProps = {
   children: React.ReactNode;
@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> & { Title: typeof SectionTitle } = ({
   className,
 }) => {
   return (
-    <section className={clsx("py-24", className)}>
+    <section className={clsx('py-24', className)}>
       <div className="mx-auto max-w-7xl px-5">{children}</div>
     </section>
   );
