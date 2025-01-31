@@ -41,9 +41,7 @@ const Link: React.FC<LinkProps> = ({
   ...restProps
 }) => {
   const getIconColor = () =>
-    unstyled && variant === 'accent'
-      ? 'var(--color-accent)'
-      : 'var(--color-primary)';
+    unstyled && variant === 'accent' ? 'var(--color-accent)' : 'white';
 
   const IconComponent = icon ? (
     <DynamicIcon name={icon} color={getIconColor()} size={16} />

@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import { motion } from '@/motion/variants';
+import {
+  containerVariant,
+  fadeInSlideInVariant,
+  fadeInSlideLeftVariant,
+  motion,
+} from '@/motion/variants';
 import { ChevronDown } from 'lucide-react';
 
 type FAQItem = {
@@ -19,9 +24,16 @@ const FAQs: React.FC<FAQsProps> = ({ items }) => {
   };
 
   return (
-    <div className="mx-auto w-full max-w-2xl divide-y rounded-lg border">
+    <motion.div
+      variants={containerVariant}
+      whileInView="visible"
+      initial="hidden"
+      viewport={{ once: true }}
+      className="mx-auto w-full max-w-2xl divide-y rounded-lg border"
+    >
       {items.map((item, index) => (
-        <div
+        <motion.div
+          variants={fadeInSlideInVariant}
           key={index}
           className="group cursor-pointer px-8 py-6"
           onClick={() => toggleFAQ(index)}
@@ -49,9 +61,9 @@ const FAQs: React.FC<FAQsProps> = ({ items }) => {
           >
             <p className="my-5 text-[var(--color-text)]">{item.answer}</p>
           </motion.div>
-        </div>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { marcellus, ibmPlexSans } from '@/assets/fonts';
 import './globals.scss';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${marcellus.variable} ${ibmPlexSans.variable}`}>
         {children}
+        <Footer />
       </body>
     </html>
   );
