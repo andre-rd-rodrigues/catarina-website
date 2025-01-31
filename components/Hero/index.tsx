@@ -1,5 +1,6 @@
 import React from "react";
 import Section from "../Section";
+import { containerVariant, fadeInSlideInVariant, motion } from "@/motion/variants";
 
 interface HeroProps {
   subtitle: string;
@@ -16,14 +17,16 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <Section className="flex flex-col justify-center items-center text-center">
-      <p className="text-md mb-5 font-medium uppercase tracking-[5px] text-[var(--color-accent)]">
-        {subtitle}
-      </p>
-      <h3 className="mb-5 max-w-4xl text-4xl leading-tight">{title}</h3>
-      <p className="text-md mx-auto mb-7 max-w-2xl text-[var(--color-text)]">
-        {content}
-      </p>
-      {actionButton && <div className="inline-block">{actionButton}</div>}
+      <motion.span variants={containerVariant} whileInView="visible" initial="hidden" viewport={{ once: true }}>
+        <motion.p variants={fadeInSlideInVariant} className="text-md mb-5 font-medium uppercase tracking-[5px] text-[var(--color-accent)]">
+          {subtitle}
+        </motion.p>
+        <motion.h3 variants={fadeInSlideInVariant} className="mb-5 max-w-4xl text-4xl leading-tight">{title}</motion.h3>
+        <motion.p variants={fadeInSlideInVariant} className="text-md mx-auto mb-7 max-w-2xl text-[var(--color-text)]">
+          {content}
+        </motion.p>
+        {actionButton && <motion.div variants={fadeInSlideInVariant} className="inline-block">{actionButton}</motion.div>}
+      </motion.span>
     </Section>
   );
 };
