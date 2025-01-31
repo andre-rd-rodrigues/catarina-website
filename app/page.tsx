@@ -1,5 +1,6 @@
 'use client';
 import ServiceCard from '@/components/Cards/ServiceCard';
+import FAQs from '@/components/FAQS';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
@@ -178,6 +179,58 @@ export default function Home() {
 
         {/* Testimonials */}
         <Testimonials />
+      </Section>
+
+      {/* FAQS */}
+      <Section>
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+          <div className="flex-1">
+            <SplitLeaf
+              images={[
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+              ]}
+            />
+          </div>
+          <motion.div
+            variants={containerVariant}
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+            className="flex-1"
+          >
+            <Section.Title
+              title="Perguntas Frequentes"
+              subtitle="FAQS"
+              animation="left"
+              className="mb-6"
+            />
+            <p className="mb-8">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium atque dolorem iste illum mollitia voluptatibus eaque
+              dolorum, autem ducimus ea.
+            </p>
+            <FAQs
+              items={[
+                {
+                  question: 'Is there a guarantee for the results?',
+                  answer:
+                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
+                },
+                {
+                  question: 'Is there a guarantee for the results?',
+                  answer:
+                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
+                },
+                {
+                  question: 'Is there a guarantee for the results?',
+                  answer:
+                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
+                },
+              ]}
+            />
+          </motion.div>
+        </div>
       </Section>
     </Page>
   );
