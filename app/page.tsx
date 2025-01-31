@@ -10,6 +10,7 @@ import SplitLeaf from '@/components/SplitLeaf';
 import Testimonials from '@/components/Testimonials';
 import { HOMEPAGE_CHOOSE_US_SECTION } from '@/constants/homepage';
 import {
+  blurVariant,
   containerVariant,
   fadeInSlideInVariant,
   fadeInSlideLeftVariant,
@@ -21,20 +22,40 @@ export default function Home() {
   return (
     <Page>
       <Section className="flex min-h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
-        <div className="relative mx-auto h-28 w-28">
+        <motion.div
+          variants={blurVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+          className="relative mx-auto h-28 w-28"
+        >
           <Fireball className="-translate-y-9 translate-x-9" />
-
           <Image
             src="/lotus.png"
             fill
             objectFit="cover"
             alt="Catarina Paixão Logo"
           />
-        </div>
-        <h1 className="text-6xl text-white">Catarina Paixão</h1>
-        <p className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]">
-          Soluções Naturais
-        </p>
+        </motion.div>
+        <motion.span
+          variants={containerVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+        >
+          <motion.h1
+            variants={fadeInSlideInVariant}
+            className="text-6xl text-white"
+          >
+            Catarina Paixão
+          </motion.h1>
+          <motion.p
+            variants={fadeInSlideInVariant}
+            className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
+          >
+            Soluções Naturais
+          </motion.p>
+        </motion.span>
       </Section>
       {/* Sobre mim */}
       <Section>
