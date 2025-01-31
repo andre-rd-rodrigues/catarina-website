@@ -5,6 +5,7 @@ import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
+import Testimonials from '@/components/Testimonials';
 import { HOMEPAGE_CHOOSE_US_SECTION } from '@/constants/homepage';
 import {
   containerVariant,
@@ -174,6 +175,9 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.div>
+
+        {/* Testimonials */}
+        <Testimonials />
       </Section>
     </Page>
   );
