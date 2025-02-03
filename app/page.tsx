@@ -8,7 +8,10 @@ import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
 import Testimonials from '@/components/Testimonials';
-import { HOMEPAGE_CHOOSE_US_SECTION } from '@/constants/homepage';
+import {
+  HOMEPAGE_CHOOSE_US_SECTION,
+  HOMEPAGE_SERVICES,
+} from '@/constants/homepage';
 import {
   blurVariant,
   containerVariant,
@@ -116,57 +119,25 @@ export default function Home() {
           viewport={{ once: true }}
           className="mt-16 flex gap-5"
         >
-          <motion.span variants={fadeInSlideInVariant}>
-            <ServiceCard
-              number="01."
-              title="Lorem ipsum dolor sit amet"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-              action={
-                <Link
-                  href="/"
-                  label="Saber mais"
-                  variant="none"
-                  icon="arrow-right"
-                  iconPrefix={false}
-                  unstyled
-                />
-              }
-            />
-          </motion.span>
-          <motion.span variants={fadeInSlideInVariant}>
-            <ServiceCard
-              number="02."
-              title="Lorem ipsum dolor sit amet"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-              action={
-                <Link
-                  href="/"
-                  label="Saber mais"
-                  variant="none"
-                  icon="arrow-right"
-                  iconPrefix={false}
-                  unstyled
-                />
-              }
-            />
-          </motion.span>
-          <motion.span variants={fadeInSlideInVariant}>
-            <ServiceCard
-              number="03."
-              title="Lorem ipsum dolor sit amet"
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia natus illo voluptate laborum, itaque ullam atque repellendus praesentium quo officiis, sapiente optio perferendis."
-              action={
-                <Link
-                  href="/"
-                  label="Saber mais"
-                  variant="none"
-                  icon="arrow-right"
-                  iconPrefix={false}
-                  unstyled
-                />
-              }
-            />
-          </motion.span>
+          {HOMEPAGE_SERVICES.map(({ number, title, description }) => (
+            <motion.span variants={fadeInSlideInVariant} key={number}>
+              <ServiceCard
+                number={number}
+                title={title}
+                description={description}
+                action={
+                  <Link
+                    href="/"
+                    label="Saber mais"
+                    variant="accent"
+                    icon="arrow-right"
+                    iconPrefix={false}
+                    unstyled
+                  />
+                }
+              />
+            </motion.span>
+          ))}
         </motion.div>
       </Section>
 
