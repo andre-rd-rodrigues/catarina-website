@@ -21,7 +21,7 @@ import {
   motion,
 } from '@/motion/variants';
 import Image from 'next/image';
-import { ArrowRightIcon, Icon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 
 export default function Home() {
   return (
