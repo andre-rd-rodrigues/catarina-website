@@ -64,7 +64,7 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="absolute -bottom-10 right-0 md:right-12 w-12 h-72 "
+          className="absolute -bottom-10 right-0 h-72 w-12 md:right-12"
         >
           <Image
             src="/swipe.gif"
@@ -129,7 +129,7 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="mt-16 flex gap-5 flex-wrap md:flex-nowrap"
+          className="mt-16 flex flex-wrap gap-5 md:flex-nowrap"
         >
           {HOMEPAGE_SERVICES.map(({ number, title, description }) => (
             <motion.span variants={fadeInSlideInVariant} key={number}>
@@ -141,10 +141,10 @@ export default function Home() {
                   <Link
                     href="/"
                     label="Saber mais"
-                    variant="accent"
+                    variant="basic"
                     icon="arrow-right"
+                    iconSuffix
                     iconPrefix={false}
-                    unstyled
                   />
                 }
               />

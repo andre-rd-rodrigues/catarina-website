@@ -73,7 +73,7 @@ export default function Navbar() {
                   icon="message-circle-more"
                   variant="danger"
                   label="Agendar"
-                  onClick={() => {}}
+                  href=""
                   className="ml-1 text-xs"
                 />
               </div>
