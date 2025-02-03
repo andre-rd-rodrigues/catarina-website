@@ -2,6 +2,7 @@
 
 Welcome to the repository for Dr. Catarina Paixão's professional medical website. This modern and elegant platform is designed to provide patients with a seamless healthcare experience. 🌟
 
+
 ## 🚀 Features
 
 - ✨ Clean and professional design
