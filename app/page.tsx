@@ -66,7 +66,7 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="absolute -bottom-10 right-0 h-72 w-12 md:right-12"
+          className="absolute hidden sm:inline -bottom-10 right-0 h-72 w-12 md:right-12"
         >
           <Image
             src="/swipe.gif"
