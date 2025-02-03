@@ -56,6 +56,9 @@ export default function Home() {
             Soluções Naturais
           </motion.p>
         </motion.span>
+        <div className="relative">
+          <Image src="/swipe.gif" width={300} height={300} />
+        </div>
       </Section>
       {/* Sobre mim */}
       <Section>
