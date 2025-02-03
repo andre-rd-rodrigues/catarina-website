@@ -59,9 +59,15 @@ export default function Home() {
             Medicina Integrativa
           </motion.p>
         </motion.span>
-        <div className="absolute -right-20 bottom-0 sm:right-0">
+        <motion.div
+          variants={fadeInSlideInVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+          className="absolute -right-20 bottom-0 sm:right-0"
+        >
           <Image src="/swipe.gif" width={300} height={300} alt="scroll down" />
-        </div>
+        </motion.div>
       </Section>
       {/* Sobre mim */}
       <Section>
