@@ -28,6 +28,7 @@ const Testimonials: React.FC = () => {
           delay: 5000,
         }}
         modules={[Autoplay, Pagination]}
+        speed={1500}
       >
         {TESTIMONIALS.map((testimonial, index) => (
           <SwiperSlide key={index}>

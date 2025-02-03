@@ -51,7 +51,7 @@ const Link: React.FC<LinkProps> = ({
     <NextLink
       href={href}
       className={clsx(
-        'text-sm font-normal',
+        'text-sm font-normal duration-200',
         {
           [baseStyles]: !unstyled,
           [variantStyles[variant]]: !unstyled,
