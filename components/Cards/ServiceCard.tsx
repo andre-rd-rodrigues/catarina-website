@@ -1,5 +1,5 @@
 type ServiceCardProps = {
-  number: string;
+  subtitle: string;
   title: string;
   description: string;
   action: React.ReactNode;
@@ -7,7 +7,7 @@ type ServiceCardProps = {
 };
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
-  number,
+  subtitle,
   title,
   description,
   action,
@@ -16,7 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   return (
     <div className="group rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-alt)] p-8 text-left transition-all duration-500">
       <span className="text-sm font-medium text-[var(--color-accent)]">
-        {number}
+        {subtitle}
       </span>
       <h3 className="mt-7 text-xl text-[var(--color-primary)]">{title}</h3>
       <p className="mt-2 text-sm">{description}</p>

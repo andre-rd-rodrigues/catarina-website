@@ -21,6 +21,7 @@ import {
   motion,
 } from '@/motion/variants';
 import Image from 'next/image';
+import { ArrowRightIcon, Icon } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -136,18 +137,14 @@ export default function Home() {
             <motion.span variants={fadeInSlideInVariant} key={number}>
               <NextLink href={href}>
                 <ServiceCard
-                  number={number}
+                  subtitle={number}
                   title={title}
                   description={description}
                   action={
-                    <Link
-                      href="/"
-                      label="Saber mais"
-                      variant="basic"
-                      icon="arrow-right"
-                      iconSuffix
-                      iconPrefix={false}
-                    />
+                    <div className="flex items-center gap-2 text-sm text-[var(--color-accent)]">
+                      Saber mais
+                      <ArrowRightIcon size={15} />
+                    </div>
                   }
                 />
               </NextLink>
