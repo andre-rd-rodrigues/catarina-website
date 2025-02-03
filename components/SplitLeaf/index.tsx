@@ -49,8 +49,8 @@ const SplitLeafImage: React.FC<SplitLeafImageProps> = ({ images }) => {
 
   // 2. Parallax transforms
   // Adjust these values or offsets for a more/less pronounced effect
-  const translateY1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
-  const translateY2 = useTransform(scrollYProgress, [0, 1], [0, 110]);
+  const translateY1 = useTransform(scrollYProgress, [0, 2], [0, -70]);
+  const translateY2 = useTransform(scrollYProgress, [0, 2], [0, 70]);
   if (images.length !== 2) {
     console.error('SplitLeafImage requires exactly 2 images');
     return null;

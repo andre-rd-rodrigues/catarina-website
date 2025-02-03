@@ -83,7 +83,7 @@ const Footer = () => (
           <Link
             href="https://www.andrerodrigo.com"
             target="_blank"
-            className="hover:text-white"
+            className="hover:text-white underline"
           >
             André Rodrigo
           </Link>

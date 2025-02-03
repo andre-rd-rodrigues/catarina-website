@@ -38,10 +38,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed left-4 right-4 top-0 z-50 sm:top-4" ref={navRef}>
-      <div className="relative h-full rounded-full bg-teal-950 bg-opacity-40 shadow-lg backdrop-blur-[20px]">
+    <nav
+      className="fixed top-0 z-50 w-full sm:left-4 sm:right-4 sm:top-4 sm:w-auto"
+      ref={navRef}
+    >
+      <div className="relative h-full bg-teal-950 bg-opacity-40 shadow-lg backdrop-blur-[20px] sm:rounded-full">
         <div className="mx-auto pl-3 pr-2">
-          <div className="flex py-2 items-center justify-between">
+          <div className="flex items-center justify-between py-2">
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
@@ -59,10 +62,8 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`rounded-md px-3 py-2 text-[1rem] tracking-widest text-xs text-white ${
-                      pathname === item.href
-                        ? 'text-white'
-                        : ' hover:text-white'
+                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest text-white ${
+                      pathname === item.href ? 'text-white' : 'hover:text-white'
                     } transition-colors duration-300`}
                   >
                     {item.label}
@@ -73,7 +74,7 @@ export default function Navbar() {
                   variant="danger"
                   label="Agendar"
                   onClick={() => {}}
-                  className="text-xs ml-1"
+                  className="ml-1 text-xs"
                 />
               </div>
             </div>
@@ -105,7 +106,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block rounded-md text-sm px-3 py-3 text-right tracking-widest text-white ${
+                    className={`block rounded-md px-3 py-3 text-right text-sm tracking-widest text-white ${
                       pathname === item.href
                         ? 'text-white'
                         : 'text-gray-300 hover:text-white'

@@ -6,5 +6,5 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "plugins": []
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
