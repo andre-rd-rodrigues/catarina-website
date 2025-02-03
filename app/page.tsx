@@ -56,8 +56,8 @@ export default function Home() {
             Soluções Naturais
           </motion.p>
         </motion.span>
-        <div className="relative">
-          <Image src="/swipe.gif" width={300} height={300} />
+        <div className="absolute bottom-0 right-0">
+          <Image src="/swipe.gif" width={300} height={300} alt="scroll down" />
         </div>
       </Section>
       {/* Sobre mim */}
