@@ -53,7 +53,7 @@ export default function Home() {
             variants={fadeInSlideInVariant}
             className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
           >
-            Soluções Naturais
+            Medicina Integrativa
           </motion.p>
         </motion.span>
         <div className="absolute -right-20 bottom-0 sm:right-0">
