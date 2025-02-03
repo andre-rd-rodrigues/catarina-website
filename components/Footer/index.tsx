@@ -4,10 +4,10 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 
 const Footer = () => (
-  <footer className="w-full bg-[var(--color-secondary)] px-6 py-12 text-white">
+  <footer className="bg-[var(--color-secondary)] px-6 py-12 text-white">
     <div className="mx-auto max-w-6xl">
       {/* Start */}
-      <div className="flex items-center justify-between border-b border-white/20 pb-16">
+      <div className="flex items-center justify-between border-b border-white/20 pb-16 flex-wrap">
         {/* Logo & Description */}
         <div>
           <h2 className="text-2xl font-semibold">Catarina Paixão</h2>
@@ -16,7 +16,7 @@ const Footer = () => (
             tellus.
           </p>
         </div>
-        <div className="flex gap-9">
+        <div className="flex gap-6 sm:gap-9 mt-10 sm:mt-0 flex-wrap">
           {NAVBAR.map(({ name, href }, index) => (
             <Link key={index} href={href} className="text-sm">
               {name}
@@ -25,7 +25,7 @@ const Footer = () => (
         </div>
       </div>
       {/* Middle */}
-      <div className="mx-auto flex justify-between gap-8 border-b border-white/20 py-16">
+      <div className="mx-auto flex flex-wrap justify-between gap-8 border-b border-white/20 py-16">
         {/* Address */}
         <div>
           <h3 className="mb-3 text-lg font-medium">Endereço</h3>

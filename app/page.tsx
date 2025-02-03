@@ -64,9 +64,15 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="absolute -right-20 bottom-0 sm:right-0"
+          className="absolute -bottom-10 right-0 md:right-12 w-12 h-72 "
         >
-          <Image src="/swipe.gif" width={300} height={300} alt="scroll down" />
+          <Image
+            src="/swipe.gif"
+            objectFit="cover"
+            fill
+            alt="scroll down"
+            className="opacity-40"
+          />
         </motion.div>
       </Section>
       {/* Sobre mim */}
