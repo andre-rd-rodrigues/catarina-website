@@ -4,6 +4,7 @@ import FAQs from '@/components/FAQS';
 import Fireball from '@/components/Fireball';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
+import NextLink from 'next/link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
@@ -131,23 +132,25 @@ export default function Home() {
           viewport={{ once: true }}
           className="mt-16 flex flex-wrap gap-5 md:flex-nowrap"
         >
-          {HOMEPAGE_SERVICES.map(({ number, title, description }) => (
+          {HOMEPAGE_SERVICES.map(({ number, title, description, href }) => (
             <motion.span variants={fadeInSlideInVariant} key={number}>
-              <ServiceCard
-                number={number}
-                title={title}
-                description={description}
-                action={
-                  <Link
-                    href="/"
-                    label="Saber mais"
-                    variant="basic"
-                    icon="arrow-right"
-                    iconSuffix
-                    iconPrefix={false}
-                  />
-                }
-              />
+              <NextLink href={href}>
+                <ServiceCard
+                  number={number}
+                  title={title}
+                  description={description}
+                  action={
+                    <Link
+                      href="/"
+                      label="Saber mais"
+                      variant="basic"
+                      icon="arrow-right"
+                      iconSuffix
+                      iconPrefix={false}
+                    />
+                  }
+                />
+              </NextLink>
             </motion.span>
           ))}
         </motion.div>
