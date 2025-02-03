@@ -14,7 +14,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   hoverEffect = true,
 }) => {
   return (
-    <div className="group rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-alt)] p-8 text-left transition-all duration-500">
+    <div className="group-service-card rounded-lg border border-[var(--color-border-primary)] bg-[var(--color-background-alt)] p-8 text-left transition-all duration-500">
       <span className="text-sm font-medium text-[var(--color-accent)]">
         {subtitle}
       </span>
@@ -25,7 +25,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       {/* Warm, cozy glow effect */}
       {hoverEffect && (
         <style jsx>{`
-          :global(.group:hover) {
+          :global(.group-service-card:hover) {
             border-color: transparent;
             background-color: rgba(255, 248, 220, 1);
             box-shadow:
