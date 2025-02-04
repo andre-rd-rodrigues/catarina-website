@@ -22,6 +22,7 @@ import {
 } from '@/motion/variants';
 import Image from 'next/image';
 import { ArrowRightIcon } from 'lucide-react';
+import { FAQS } from '@/constants/faqs';
 
 export default function Home() {
   return (
@@ -231,25 +232,7 @@ export default function Home() {
               Laudantium atque dolorem iste illum mollitia voluptatibus eaque
               dolorum, autem ducimus ea.
             </p>
-            <FAQs
-              items={[
-                {
-                  question: 'Is there a guarantee for the results?',
-                  answer:
-                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
-                },
-                {
-                  question: 'Is there a guarantee for the results?',
-                  answer:
-                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
-                },
-                {
-                  question: 'Is there a guarantee for the results?',
-                  answer:
-                    'Donec bibendum arcu in suscipit lobortis. In malesuada, nunc eu tempus suscipit, purus diam feugiat dui, eu convallis dolor neque vitae elit. In at imperdiet mauris. Vivamus non dui gravida, congue odio quis, lacinia justo. Pellentesque ultrices orci ac lectus sagittis.',
-                },
-              ]}
-            />
+            <FAQs items={FAQS} />
           </motion.div>
         </div>
       </Section>
