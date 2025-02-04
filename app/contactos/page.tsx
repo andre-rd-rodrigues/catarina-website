@@ -13,6 +13,7 @@ function Contacts() {
       />
       <Section>
         <div className="flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10">
+          {/* Contactos */}
           <div className="w-full">
             <Section.Title
               subtitle="Contactos"
@@ -61,9 +62,24 @@ function Contacts() {
               </div>
             </div>
           </div>
+          {/* Formulário de contacto */}
           <div className="w-full rounded-md border p-9">
             <ContactForm />
           </div>
+        </div>
+      </Section>
+      {/* Mapa */}
+      <Section>
+        <div className="-mt-24 w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.5399410433456!2d-9.1424863!3d38.7139092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933877b5c90e1%3A0x9f72dbaa4f48f650!2sR.%20da%20Concei%C3%A7%C3%A3o%2C%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2s!4v1710337865037!5m2!1sen!2s"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
       </Section>
     </Page>
