@@ -6,13 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import Link from 'next/link';
 import { MenuIcon } from 'lucide-react';
 import AppLink from '@/components/Link';
-
-const navItems = [
-  { href: '/sobre', label: 'Sobre' },
-  { href: '/serviços', label: 'Serviços' },
-  { href: '/contactos', label: 'Contactos' },
-  { href: '/blog', label: 'Blog' },
-];
+import { NAVBAR } from '@/constants/navbar';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,15 +52,15 @@ export default function Navbar() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center">
-                {navItems.map((item) => (
+                {NAVBAR.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest text-white ${
+                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest hover:text-white/50 duration-300 text-white ${
                       pathname === item.href ? 'text-white' : 'hover:text-white'
                     } transition-colors duration-300`}
                   >
-                    {item.label}
+                    {item.name}
                   </Link>
                 ))}
                 <AppLink
@@ -102,7 +96,7 @@ export default function Navbar() {
           >
             <div className="border-1 rounded-lg border-teal-950 bg-teal-950 bg-opacity-40 shadow-lg backdrop-blur-[20px]">
               <div className="space-y-1 px-2 py-4 sm:px-3">
-                {navItems.map((item) => (
+                {NAVBAR.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -113,7 +107,7 @@ export default function Navbar() {
                     } transition-colors duration-300`}
                     onClick={() => setIsOpen(false)}
                   >
-                    {item.label}
+                    {item.name}
                   </Link>
                 ))}
               </div>

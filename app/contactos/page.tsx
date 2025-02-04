@@ -2,6 +2,7 @@ import ContactForm from '@/components/ContactForm';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import { Instagram } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react';
 
 function Contacts() {
@@ -31,20 +32,36 @@ function Contacts() {
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Consultório</h4>
-                    <p className="text-[var(--color-text)]">
-                      Rua da Conceição, 123 - Lisboa
-                    </p>
+                    <Link
+                      href="https://maps.app.goo.gl/jj8BWbek52QBGqw97"
+                      target="_blank"
+                    >
+                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300" >
+                        Rua da Conceição, 123 - Lisboa
+                      </p>
+                    </Link>
                   </div>
                   <div>
                     <h4 className=" mb-2 text-lg">Email</h4>
-                    <p className="text-[var(--color-text)]">exemplo@mail.com</p>
+                    <Link
+                      href="mailto:exemplo@mail.com"
+                      target="_blank"
+                    >
+                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300">
+                        exemplo@mail.com
+                      </p>
+                    </Link>
                   </div>
                 </div>
                 {/* Right Column: Phone & Follow Us */}
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Telemóvel</h4>
-                    <p className="text-[var(--color-text)]">+351 912 345 678</p>
+                      <Link href="tel:+351912345678" target="_blank">
+                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300">
+                        +351 912 345 678
+                      </p>
+                    </Link>
                   </div>
                   <div>
                     <h4 className=" mb-2 text-lg">Redes Sociais</h4>
@@ -52,7 +69,7 @@ function Contacts() {
                       <a
                         href="#"
                         aria-label="Instagram"
-                        className="text-gray-700 transition-colors duration-200 hover:text-black"
+                        className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300"
                       >
                         <Instagram size={20} />
                       </a>

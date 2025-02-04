@@ -1,5 +1,5 @@
 import AppLink from '@/components/Link';
-import { NAVBAR } from '@/constants/navbar';
+import { FOOTER_NAVBAR } from '@/constants/navbar';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
 
@@ -17,7 +17,7 @@ const Footer = () => (
           </p>
         </div>
         <div className="flex gap-6 sm:gap-9 mt-10 sm:mt-0 flex-wrap">
-          {NAVBAR.map(({ name, href }, index) => (
+          {FOOTER_NAVBAR.map(({ name, href }, index) => (
             <Link key={index} href={href} className="text-sm">
               {name}
             </Link>
@@ -50,7 +50,7 @@ const Footer = () => (
           >
             <Phone size={18} /> +351 961234582
           </Link>
-          {/* <br className="my-3" /> */}
+       
           <Link
             target="_blank"
             href="mailto: catarina@mails.com"
