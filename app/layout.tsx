@@ -3,11 +3,11 @@ import { marcellus, ibmPlexSans } from '@/assets/fonts';
 import './globals.scss';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { PAGES_METADATA } from '@/metadata';
 
 export const metadata: Metadata = {
-  title: 'Dra. Catarina Paixão ⦁ Medicina Integrativa',
-  description:
-    'Bem-vinda(o) ao seu espaço de tranquilidade. Sou a Dra. Catarina Paixão, médica especializada em medicina integrativa. Aqui, você encontra uma abordagem individualizada que combina medicina convencional e terapias complementares, promovendo equilíbrio, saúde e bem-estar de forma holística.',
+  title: PAGES_METADATA.HOME.title,
+  description: PAGES_METADATA.HOME.description,
 };
 
 export default function RootLayout({

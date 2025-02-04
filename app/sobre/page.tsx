@@ -43,7 +43,7 @@ function About() {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </motion.p>
           </motion.div>
-          <div className="flex-1">
+          <div className="order-2 flex-1 md:order-1">
             <SplitLeaf
               images={[
                 'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
@@ -56,7 +56,7 @@ function About() {
       {/* About 2 */}
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-          <div className="flex-1">
+          <div className="order-2 flex-1 md:order-1">
             <SplitLeaf
               images={[
                 'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
@@ -69,7 +69,7 @@ function About() {
             whileInView="visible"
             initial="hidden"
             viewport={{ once: true }}
-            className="flex-1"
+            className="order-1 flex-1 md:order-2"
           >
             <Section.Title
               title="Paixão é sinónimo de cuidar"
