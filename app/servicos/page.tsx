@@ -17,7 +17,7 @@ function Services() {
   return (
     <Page>
       <Page.Title
-        src="https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/small-white-ceramic-mortar-with-eucalyptus-leaves-AANHPA2.jpg"
+        src="https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         title="Serviços"
       />
       {/* Especialidades */}

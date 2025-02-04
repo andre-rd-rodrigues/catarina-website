@@ -1,25 +1,25 @@
 import clsx from 'clsx';
+import { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps {
+type ButtonProps = {
   label?: string;
   className?: string;
   icon?: string;
   fullWidth?: boolean;
-  onClick: () => void;
   variant?: 'accent' | 'danger' | 'outline';
-}
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button: React.FC<ButtonProps> = ({
   label = 'Button',
   className = '',
   icon,
   fullWidth = false,
-  onClick,
   variant = 'accent',
+  ...props
 }) => {
   return (
     <button
-      onClick={onClick}
+      {...props}
       className={clsx(
         'flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-normal shadow-lg transition-all duration-300',
         {
