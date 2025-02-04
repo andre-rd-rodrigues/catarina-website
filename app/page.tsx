@@ -26,6 +26,7 @@ import { ArrowRightIcon } from 'lucide-react';
 export default function Home() {
   return (
     <Page>
+      {/* Title */}
       <Section className="flex min-h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
         <motion.div
           variants={blurVariant}
@@ -66,7 +67,7 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="absolute hidden sm:inline -bottom-10 right-0 h-72 w-12 md:right-12"
+          className="absolute -bottom-10 right-0 hidden h-72 w-12 sm:inline md:right-12"
         >
           <Image
             src="/swipe.gif"
@@ -99,12 +100,7 @@ export default function Home() {
               deserunt cum vel dolores facilis expedita debitis ab modi. Illum
               sequi optio, nam, repellendus reiciendis, quae dolor corrupti
               porro voluptatem quaerat iure quis quibusdam expedita quidem.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-              natus illo voluptate laborum, itaque ullam atque repellendus
-              praesentium quo officiis, sapiente optio perferendis similique
-              deserunt cum vel dolores facilis expedita debitis ab modi. Illum
-              sequi optio, nam, repellendus reiciendis, quae dolor corrupti
-              porro voluptatem quaerat iure quis quibusdam expedita quidem.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </motion.p>
           </motion.div>
           <div className="flex-1">
