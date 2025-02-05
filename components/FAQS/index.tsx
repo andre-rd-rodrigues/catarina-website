@@ -28,7 +28,7 @@ const FAQs: React.FC<FAQsProps> = ({ items }) => {
       whileInView="visible"
       initial="hidden"
       viewport={{ once: true }}
-      className="mx-auto w-full max-w-2xl divide-y rounded-lg border"
+      className="mx-auto w-full max-w-2xl divide-y rounded-lg border shadow-md"
     >
       {items.map((item, index) => (
         <motion.div

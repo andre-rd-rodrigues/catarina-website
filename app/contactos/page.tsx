@@ -89,7 +89,7 @@ function Contacts() {
           {/* Formulário de contacto */}
           <motion.div
             variants={fadeInSlideInVariant}
-            className="w-full rounded-md border p-9"
+            className="w-full rounded-md border p-9 shadow-md"
           >
             <ContactForm />
           </motion.div>
