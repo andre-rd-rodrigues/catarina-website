@@ -1,9 +1,11 @@
+"use client"
 import ContactForm from '@/components/ContactForm';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import { Instagram } from 'lucide-react';
 import Link from 'next/link';
-import React from 'react';
+import { motion, containerVariant, fadeInSlideInVariant } from '@/motion/variants';
+
 
 function Contacts() {
   return (
@@ -13,9 +15,17 @@ function Contacts() {
         title="Contactos"
       />
       <Section>
-        <div className="flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10">
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10"
+        >
           {/* Contactos */}
-          <div className="w-full">
+          <motion.div
+            variants={fadeInSlideInVariant}
+            className="w-full"
+          >
             <Section.Title
               subtitle="Contactos"
               title="Entre em contacto"
@@ -78,12 +88,15 @@ function Contacts() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
           {/* Formulário de contacto */}
-          <div className="w-full rounded-md border p-9">
+          <motion.div
+            variants={fadeInSlideInVariant}
+            className="w-full rounded-md border p-9"
+          >
             <ContactForm />
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Section>
 
       {/* Mapa */}
