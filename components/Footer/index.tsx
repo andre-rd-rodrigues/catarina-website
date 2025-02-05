@@ -7,7 +7,7 @@ const Footer = () => (
   <footer className="bg-[var(--color-secondary)] px-6 py-12 text-white">
     <div className="mx-auto max-w-6xl">
       {/* Start */}
-      <div className="flex items-center justify-between border-b border-white/20 pb-16 flex-wrap">
+      <div className="flex flex-wrap items-center justify-between border-b border-white/20 pb-16">
         {/* Logo & Description */}
         <div>
           <h2 className="text-2xl font-semibold">Catarina Paixão</h2>
@@ -16,7 +16,7 @@ const Footer = () => (
             tellus.
           </p>
         </div>
-        <div className="flex gap-6 sm:gap-9 mt-10 sm:mt-0 flex-wrap">
+        <div className="mt-10 flex flex-wrap gap-6 sm:mt-0 sm:gap-9">
           {FOOTER_NAVBAR.map(({ name, href }, index) => (
             <Link key={index} href={href} className="text-sm">
               {name}
@@ -50,7 +50,7 @@ const Footer = () => (
           >
             <Phone size={18} /> +351 961234582
           </Link>
-       
+
           <Link
             target="_blank"
             href="mailto: catarina@mails.com"
@@ -83,7 +83,7 @@ const Footer = () => (
           <Link
             href="https://www.andrerodrigo.com"
             target="_blank"
-            className="hover:text-white underline"
+            className="underline hover:text-white"
           >
             André Rodrigo
           </Link>

@@ -15,13 +15,13 @@ export const NAVBAR = [
     name: 'Contactos',
     href: '/contactos',
   },
-/*   {
+  /*   {
     name: 'Blog',
     href: '/blog',
   }, */
 ];
 
-export const FOOTER_NAVBAR=[
+export const FOOTER_NAVBAR = [
   {
     name: 'Home',
     href: '/',

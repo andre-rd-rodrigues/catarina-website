@@ -2,7 +2,11 @@
 
 import Hero from '@/components/Hero';
 import Page from '@/components/Page';
-import { fadeInSlideLeftVariant, containerVariant, fadeInSlideInVariant } from '@/motion/variants';
+import {
+  fadeInSlideLeftVariant,
+  containerVariant,
+  fadeInSlideInVariant,
+} from '@/motion/variants';
 import Section from '@/components/Section';
 import { motion } from 'motion/react';
 import React from 'react';
@@ -110,10 +114,7 @@ function About() {
           className="mt-12 flex flex-wrap justify-between gap-5 md:flex-nowrap"
         >
           {ABOUT_VALUES.map(({ icon, title, description }) => (
-            <motion.span
-              variants={fadeInSlideInVariant}
-              key={title}
-            >
+            <motion.span variants={fadeInSlideInVariant} key={title}>
               <InfoCard
                 key={title}
                 icon={icon as IconName}

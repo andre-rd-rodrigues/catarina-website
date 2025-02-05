@@ -56,7 +56,7 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest hover:text-white/50 duration-300 text-white ${
+                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest text-white duration-300 hover:text-white/50 ${
                       pathname === item.href ? 'text-white' : 'hover:text-white'
                     } transition-colors duration-300`}
                   >
@@ -110,6 +110,15 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
+                <div className="flex justify-end">
+                  <AppLink
+                    icon="message-circle-more"
+                    variant="danger"
+                    label="Agendar"
+                    href=""
+                    className="ml-1 text-xs"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>

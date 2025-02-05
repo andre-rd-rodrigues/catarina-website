@@ -27,7 +27,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ quote, author, role }) => {
           width={120}
           height={120}
           alt="Testimonials"
-          className="mb-7 mx-auto"
+          className="mx-auto mb-7"
         />
       </motion.span>
       <motion.blockquote

@@ -1,11 +1,14 @@
-"use client"
+'use client';
 import ContactForm from '@/components/ContactForm';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import { Instagram } from 'lucide-react';
 import Link from 'next/link';
-import { motion, containerVariant, fadeInSlideInVariant } from '@/motion/variants';
-
+import {
+  motion,
+  containerVariant,
+  fadeInSlideInVariant,
+} from '@/motion/variants';
 
 function Contacts() {
   return (
@@ -22,10 +25,7 @@ function Contacts() {
           className="flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10"
         >
           {/* Contactos */}
-          <motion.div
-            variants={fadeInSlideInVariant}
-            className="w-full"
-          >
+          <motion.div variants={fadeInSlideInVariant} className="w-full">
             <Section.Title
               subtitle="Contactos"
               title="Entre em contacto"
@@ -46,18 +46,15 @@ function Contacts() {
                       href="https://maps.app.goo.gl/jj8BWbek52QBGqw97"
                       target="_blank"
                     >
-                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300" >
+                      <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
                         Rua da Conceição, 123 - Lisboa
                       </p>
                     </Link>
                   </div>
                   <div>
                     <h4 className=" mb-2 text-lg">Email</h4>
-                    <Link
-                      href="mailto:exemplo@mail.com"
-                      target="_blank"
-                    >
-                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300">
+                    <Link href="mailto:exemplo@mail.com" target="_blank">
+                      <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
                         exemplo@mail.com
                       </p>
                     </Link>
@@ -67,8 +64,8 @@ function Contacts() {
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Telemóvel</h4>
-                      <Link href="tel:+351912345678" target="_blank">
-                      <p className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300">
+                    <Link href="tel:+351912345678" target="_blank">
+                      <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
                         +351 912 345 678
                       </p>
                     </Link>
@@ -79,7 +76,7 @@ function Contacts() {
                       <a
                         href="#"
                         aria-label="Instagram"
-                        className="text-[var(--color-accent)] hover:text-[var(--color-secondary)] duration-300"
+                        className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]"
                       >
                         <Instagram size={20} />
                       </a>
