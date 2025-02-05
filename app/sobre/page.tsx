@@ -2,7 +2,7 @@
 
 import Hero from '@/components/Hero';
 import Page from '@/components/Page';
-import { fadeInSlideLeftVariant, containerVariant } from '@/motion/variants';
+import { fadeInSlideLeftVariant, containerVariant, fadeInSlideInVariant } from '@/motion/variants';
 import Section from '@/components/Section';
 import { motion } from 'motion/react';
 import React from 'react';
@@ -103,16 +103,26 @@ function About() {
           subtitle="Valores"
           animation="left"
         />
-        <div className="mt-12 flex flex-wrap justify-between gap-5 md:flex-nowrap">
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          className="mt-12 flex flex-wrap justify-between gap-5 md:flex-nowrap"
+        >
           {ABOUT_VALUES.map(({ icon, title, description }) => (
-            <InfoCard
+            <motion.span
+              variants={fadeInSlideInVariant}
               key={title}
-              icon={icon as IconName}
-              title={title}
-              description={description}
-            />
+            >
+              <InfoCard
+                key={title}
+                icon={icon as IconName}
+                title={title}
+                description={description}
+              />
+            </motion.span>
           ))}
-        </div>
+        </motion.div>
       </Section>
     </Page>
   );

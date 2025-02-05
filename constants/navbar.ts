@@ -9,7 +9,7 @@ export const NAVBAR = [
   },
   {
     name: 'Serviços',
-    href: '/services',
+    href: '/serviços',
   },
   {
     name: 'Contactos',
@@ -32,7 +32,7 @@ export const FOOTER_NAVBAR=[
   },
   {
     name: 'Serviços',
-    href: '/services',
+    href: '/serviços',
   },
   {
     name: 'Contactos',
