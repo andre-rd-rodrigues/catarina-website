@@ -114,7 +114,7 @@ function About() {
           className="mt-12 flex flex-wrap justify-between gap-5 md:flex-nowrap"
         >
           {ABOUT_VALUES.map(({ icon, title, description }) => (
-            <motion.span variants={fadeInSlideInVariant} key={title}>
+            <motion.span variants={fadeInSlideInVariant} key={title} className='w-full'>
               <InfoCard
                 key={title}
                 icon={icon as IconName}
