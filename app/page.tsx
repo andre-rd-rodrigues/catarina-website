@@ -23,6 +23,7 @@ import {
 import Image from 'next/image';
 import { ArrowRightIcon } from 'lucide-react';
 import { FAQS } from '@/constants/faqs';
+import HealthCards from '@/components/Cards/HealthCards';
 
 export default function Home() {
   return (
@@ -157,6 +158,10 @@ export default function Home() {
         content="Suspendisse rhoncus neque elementum malesuada gravida. Donec gravida enim est, non tincidunt magna pellentesque ac. Duis posuere tellus non ex porttitor, eget pretium ipsum iaculis. Praesent consequat felis at mollis consequat."
         actionButton={<Link href="/" label="Saber mais" variant="outline" />}
       />
+      <Section className="-mt-12">
+        {' '}
+        <HealthCards />
+      </Section>
 
       {/* Áreas de atuação */}
       <Section className="bg-[var(--color-secondary)]">

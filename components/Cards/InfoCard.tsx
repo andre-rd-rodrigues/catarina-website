@@ -9,7 +9,7 @@ interface InfoCardProps {
 
 const InfoCard: React.FC<InfoCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="w-full rounded-lg border border-neutral-200 bg-neutral-50 p-5 md:p-7 shadow-md">
+    <div className="w-full rounded-lg border border-neutral-200 bg-neutral-50 p-5 shadow-md md:p-7">
       <div className="flex items-center gap-3">
         <DynamicIcon name={icon} color={'var(--color-accent)'} size={24} />
         <h3 className="text-xl text-gray-800">{title}</h3>

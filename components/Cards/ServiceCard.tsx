@@ -17,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <div
-      className={`group-service-card rounded-lg border border-[var(--color-border-primary)] p-8 text-left transition-all duration-500 shadow-md ${className}`}
+      className={`group-service-card rounded-lg border border-[var(--color-border-primary)] p-8 text-left shadow-md transition-all duration-500 ${className}`}
     >
       <span className="text-sm font-medium text-[var(--color-accent)]">
         {subtitle}
