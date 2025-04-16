@@ -31,23 +31,23 @@ export const HOMEPAGE_SERVICES = [
 
 export const HOMEPAGE_CHOOSE_US_SECTION = [
   {
-    title: 'All Natural Medicine',
+    title: 'Evite Doenças, de Forma Natural',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'O equilíbrio do corpo começa com hábitos saudáveis e escolhas conscientes.',
   },
   {
-    title: 'All Natural Medicine',
+    title: 'Medicina Natural e Integrativa',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'O meu compromisso é promover o seu bem-estar através de abordagens que respeitam o seu corpo e estimulam a cura do interior para o exterior.',
   },
   {
-    title: 'All Natural Medicine',
+    title: 'Harmonia e Equilíbrio',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'A saúde não é apenas a ausência de doença, mas um estado de equilíbrio entre corpo e mente.',
   },
   {
-    title: 'All Natural Medicine',
+    title: 'Bem-Estar Sustentável',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'Irei ajudá-lo a adotar um estilo de vida saudável que favorece a sua energia e longevidade.',
   },
 ];

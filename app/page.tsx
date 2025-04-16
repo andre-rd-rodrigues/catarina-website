@@ -160,9 +160,11 @@ export default function Home() {
       {/* Promoção de serviços */}
       <Hero
         subtitle="Sentir é sentir"
-        title="The Best Thing You Can Do to Your Health. Lorem ipsum dolor sit amet, consec tetur adipiscing elit."
-        content="Suspendisse rhoncus neque elementum malesuada gravida. Donec gravida enim est, non tincidunt magna pellentesque ac. Duis posuere tellus non ex porttitor, eget pretium ipsum iaculis. Praesent consequat felis at mollis consequat."
-        actionButton={<Link href="/" label="Saber mais" variant="outline" />}
+        title={`"Conheça todas as teorias, domine todas as técnicas, mas ao tocar uma alma humana, seja apenas outra alma humana." - Carl Jung`}
+        content="Este pode ser o início de uma jornada transformadora para a sua saúde e bem-estar. A Medicina Integrativa oferece um olhar atento e cuidadoso sobre o seu corpo e mente, combinando ciência e terapias complementares para encontrar o equilíbrio que merece. Vamos juntos trilhar este caminho rumo a uma vida mais saudável e harmoniosa."
+        actionButton={
+          <Link href="/servicos" label="Saber mais" variant="outline" />
+        }
       />
       <Section className="-mt-12">
         {' '}
@@ -182,7 +184,7 @@ export default function Home() {
           <div className="relative z-10">
             <Section.Title
               subtitle="sentir apoio"
-              title="Avoid Sickness, the Natural Way"
+              title="Caminho Natural para a Saúde"
               color="text-white"
               className="mb-20"
               animation="left"
@@ -236,9 +238,10 @@ export default function Home() {
               className="mb-6"
             />
             <p className="mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium atque dolorem iste illum mollitia voluptatibus eaque
-              dolorum, autem ducimus ea.
+              Quando se trata da nossa saúde, queremos ter a certeza de que
+              estamos a fazer as melhores escolhas e, por isso, é natural que
+              muitas perguntas surjam. Para o ajudar, aqui estão algumas das
+              questões mais comuns:
             </p>
             <FAQs items={FAQS} />
           </motion.div>

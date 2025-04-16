@@ -34,22 +34,25 @@ const Card: FC<CardProps> = ({ image, title, description }) => {
 const healthCardsData = [
   {
     image: <Image src="/img/leaf.png" alt="Leaf Icon" objectFit="cover" fill />,
-    title: 'Live healthily, live well.',
-    description: 'Lorem ipsum sit amet.',
+    title: 'Viver com Saúde é Viver Plenamente',
+    description:
+      'Pequenos gestos criam grandes transformações no seu bem-estar.',
   },
   {
     image: (
       <Image src="/img/circle.png" alt="Circle Icon" objectFit="cover" fill />
     ),
-    title: 'Go natural, be healthy.',
-    description: 'Donec finibus eros.',
+    title: 'O Natural é o Caminho para o Equilíbrio',
+    description:
+      'A natureza tem tudo o que o seu corpo precisa para se renovar.',
   },
   {
     image: (
       <Image src="/img/plant.png" alt="Plant Icon" objectFit="cover" fill />
     ),
-    title: 'Healthy choices for you.',
-    description: 'Integer convallis velit.',
+    title: 'Cuide de Si, Todos os Dias',
+    description:
+      'Cada escolha é um passo para uma vida mais saudável e consciente.',
   },
 ];
 

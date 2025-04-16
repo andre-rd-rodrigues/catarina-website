@@ -58,7 +58,13 @@ const FAQs: React.FC<FAQsProps> = ({ items }) => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="overflow-hidden"
           >
-            <p className="my-5 text-[var(--color-text)]">{item.answer}</p>
+            <div className="my-5 text-[var(--color-text)]">
+              {item.answer.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="mb-4 last:mb-0">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       ))}

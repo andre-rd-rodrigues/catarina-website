@@ -74,8 +74,8 @@ function Services() {
           <div className="order-2 flex-1 md:order-1">
             <SplitLeaf
               images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+                'https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'https://images.unsplash.com/uploads/14122810486321888a497/1b0cc699?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               ]}
             />
           </div>
@@ -86,8 +86,8 @@ function Services() {
           <div className="flex-1">
             <SplitLeaf
               images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+                'https://images.unsplash.com/photo-1604881991720-f91add269bed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRoZXJhcHl8ZW58MHx8MHx8fDA%3D',
+                'https://images.unsplash.com/photo-1637245048732-adf1a547835e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
               ]}
             />
           </div>
@@ -281,9 +281,9 @@ function Services() {
               className="mb-6"
             />
             <p className="mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium atque dolorem iste illum mollitia voluptatibus eaque
-              dolorum, autem ducimus ea.
+              Encontre respostas para as perguntas mais comuns sobre medicina
+              integrativa e os nossos serviços. Se tiver mais dúvidas, não
+              hesite em contactar-nos.
             </p>
             <FAQs items={FAQS} />
           </motion.div>
