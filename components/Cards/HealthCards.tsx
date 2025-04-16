@@ -12,11 +12,21 @@ interface CardProps {
 const Card: FC<CardProps> = ({ image, title, description }) => {
   return (
     <motion.div className="flex max-w-xs flex-col items-center space-y-2 text-center">
-      <motion.div variants={fadeInSlideInVariant} className="relative mb-5 h-20 w-20 text-4xl text-green-700">
+      <motion.div
+        variants={fadeInSlideInVariant}
+        className="relative mb-5 h-20 w-20 text-4xl text-green-700"
+      >
         {image}
       </motion.div>
-      <motion.h3 variants={fadeInSlideInVariant} className="text-lg font-semibold text-gray-800">{title}</motion.h3>
-      <motion.p variants={fadeInSlideInVariant} className="text-gray-600">{description}</motion.p>
+      <motion.h3
+        variants={fadeInSlideInVariant}
+        className="text-lg font-semibold text-gray-800"
+      >
+        {title}
+      </motion.h3>
+      <motion.p variants={fadeInSlideInVariant} className="text-gray-600">
+        {description}
+      </motion.p>
     </motion.div>
   );
 };
@@ -45,18 +55,20 @@ const healthCardsData = [
 
 const HealthCards: FC = () => {
   return (
-    <motion.div 
-      variants={containerVariant} 
-      whileInView="visible" 
-      initial="hidden" 
-      viewport={{ once: true }} 
-      className="flex flex-col items-center justify-center space-y-12 md:flex-row md:space-y-0 md:space-x-12"
+    <motion.div
+      variants={containerVariant}
+      whileInView="visible"
+      initial="hidden"
+      viewport={{ once: true }}
+      className="flex flex-col items-center justify-center space-y-12 md:flex-row md:space-x-12 md:space-y-0"
     >
       {healthCardsData.map((card, index) => (
         <>
-          {index > 0 && <div className="hidden h-44 w-[1px] bg-gray-300 md:block" />}
+          {index > 0 && (
+            <div className="hidden h-44 w-[1px] bg-gray-300 md:block" />
+          )}
           <Card
-            key={card.title}
+            key={index}
             image={card.image}
             title={card.title}
             description={card.description}

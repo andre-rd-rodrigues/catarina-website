@@ -38,6 +38,12 @@ body {
   font-family: var(--font-ibm-plex-sans);
 }
 
+ul,
+li {
+  list-style: disc;
+  color: var(--color-text);
+}
+
 h1,
 h2,
 h3,
@@ -50,7 +56,11 @@ h6 {
 
 p {
   color: var(--color-text);
-  font-weight: lighter;
+}
+
+b,
+strong {
+  font-weight: 500;
 }
 
 .font-ibm-plex-sans {

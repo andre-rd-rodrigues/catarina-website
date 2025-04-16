@@ -1,20 +1,27 @@
 export const SERVICES = [
   {
     number: '01.',
-    title: 'All Natural Medicine',
+    title: 'Consulta de Medicina Funcional Integrativa',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'Consulta em dois tempos que avalia profundamente o histórico e hábitos do paciente, culminando num plano terapêutico individualizado para promover saúde integral e bem-estar sustentável.',
+    valor: '140€ x 2 = 280€',
   },
   {
     number: '02.',
-    title: 'All Natural Medicine',
+    title: 'Sessões de Terapia (Saúde Mental)',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'Sessões baseadas na psicologia analítica de Jung, que promovem autoconhecimento, transformação emocional e integração interior, presenciais ou online.',
   },
   {
     number: '03.',
-    title: 'All Natural Medicine',
+    title: 'Pack Corpo-Mente',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.',
+      'Acompanhamento médico e terapêutico combinado por 3 ou 6 meses, com foco na integração do corpo, mente e espírito. Inclui consultas e sessões semanais ou quinzenais.',
+  },
+  {
+    number: '04.',
+    title: 'Mapa Astral + Human Design',
+    description:
+      'Leitura intuitiva dos mapas astrológico e de Human Design, com enfoque nas questões de saúde, como ferramenta de autoconhecimento e alinhamento pessoal.',
   },
 ];

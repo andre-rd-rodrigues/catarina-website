@@ -38,13 +38,19 @@ function About() {
               animation="left"
             />
             <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-              natus illo voluptate laborum, itaque ullam atque repellendus
-              praesentium quo officiis, sapiente optio perferendis similique
-              deserunt cum vel dolores facilis expedita debitis ab modi. Illum
-              sequi optio, nam, repellendus reiciendis, quae dolor corrupti
-              porro voluptatem quaerat iure quis quibusdam expedita quidem.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Bem-vindo(a). O meu nome é Catarina Paixão, e não sei se por
+              influência do nome, carrego em mim uma enorme capacidade de me
+              apaixonar pelas mais aleatórias e variadas coisas. Considero-me
+              uma eterna aprendiz da vida e do Ser-Humano na sua Infinitude.
+              Percorri os anos na Faculdade de Medicina na Universidade de
+              Lisboa com cada vez com mais encanto e fascínio pela máquina
+              complexa e arquitetada que é o nosso corpo. Pelo mistério maior
+              que é a mente e a consciência humana, todas as áreas relacionadas
+              com a saúde mental, sempre tiveram um lugar de destaque no meu
+              coração. Completei a faculdade, com cada vez mais consciência que
+              somos mais que este corpo onde habitamos, e com uma dificuldade
+              crescente em escolher onde me especializar, por não querer deixar
+              nenhuma parte do “Ser” para trás.
             </motion.p>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
