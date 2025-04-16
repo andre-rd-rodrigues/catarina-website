@@ -83,12 +83,20 @@ function Services() {
 
         {/* Sessões de Terapia */}
         <div className="mb-16 flex flex-col gap-8 md:flex-row md:gap-12">
+          <div className="flex-1">
+            <SplitLeaf
+              images={[
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+              ]}
+            />
+          </div>
           <motion.div
             variants={containerVariant}
             whileInView="visible"
             initial="hidden"
             viewport={{ once: true }}
-            className="flex-1"
+            className="order-first flex-1 md:order-last"
           >
             <Section.Title
               title="Sessões de Terapia (Saúde Mental)"
@@ -157,16 +165,32 @@ function Services() {
               </ul>
             </motion.div>
           </motion.div>
+          <div className="order-2 flex-1 md:order-1">
+            <SplitLeaf
+              images={[
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+              ]}
+            />
+          </div>
         </div>
 
         {/* Mapa Astral + Human Design */}
         <div className="mb-16 flex flex-col gap-8 md:flex-row md:gap-12">
+          <div className="flex-1">
+            <SplitLeaf
+              images={[
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
+                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
+              ]}
+            />
+          </div>
           <motion.div
             variants={containerVariant}
             whileInView="visible"
             initial="hidden"
             viewport={{ once: true }}
-            className="flex-1"
+            className="order-first flex-1 md:order-last"
           >
             <Section.Title
               title="Mapa Astral + Human Design"
@@ -188,16 +212,6 @@ function Services() {
             </motion.div>
           </motion.div>
         </div>
-      </Section>
-
-      {/* Pacotes de serviços */}
-      <Section className="bg-[var(--color-background-alt)]">
-        <Section.Title
-          subtitle="Precário"
-          title="Pacotes de serviços"
-          className="text-center"
-          animation="left"
-        />
       </Section>
 
       {/* Promoção de serviços */}
@@ -240,9 +254,6 @@ function Services() {
             </motion.div>
           </div>
         </motion.div>
-
-        {/* Testimonials */}
-        <Testimonials />
       </Section>
 
       {/* FAQS */}
