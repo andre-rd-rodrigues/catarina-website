@@ -1,4 +1,5 @@
 import AppLink from '@/components/Link';
+import { CONTACTS } from '@/constants/common';
 import { FOOTER_NAVBAR } from '@/constants/navbar';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Link from 'next/link';
@@ -11,14 +12,14 @@ const Footer = () => (
         {/* Logo & Description */}
         <div>
           <h2 className="text-2xl font-semibold">Catarina Paixão</h2>
-          <p className="mt-2 text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-            tellus.
+          <p className="mt-2 text-gray-300">
+            “Onde quer que a Arte da Medicina seja amada, <br />
+            haverá também amor pela Humanidade!” - <i>Hipocrátes</i>
           </p>
         </div>
         <div className="mt-10 flex flex-wrap gap-6 sm:mt-0 sm:gap-9">
           {FOOTER_NAVBAR.map(({ name, href }, index) => (
-            <Link key={index} href={href} className="text-sm">
+            <Link key={index} href={href} className="text-sm text-gray-300 duration-200 hover:text-white font-normal">
               {name}
             </Link>
           ))}
@@ -29,46 +30,43 @@ const Footer = () => (
         {/* Address */}
         <div>
           <h3 className="mb-3 text-lg font-medium">Endereço</h3>
-          <Link
-            href="https://maps.app.goo.gl/jj8BWbek52QBGqw97"
-            className="flex items-center gap-3 font-light text-gray-400 duration-200 hover:text-white"
-            target="_blank"
-          >
+          <p className="flex items-center gap-3 font-light text-gray-300">
             <MapPin size={18} />
-            5116 Dietrich Mill, North Emmet
+            {CONTACTS.address}
             <br />
-            Dakota USA 45862
-          </Link>
+            Portugal
+          </p>
         </div>
         {/* Contacts */}
         <div>
           <h3 className="mb-3 text-lg font-medium">Contactos</h3>
           <Link
             target="_blank"
-            href="tel:+351961234582"
-            className="flex items-center gap-3 font-light text-gray-400 duration-200 hover:text-white"
+            href={`https://wa.me/${CONTACTS.phone}`}
+            className="flex items-center gap-3 font-light text-gray-300 duration-200 hover:text-white"
           >
-            <Phone size={18} /> +351 961234582
+            <Phone size={18} /> +351 928259010
           </Link>
 
           <Link
             target="_blank"
-            href="mailto: catarina@mails.com"
-            className="mt-2 flex items-center gap-3 font-light text-gray-400 duration-200 hover:text-white"
+            href={`mailto:${CONTACTS.email}`}
+            className="mt-2 flex items-center gap-3 font-light text-gray-300 duration-200 hover:text-white"
           >
-            <Mail size={18} /> catarina@mails.com
+            <Mail size={18} /> {CONTACTS.email}
           </Link>
         </div>
         {/* CTA Section */}
         <div>
-          <h3 className="text-lg font-medium">Let&apos;s talk about health!</h3>
-          <p className="mb-4 mt-2 max-w-80 text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sit
-            amet cursus orci.
+          <h3 className="text-lg font-medium">Comece a sua jornada.</h3>
+          <p className="mb-4 mt-2 max-w-80 text-gray-300">
+            Vamos juntos trilhar este caminho rumo a uma vida mais saudável e
+            harmoniosa.
           </p>
           <div className="inline-block">
             <AppLink
-              href="/"
+              href={`https://wa.me/${CONTACTS.phone}`}
+              target="_blank"
               label="Agendar"
               variant="danger"
               icon="message-circle-more"
@@ -77,7 +75,7 @@ const Footer = () => (
         </div>
       </div>
       {/* Bottom Bar */}
-      <div className="mt-8 flex flex-col items-center justify-between text-gray-400 md:flex-row">
+      <div className="mt-8 flex flex-col items-center justify-between text-gray-300 md:flex-row">
         <p className="text-sm text-gray-300">
           Copyright © 2025{' '}
           <Link

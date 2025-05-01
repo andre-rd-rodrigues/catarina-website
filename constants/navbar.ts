@@ -39,15 +39,11 @@ export const FOOTER_NAVBAR = [
     href: '/serviços',
   },
   {
-    name: 'Contactos',
-    href: '/contactos',
-  },
-  {
-    name: 'Blog',
-    href: '/blog',
-  },
-  {
     name: 'FAQs',
     href: '/faqs',
+  },
+  {
+    name: 'Contactos',
+    href: '/contactos',
   },
 ];
