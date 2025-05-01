@@ -20,11 +20,11 @@ const Card: FC<CardProps> = ({ image, title, description }) => {
       </motion.div>
       <motion.h3
         variants={fadeInSlideInVariant}
-        className="text-lg font-semibold text-gray-800"
+        className="text-xl text-gray-800"
       >
         {title}
       </motion.h3>
-      <motion.p variants={fadeInSlideInVariant} className="text-gray-600">
+      <motion.p variants={fadeInSlideInVariant}>
         {description}
       </motion.p>
     </motion.div>

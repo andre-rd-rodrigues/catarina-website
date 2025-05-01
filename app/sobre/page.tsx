@@ -4,7 +4,11 @@ import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
-import { containerVariant, fadeInSlideInVariant, fadeInSlideLeftVariant } from '@/motion/variants';
+import {
+  containerVariant,
+  fadeInSlideInVariant,
+  fadeInSlideLeftVariant,
+} from '@/motion/variants';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
@@ -57,7 +61,7 @@ function About() {
             </motion.p>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
-          <motion.div
+            <motion.div
               variants={fadeInSlideInVariant}
               whileInView="visible"
               initial="hidden"
@@ -78,7 +82,7 @@ function About() {
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
           <div className="order-2 flex-1 md:order-1">
-          <motion.div
+            <motion.div
               variants={fadeInSlideInVariant}
               whileInView="visible"
               initial="hidden"
