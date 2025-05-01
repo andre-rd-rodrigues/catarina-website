@@ -32,9 +32,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           :global(.group-service-card:hover) {
             border-color: transparent;
             background-color: rgba(255, 255, 255, 0.3); /* branco translúcido */
-            box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.1),
-              0 0 20px 6px rgba(250, 250, 250, 0.05),
-              0 0 30px 8px rgba(245, 245, 245, 0.03);
+            box-shadow: 0 0 50px 4px rgba(255, 255, 255, 0.1),
+              0 0 10px 6px rgba(250, 250, 250, 0.05),
+              0 0 20px 8px rgba(245, 245, 245, 0.03);
           }
         `}</style>
       )}
