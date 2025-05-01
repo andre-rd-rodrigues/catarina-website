@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({ image, title, description }) => {
       >
         {title}
       </motion.h3>
-      <motion.p variants={fadeInSlideInVariant}>{description}</motion.p>
+      <motion.p variants={fadeInSlideInVariant} className='text-sm'>{description}</motion.p>
     </motion.div>
   );
 };

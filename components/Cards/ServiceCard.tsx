@@ -24,7 +24,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           {subtitle}
         </span>
         <h3 className="mt-3 text-xl text-[var(--color-primary)]">{title}</h3>
-        <p className="mt-2 text-sm">{description}</p>
+        <p className="mt-2 ">{description}</p>
       </div>
       {!!action && <div className="mt-7">{action}</div>}
 
