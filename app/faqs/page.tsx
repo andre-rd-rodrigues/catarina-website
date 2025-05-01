@@ -12,18 +12,18 @@ function FAQSPage() {
         title="FAQS"
       />
       <Section>
-      <Section.Title
-              title="Perguntas Frequentes"
-              subtitle="FAQS"
-              animation="left"
-              className="mb-6"
-            />
-            <p className="mb-8">
-            Encontre respostas para as perguntas mais comuns sobre medicina
-            integrativa e os meus serviços. Se tiver mais dúvidas, não hesite em
-            contactar-me.
-          </p>
-          <FAQs items={FAQS} />
+        <Section.Title
+          title="Perguntas Frequentes"
+          subtitle="FAQS"
+          animation="left"
+          className="mb-6"
+        />
+        <p className="mb-8">
+          Encontre respostas para as perguntas mais comuns sobre medicina
+          integrativa e os meus serviços. Se tiver mais dúvidas, não hesite em
+          contactar-me.
+        </p>
+        <FAQs items={FAQS} />
       </Section>
     </Page>
   );

@@ -17,7 +17,7 @@ function About() {
       />
       {/* About 1 */}
       <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
           <motion.div
             variants={containerVariant}
             whileInView="visible"
@@ -68,7 +68,7 @@ function About() {
       </Section>
       {/* About 2 */}
       <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
           <div className="order-2 flex-1 md:order-1">
             <SplitLeaf
               images={[
@@ -121,7 +121,7 @@ function About() {
 
       {/* Hero */}
       <Hero
-      className="bg-[var(--color-background-alt)]"
+        className="bg-[var(--color-background-alt)]"
         title="“É nosso dever recordar sempre que a medicina não é apenas uma ciência, mas é também
 a arte de deixar nossa individualidade interagir com a individualidade do paciente.”"
         content="Carl Jung"
