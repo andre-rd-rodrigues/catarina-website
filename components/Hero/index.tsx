@@ -7,6 +7,7 @@ import {
   fadeInSlideInVariant,
   motion,
 } from '@/motion/variants';
+import clsx from 'clsx';
 
 interface HeroProps {
   subtitle?: string;
@@ -25,7 +26,10 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <Section
-      className={`flex flex-col items-center justify-center text-center ${className}`}
+      className={clsx(
+        'flex flex-col items-center justify-center text-center',
+        className,
+      )}
     >
       <motion.span
         variants={containerVariant}

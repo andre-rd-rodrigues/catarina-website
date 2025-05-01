@@ -166,7 +166,6 @@ export default function Home() {
         }
       />
       <Section className="-mt-12">
-        {' '}
         <HealthCards />
       </Section>
 

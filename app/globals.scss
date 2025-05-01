@@ -51,11 +51,13 @@ h4,
 h5,
 h6 {
   font-family: var(--font-marcellus);
-  font-weight: 500;
 }
 
 p {
   color: var(--color-text);
+  line-height: 1.8em;
+  font-size: 0.95em;
+  font-weight: 300;
 }
 
 b,

@@ -37,7 +37,7 @@ const SectionTitle = ({
       <motion.h2
         variants={renderAnimation}
         className={clsx(
-          'text-md font-ibm-plex-sans mb-5 uppercase tracking-[5px]',
+          'text-md font-ibm-plex-sans mb-5 font-light uppercase tracking-[5px]',
           color ? color : 'text-[var(--color-accent)]',
         )}
       >
@@ -46,7 +46,7 @@ const SectionTitle = ({
       <motion.h3
         variants={renderAnimation}
         className={clsx(
-          'text-4xl',
+          'text-3xl',
           color ? color : 'text-[var(--color-primary)]',
         )}
       >
