@@ -20,6 +20,7 @@ function Services() {
         src="https://images.unsplash.com/photo-1556760544-74068565f05c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         title="Serviços"
       />
+      <span id="consulta-medicina-funcional-integrativa" />
       {/* Especialidades */}
       <Section>
         {/* Consulta Medicina Funcional Integrativa */}
@@ -58,6 +59,7 @@ function Services() {
               viewport={{ once: true }}
               className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg"
             >
+              <span id="sessoes-de-terapia-saude-mental" />
               <Image
                 src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Consulta Medicina Funcional Integrativa"
@@ -102,7 +104,8 @@ function Services() {
               variants={fadeInSlideLeftVariant}
               className="mt-8 space-y-4"
             >
-              <p>
+              <span id="mapa-astral-human-design" />
+              <p id="sessoes-de-terapia-saude-mental">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Repellat, nulla minus? Unde fuga nihil exercitationem rerum?
                 Doloremque consectetur magnam voluptates alias deserunt quam
@@ -113,6 +116,7 @@ function Services() {
             </motion.div>
           </motion.div>
         </div>
+
         {/* Mapa Astral + Human Design */}
         <div className="mb-28 flex flex-col gap-8 md:flex-row md:gap-12">
           <motion.div

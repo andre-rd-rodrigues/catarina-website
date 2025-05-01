@@ -15,13 +15,6 @@ export const HOMEPAGE_SERVICES = [
   },
   {
     number: '03.',
-    title: 'Pack Corpo-Mente',
-    description:
-      'Acompanhamento médico e terapêutico combinado por 3 ou 6 meses, com foco na integração do corpo, mente e espírito. Inclui consultas e sessões semanais ou quinzenais.',
-    href: '/servicos#pack-corpo-mente',
-  },
-  {
-    number: '04.',
     title: 'Mapa Astral + Human Design',
     description:
       'Leitura intuitiva dos mapas astrológico e de Human Design, com enfoque nas questões de saúde, como ferramenta de autoconhecimento e alinhamento pessoal.',
