@@ -5,7 +5,6 @@ import Button from '../Button';
 interface ContactFormProps {
   onSubmit?: (data: {
     firstName: string;
-    lastName: string;
     email: string;
     phone: string;
     message: string;
@@ -14,7 +13,6 @@ interface ContactFormProps {
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
@@ -22,7 +20,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSubmit) {
-      onSubmit({ firstName, lastName, email, phone, message });
+      onSubmit({ firstName, email, phone, message });
     }
     // Otherwise, handle form submission logic here
   };
@@ -32,35 +30,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       {/* Grid container: two columns on medium+ screens, single column on small */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* First Name */}
-        <div className="flex flex-col">
+        <div className="col-span-1 flex flex-col md:col-span-2">
           <label htmlFor="firstName" className="font-marcellus mb-1 text-lg">
-            Primeiro Nome <span className="text-red-500">*</span>
+            Nome <span className="text-red-500">*</span>
           </label>
           <input
             id="firstName"
             type="text"
-            placeholder="Joana"
+            placeholder="Escreva o seu nome aqui..."
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
-
-        {/* Last Name */}
-        <div className="flex flex-col">
-          <label htmlFor="lastName" className="font-marcellus mb-1 text-lg">
-            Sobrenome <span className="text-red-500">*</span>
-          </label>
-          <input
-            id="lastName"
-            type="text"
-            placeholder="Rodrigues"
-            className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-
         {/* Email */}
         <div className="flex flex-col">
           <label htmlFor="email" className="font-marcellus mb-1 text-lg">
@@ -75,7 +57,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-
         {/* Phone */}
         <div className="flex flex-col">
           <label htmlFor="phone" className="font-marcellus mb-1 text-lg">
@@ -84,7 +65,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           <input
             id="phone"
             type="text"
-            placeholder="Número de telefone"
+            placeholder="Número de telemóvel"
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
@@ -98,7 +79,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           </label>
           <textarea
             id="message"
-            rows={3}
+            rows={2}
             placeholder="Escreva aqui a sua mensagem..."
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
             value={message}
@@ -108,7 +89,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
       </div>
 
       {/* Submit Button */}
-      <div className="mt-3 flex justify-center">
+      <div className="mt-7 flex justify-center">
         <Button
           label="Submeter"
           onClick={handleSubmit}

@@ -33,8 +33,7 @@ function Contacts() {
               animation="left"
             />
             <p className="mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris
-              sit amet cursus orci. Nulla luctus vehicula enim quis aliquet.{' '}
+            Vamos juntos trilhar este caminho rumo a uma vida mais saudável e harmoniosa.
             </p>
             <div className="py-10">
               {/* Container up to ~1140px wide (max-w-5xl) */}
@@ -42,21 +41,16 @@ function Contacts() {
                 {/* Left Column: Main Office & Email */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className=" mb-2 text-lg">Consultório</h4>
-                    <Link
-                      href="https://maps.app.goo.gl/jj8BWbek52QBGqw97"
-                      target="_blank"
-                    >
-                      <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                        Rua da Conceição, 123 - Lisboa
+                    <h4 className=" mb-2 text-lg">Consultórios</h4>
+                      <p>
+                        Lisboa, Carcavelos e Região Autónoma da Madeira (brevemente)
                       </p>
-                    </Link>
                   </div>
                   <div>
                     <h4 className=" mb-2 text-lg">Email</h4>
                     <Link href="mailto:exemplo@mail.com" target="_blank">
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                        exemplo@mail.com
+                      consultas.cpaixao@gmail.com
                       </p>
                     </Link>
                   </div>
@@ -67,7 +61,7 @@ function Contacts() {
                     <h4 className=" mb-2 text-lg">Telemóvel</h4>
                     <Link href="tel:+351912345678" target="_blank">
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                        +351 912 345 678
+                      +351 928259010
                       </p>
                     </Link>
                   </div>
@@ -95,21 +89,6 @@ function Contacts() {
             <ContactForm />
           </motion.div>
         </motion.div>
-      </Section>
-
-      {/* Mapa */}
-      <Section>
-        <div className="-mt-24 w-full">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.5399410433456!2d-9.1424863!3d38.7139092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933877b5c90e1%3A0x9f72dbaa4f48f650!2sR.%20da%20Concei%C3%A7%C3%A3o%2C%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2s!4v1710337865037!5m2!1sen!2s"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
       </Section>
     </Page>
   );
