@@ -1,19 +1,12 @@
 'use client';
 
 import Hero from '@/components/Hero';
+import Link from '@/components/Link';
 import Page from '@/components/Page';
-import {
-  fadeInSlideLeftVariant,
-  containerVariant,
-  fadeInSlideInVariant,
-} from '@/motion/variants';
 import Section from '@/components/Section';
-import { motion } from 'motion/react';
-import React from 'react';
 import SplitLeaf from '@/components/SplitLeaf';
-import InfoCard from '@/components/Cards/InfoCard';
-import { ABOUT_VALUES } from '@/constants/about';
-import { IconName } from 'lucide-react/dynamic';
+import { containerVariant, fadeInSlideLeftVariant } from '@/motion/variants';
+import { motion } from 'motion/react';
 
 function About() {
   return (
@@ -24,7 +17,7 @@ function About() {
       />
       {/* About 1 */}
       <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
           <motion.div
             variants={containerVariant}
             whileInView="visible"
@@ -33,7 +26,7 @@ function About() {
             className="flex-1"
           >
             <Section.Title
-              title="Paixão é sinónimo de cuidar"
+              title="Uma eterna aprendiz da vida e do Ser-Humano"
               subtitle="Sobre mim"
               animation="left"
             />
@@ -51,6 +44,16 @@ function About() {
               somos mais que este corpo onde habitamos, e com uma dificuldade
               crescente em escolher onde me especializar, por não querer deixar
               nenhuma parte do “Ser” para trás.
+              <br />
+              Iniciei a minha actividade profissional nas urgências hospitalares
+              e extra-hospitalares, passando também pela actuação em serviços
+              prisionais, e ainda percorri o primeiro ano de especialização em
+              Anestesiologia. As minhas experiências profissionais ensinaram-me
+              muito sobre os limites do ser- humano, os seus pontos de rutura,
+              mas também sobre as suas capacidades de superação, destacando a
+              importância da conexão entre a consciência e o corpo, e a
+              interação entre este e as emoções/reações, para navegar cenários
+              desafiantes e processos de cura.
             </motion.p>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
@@ -65,7 +68,7 @@ function About() {
       </Section>
       {/* About 2 */}
       <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12 md:items-center">
           <div className="order-2 flex-1 md:order-1">
             <SplitLeaf
               images={[
@@ -82,59 +85,47 @@ function About() {
             className="order-1 flex-1 md:order-2"
           >
             <Section.Title
-              title="Paixão é sinónimo de cuidar"
+              title="Motivada pelo meu próprio sofrimento e desconforto"
               subtitle="Sobre mim"
               animation="left"
             />
             <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
-              natus illo voluptate laborum, itaque ullam atque repellendus
-              praesentium quo officiis, sapiente optio perferendis similique
-              deserunt cum vel dolores facilis expedita debitis ab modi. Illum
-              sequi optio, nam, repellendus reiciendis, quae dolor corrupti
-              porro voluptatem quaerat iure quis quibusdam expedita quidem.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              No decorrer destes anos, dediquei-me também ao estudo dos
+              fundamentos da Psicologia Analítica de Carl.G.Jung, integrando
+              vários cursos e um grupo de supervisão, continuando a lapidar o
+              meu entendimento sobre a Psique Humana, até aos dias de hoje. Mas
+              foi através da minha experiência pessoal, que se desenvolveu a
+              compreensão da necessidade da complementaridade de várias áreas,
+              para resgatar a minha Saúde. Motivada pelo meu próprio sofrimento
+              e desconforto, não encontrando soluções nem respostas que me
+              satisfizessem ou ajudassem plenamente dentro do que já tinha
+              aprendido, fui autodidata nas mais diversas áreas, explorando
+              conceitos dentro da Medicina Tradicional Chinesa e Ayurvédica,
+              práticas de Yoga e Meditação, estudo de Astrologia e Human Design,
+              entre outros. Para perceber como tudo se integra, tive de resgatar
+              a minha espiritualidade e ganhar consciência do sagrado que tudo
+              permeia. Pouco depois, iniciei a minha Pós-graduação em Medicina
+              Funcional Integrativa. Como médica sou fruto da minha formação,
+              mas também dos meus interesses pessoais e das minhas lições de
+              vida. Coloco toda a minha paixão e toda a bagagem de conhecimento
+              (médico e “extra-médico”) que carrego, ao serviço dos meus
+              pacientes, permanecendo sempre em busca de aprender mais sobre o
+              Ser-Humano e o Mistério da Existência.
             </motion.p>
+            <div className="mt-8 flex justify-end">
+              <Link href="/servicos" label="Ver serviços" variant="outline" />
+            </div>
           </motion.div>
         </div>
       </Section>
 
       {/* Hero */}
       <Hero
-        subtitle="Sentir é sentir"
-        title="The Best Thing You Can Do to Your Health. Lorem ipsum dolor sit amet, consec tetur adipiscing elit."
-        content="Suspendisse rhoncus neque elementum malesuada gravida. Donec gravida enim est, non tincidunt magna pellentesque ac. Duis posuere tellus non ex porttitor, eget pretium ipsum iaculis. Praesent consequat felis at mollis consequat."
+      className="bg-[var(--color-background-alt)]"
+        title="“É nosso dever recordar sempre que a medicina não é apenas uma ciência, mas é também
+a arte de deixar nossa individualidade interagir com a individualidade do paciente.”"
+        content="Carl Jung"
       />
-
-      {/* Values */}
-      <Section className="bg-[var(--color-background-alt)]">
-        <Section.Title
-          title="Missão Terapêutica"
-          subtitle="Valores"
-          animation="left"
-        />
-        <motion.div
-          variants={containerVariant}
-          initial="hidden"
-          animate="visible"
-          className="mt-12 flex flex-wrap justify-between gap-5 md:flex-nowrap"
-        >
-          {ABOUT_VALUES.map(({ icon, title, description }) => (
-            <motion.span
-              variants={fadeInSlideInVariant}
-              key={title}
-              className="w-full"
-            >
-              <InfoCard
-                key={title}
-                icon={icon as IconName}
-                title={title}
-                description={description}
-              />
-            </motion.span>
-          ))}
-        </motion.div>
-      </Section>
     </Page>
   );
 }

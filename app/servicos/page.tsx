@@ -4,7 +4,6 @@ import FAQs from '@/components/FAQS';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
-import Testimonials from '@/components/Testimonials';
 import { FAQS } from '@/constants/faqs';
 import { HOMEPAGE_CHOOSE_US_SECTION } from '@/constants/homepage';
 import {
