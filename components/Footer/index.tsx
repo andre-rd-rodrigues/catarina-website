@@ -19,7 +19,11 @@ const Footer = () => (
         </div>
         <div className="mt-10 flex flex-wrap gap-6 sm:mt-0 sm:gap-9">
           {FOOTER_NAVBAR.map(({ name, href }, index) => (
-            <Link key={index} href={href} className="text-sm text-gray-300 duration-200 hover:text-white font-normal">
+            <Link
+              key={index}
+              href={href}
+              className="text-sm font-normal text-gray-300 duration-200 hover:text-white"
+            >
               {name}
             </Link>
           ))}

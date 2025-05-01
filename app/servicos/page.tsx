@@ -5,7 +5,11 @@ import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
 import { FAQS } from '@/constants/faqs';
-import { containerVariant, fadeInSlideLeftVariant } from '@/motion/variants';
+import {
+  containerVariant,
+  fadeInSlideInVariant,
+  fadeInSlideLeftVariant,
+} from '@/motion/variants';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
@@ -47,28 +51,40 @@ function Services() {
             </motion.div>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
-            <div className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg">
+            <motion.div
+              variants={fadeInSlideInVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg"
+            >
               <Image
                 src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Consulta Medicina Funcional Integrativa"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Sessões de Terapia */}
         <div className="mb-28 flex flex-col items-center gap-8 md:flex-row md:gap-12">
           <div className="order-2 flex-1 md:order-1">
-            <div className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg">
+            <motion.div
+              variants={fadeInSlideInVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg"
+            >
               <Image
                 src="https://images.unsplash.com/photo-1546387903-6d82d96ccca6?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Sessões de Terapia (Saúde Mental)"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           </div>
           <motion.div
             variants={containerVariant}
@@ -126,14 +142,20 @@ function Services() {
             </motion.div>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
-            <div className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg">
+            <motion.div
+              variants={fadeInSlideInVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg"
+            >
               <Image
                 src="https://images.unsplash.com/photo-1533294455009-a77b7557d2d1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Mapa Astral + Human Design"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </Section>
