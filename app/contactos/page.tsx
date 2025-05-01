@@ -59,9 +59,12 @@ function Contacts() {
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Telemóvel</h4>
-                    <Link href={`tel:${CONTACTS.phone}`} target="_blank">
+                    <Link
+                      href={`https://wa.me/${CONTACTS.phone}`}
+                      target="_blank"
+                    >
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                        {CONTACTS.phone}
+                        +351 928259010
                       </p>
                     </Link>
                   </div>

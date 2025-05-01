@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import Image from 'next/image';
 import { motion } from 'motion/react';
 import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
@@ -66,7 +66,7 @@ const HealthCards: FC = () => {
       className="flex flex-col items-center justify-center space-y-12 md:flex-row md:space-x-12 md:space-y-0"
     >
       {healthCardsData.map((card, index) => (
-        <>
+        <Fragment key={index}>
           {index > 0 && (
             <div className="hidden h-44 w-[1px] bg-gray-300 md:block" />
           )}
@@ -76,7 +76,7 @@ const HealthCards: FC = () => {
             title={card.title}
             description={card.description}
           />
-        </>
+        </Fragment>
       ))}
     </motion.div>
   );

@@ -7,6 +7,20 @@ import Link from 'next/link';
 import { MenuIcon } from 'lucide-react';
 import AppLink from '@/components/Link';
 import { NAVBAR } from '@/constants/navbar';
+import { CONTACTS } from '@/constants/common';
+
+const ScheduleButton = () => {
+  return (
+    <AppLink
+      icon="message-circle-more"
+      variant="danger"
+      label="Agendar"
+      href={`https://wa.me/${CONTACTS.phone}`}
+      className="ml-1 text-xs"
+      target="_blank"
+    />
+  );
+};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,13 +77,7 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <AppLink
-                  icon="message-circle-more"
-                  variant="danger"
-                  label="Agendar"
-                  href=""
-                  className="ml-1 text-xs"
-                />
+                <ScheduleButton />
               </div>
             </div>
             <div className="md:hidden">
@@ -111,13 +119,7 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <div className="flex justify-end">
-                  <AppLink
-                    icon="message-circle-more"
-                    variant="danger"
-                    label="Agendar"
-                    href=""
-                    className="ml-1 text-xs"
-                  />
+                  <ScheduleButton />
                 </div>
               </div>
             </div>
