@@ -9,6 +9,7 @@ import {
   containerVariant,
   fadeInSlideInVariant,
 } from '@/motion/variants';
+import { CONTACTS } from '@/constants/common';
 
 function Contacts() {
   return (
@@ -28,12 +29,13 @@ function Contacts() {
           {/* Contactos */}
           <motion.div variants={fadeInSlideInVariant} className="w-full">
             <Section.Title
-              subtitle="Contactos"
-              title="Entre em contacto"
+              subtitle="contactos"
+              title="Estou aqui para ajudar."
               animation="left"
             />
             <p className="mt-3">
-            Vamos juntos trilhar este caminho rumo a uma vida mais saudável e harmoniosa.
+              Vamos juntos trilhar este caminho rumo a uma vida mais saudável e
+              harmoniosa.
             </p>
             <div className="py-10">
               {/* Container up to ~1140px wide (max-w-5xl) */}
@@ -42,15 +44,13 @@ function Contacts() {
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Consultórios</h4>
-                      <p>
-                        Lisboa, Carcavelos e Região Autónoma da Madeira (brevemente)
-                      </p>
+                    <p>{CONTACTS.address}</p>
                   </div>
                   <div>
                     <h4 className=" mb-2 text-lg">Email</h4>
-                    <Link href="mailto:exemplo@mail.com" target="_blank">
+                    <Link href={`mailto:${CONTACTS.email}`} target="_blank">
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                      consultas.cpaixao@gmail.com
+                        {CONTACTS.email}
                       </p>
                     </Link>
                   </div>
@@ -59,9 +59,9 @@ function Contacts() {
                 <div className="space-y-6">
                   <div>
                     <h4 className=" mb-2 text-lg">Telemóvel</h4>
-                    <Link href="tel:+351912345678" target="_blank">
+                    <Link href={`tel:${CONTACTS.phone}`} target="_blank">
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
-                      +351 928259010
+                        {CONTACTS.phone}
                       </p>
                     </Link>
                   </div>
