@@ -12,6 +12,10 @@ export const NAVBAR = [
     href: '/serviços',
   },
   {
+    name: 'FAQs',
+    href: '/faqs',
+  },
+  {
     name: 'Contactos',
     href: '/contactos',
   },
