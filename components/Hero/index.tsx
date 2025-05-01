@@ -40,14 +40,14 @@ const Hero: React.FC<HeroProps> = ({
         {subtitle && (
           <motion.p
             variants={fadeInSlideInVariant}
-            className="text-md mb-5 font-medium uppercase tracking-[5px] text-[var(--color-accent)]"
+            className="text-md mb-5 font-medium uppercase tracking-[2px] text-[var(--color-accent)]"
           >
             {subtitle}
           </motion.p>
         )}
         <motion.h3
           variants={fadeInSlideInVariant}
-          className="mb-5 max-w-4xl text-4xl leading-tight"
+          className="mb-5 max-w-4xl text-3xl leading-tight"
         >
           {title}
         </motion.h3>

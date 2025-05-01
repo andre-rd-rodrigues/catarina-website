@@ -4,9 +4,9 @@ import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
-import SplitLeaf from '@/components/SplitLeaf';
-import { containerVariant, fadeInSlideLeftVariant } from '@/motion/variants';
+import { containerVariant, fadeInSlideInVariant, fadeInSlideLeftVariant } from '@/motion/variants';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 function About() {
   return (
@@ -57,12 +57,20 @@ function About() {
             </motion.p>
           </motion.div>
           <div className="order-2 flex-1 md:order-1">
-            <SplitLeaf
-              images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
-              ]}
-            />
+          <motion.div
+              variants={fadeInSlideInVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="relative aspect-[3/4] w-full overflow-hidden rounded-md shadow-lg"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1535553507350-349399fb7b72?q=80&w=1665&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Sobre Mim - Catarina Paixão"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
         </div>
       </Section>
@@ -70,12 +78,20 @@ function About() {
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
           <div className="order-2 flex-1 md:order-1">
-            <SplitLeaf
-              images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
-              ]}
-            />
+          <motion.div
+              variants={fadeInSlideInVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+              className="relative aspect-[3/4] w-full overflow-hidden rounded-md shadow-lg"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1598&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Sobre Mim - Catarina Paixão"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
           </div>
           <motion.div
             variants={containerVariant}
