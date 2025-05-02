@@ -11,7 +11,7 @@ const Section: React.FC<SectionProps> & { Title: typeof SectionTitle } = ({
   className,
 }) => {
   return (
-    <section className={clsx('py-24', className)}>
+    <section className={clsx('py-10 sm:py-24', className)}>
       <div className="mx-auto max-w-7xl px-5">{children}</div>
     </section>
   );

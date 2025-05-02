@@ -35,8 +35,7 @@ const healthCardsData = [
   {
     image: <Image src="/img/leaf.png" alt="Leaf Icon" objectFit="cover" fill />,
     title: 'Viver com Saúde é Viver Plenamente',
-    description:
-      'Cultivar Saúde é o que nos permite desfrutar da Vida.',
+    description: 'Cultivar Saúde é o que nos permite desfrutar da Vida.',
   },
   {
     image: (

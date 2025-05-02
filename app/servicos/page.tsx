@@ -25,7 +25,7 @@ function Services() {
       {/* Especialidades */}
       <Section>
         {/* Consulta Medicina Funcional Integrativa */}
-        <div className="mb-28 flex flex-col items-center gap-8 md:flex-row md:gap-12">
+        <div className="mb-28 flex flex-col md:items-center gap-8 md:flex-row md:gap-12">
           <motion.div
             variants={containerVariant}
             whileInView="visible"
@@ -72,7 +72,7 @@ function Services() {
         </div>
 
         {/* Sessões de Terapia */}
-        <div className="mb-28 flex flex-col items-center gap-8 md:flex-row md:gap-12">
+        <div className="mb-28 flex flex-col md:items-center gap-8 md:flex-row md:gap-12">
           <div className="order-2 flex-1 md:order-1">
             <motion.div
               variants={fadeInSlideInVariant}
@@ -178,7 +178,7 @@ function Services() {
           viewport={{ once: true }}
           className="mt-10"
         >
-       <PriceTable/>
+          <PriceTable />
         </motion.div>
       </Section>
       {/* FAQS */}
