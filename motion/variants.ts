@@ -8,19 +8,40 @@ const containerVariant = {
     opacity: 1,
     transition: {
       staggerChildren: 0.2,
+      delay: 2,
     },
   },
 };
 
 // Homepage
-const homepageDelayVariant = {
+const homeQuoteVariant = {
   hidden: {
     opacity: 0,
   },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.5,
+      delay: 0.6,
+      duration: 4,
+      staggerChildren: 2,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+const homeContainerTitleVariant = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
     },
   },
 };
@@ -45,6 +66,12 @@ const fadeInVariant = {
   },
   visible: {
     opacity: 1,
+    transition: {
+      duration: 1.2,
+    },
+  },
+  exit: {
+    opacity: 0,
     transition: {
       duration: 1.2,
     },
@@ -183,7 +210,7 @@ export {
   fadeInSlideLeftVariant,
   fadeInVariant,
   getAttentionVariant,
-  homepageDelayVariant,
+  homeQuoteVariant,
   motion,
   scaleSpringVariant,
   slowRotateVariant,
@@ -192,4 +219,5 @@ export {
   workPageHeaderContent,
   underlineSlideInVariant,
   blurVariant,
+  homeContainerTitleVariant,
 };

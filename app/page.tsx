@@ -1,13 +1,14 @@
 'use client';
+import HealthCards from '@/components/Cards/HealthCards';
 import ServiceCard from '@/components/Cards/ServiceCard';
 import FAQs from '@/components/FAQS';
-import Fireball from '@/components/Fireball';
+import GlowEffect from '@/components/GlowEffect';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
-import NextLink from 'next/link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
+import { FAQS } from '@/constants/faqs';
 import {
   HOMEPAGE_CHOOSE_US_SECTION,
   HOMEPAGE_SERVICES,
@@ -17,52 +18,105 @@ import {
   containerVariant,
   fadeInSlideInVariant,
   fadeInSlideLeftVariant,
+  fadeInVariant,
+  homeContainerTitleVariant,
+  homeQuoteVariant,
   motion,
 } from '@/motion/variants';
-import Image from 'next/image';
 import { ArrowRightIcon } from 'lucide-react';
-import { FAQS } from '@/constants/faqs';
-import HealthCards from '@/components/Cards/HealthCards';
+import { AnimatePresence } from 'motion/react';
+import Image from 'next/image';
+import NextLink from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [showQuote, setShowQuote] = useState(true);
+  const [showTitle, setShowTitle] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowQuote(false);
+      setTimeout(() => {
+        setShowTitle(true);
+      }, 1000);
+    }, 5000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <Page>
+      <GlowEffect className="" />
       {/* Title */}
-      <Section className="flex min-h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
-        <motion.div
-          variants={blurVariant}
-          whileInView="visible"
-          initial="hidden"
-          viewport={{ once: true }}
-          className="relative mx-auto h-28 w-28"
-        >
-          <Fireball className="-translate-y-9 translate-x-9" />
-          <Image
-            src="/lotus.png"
-            fill
-            objectFit="cover"
-            alt="Catarina Paixão Logo"
-          />
-        </motion.div>
-        <motion.span
-          variants={containerVariant}
-          whileInView="visible"
-          initial="hidden"
-          viewport={{ once: true }}
-        >
-          <motion.h1
-            variants={fadeInSlideInVariant}
-            className="text-6xl text-white"
-          >
-            Catarina Paixão
-          </motion.h1>
-          <motion.p
-            variants={fadeInSlideInVariant}
-            className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
-          >
-            Medicina Integrativa
-          </motion.p>
-        </motion.span>
+      <Section className="flex h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
+        <AnimatePresence>
+          {showQuote && (
+            <motion.div
+              key="quote"
+              variants={homeQuoteVariant}
+              whileInView="visible"
+              initial="hidden"
+              exit="exit"
+              viewport={{ once: true }}
+            >
+              <motion.h1
+                variants={fadeInVariant}
+                className="text-3xl text-white"
+              >
+                “Onde quer que a Arte da Medicina seja amada, haverá também amor
+                pela Humanidade!”
+              </motion.h1>
+              <motion.p
+                variants={fadeInVariant}
+                className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
+              >
+                Hipócrates
+              </motion.p>
+            </motion.div>
+          )}
+
+          {/* Title */}
+          {showTitle && (
+            <motion.span
+              key="title"
+              variants={homeContainerTitleVariant}
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true }}
+            >
+              <motion.div
+                variants={blurVariant}
+                className="relative mx-auto h-28 w-28"
+              >
+                <Image
+                  src="/lotus.png"
+                  fill
+                  objectFit="cover"
+                  alt="Catarina Paixão Logo"
+                />
+              </motion.div>
+              <motion.h1
+                variants={fadeInSlideInVariant}
+                className="text-6xl text-white"
+              >
+                Catarina Paixão
+              </motion.h1>
+              <motion.p
+                variants={fadeInSlideInVariant}
+                className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
+              >
+                Médica Funcional Integrativa
+              </motion.p>
+              <motion.p
+                variants={fadeInSlideInVariant}
+                className="mt-5 text-xs text-gray-400"
+              >
+                Cédula OM: 60969
+              </motion.p>
+            </motion.span>
+          )}
+        </AnimatePresence>
+        {/* Scroll down */}
         <motion.div
           variants={fadeInSlideInVariant}
           whileInView="visible"
