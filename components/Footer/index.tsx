@@ -12,7 +12,7 @@ const Footer = () => (
       <div className="flex flex-wrap items-center justify-between border-b border-white/20 pb-16">
         {/* Logo & Description */}
         <div>
-          <Link href="/" >
+          <Link href="/">
             <Image
               src="/logo.png"
               alt="Catarina Paixão Logo"
@@ -21,7 +21,7 @@ const Footer = () => (
               className="object-cover"
             />
           </Link>
-          <h2 className="text-2xl font-semibold mt-3">Catarina Paixão</h2>
+          <h2 className="mt-3 text-2xl font-semibold">Catarina Paixão</h2>
           <p className="mt-2 text-sm text-gray-300">
             “Onde quer que a Arte da Medicina seja amada, <br />
             haverá também amor pela Humanidade!” - <i>Hipocrátes</i>
