@@ -102,16 +102,23 @@ const Footer = () => (
         </p>
         <div className="mt-4 flex gap-4 text-sm md:mt-0">
           <Link
-            href="/"
+            href="/politica-de-privacidade"
             className="text-xs font-light duration-200 hover:text-white"
           >
             Política de Privacidade
           </Link>
           <Link
-            href="/"
+            href="/termos"
             className="text-xs font-light duration-200  hover:text-white"
           >
             Termos e Condições
+          </Link>
+          <Link
+            href="https://www.livroreclamacoes.pt/Inicio/"
+            target="_blank"
+            className="text-xs font-light duration-200  hover:text-white"
+          >
+            Livro de Reclamações
           </Link>
         </div>
       </div>

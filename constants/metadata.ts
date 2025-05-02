@@ -16,6 +16,18 @@ export const PAGES_METADATA = {
     title: 'Serviços ⦁ Dra. Catarina Paixão',
     description: 'Serviços',
   },
+  PRIVACY_POLICY: {
+    title: 'Política de Privacidade ⦁ Dra. Catarina Paixão',
+    description: 'Política de Privacidade',
+  },
+  TERMS_AND_CONDITIONS: {
+    title: 'Termos e Condições ⦁ Dra. Catarina Paixão',
+    description: 'Termos e Condições',
+  },
+  FAQS: {
+    title: 'FAQs ⦁ Perguntas Frequentes',
+    description: 'Perguntas Frequentes',
+  },
   /*   BLOG: {
     title: 'Blog',
     description: 'Blog',
