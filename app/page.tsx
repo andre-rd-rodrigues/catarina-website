@@ -86,10 +86,10 @@ export default function Home() {
             >
               <motion.div
                 variants={blurVariant}
-                className="relative mx-auto h-28 w-28"
+                className="relative mx-auto mb-5 h-28 w-28"
               >
                 <Image
-                  src="/lotus.png"
+                  src="/logo.png"
                   fill
                   objectFit="cover"
                   alt="Catarina Paixão Logo"
