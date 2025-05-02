@@ -36,7 +36,7 @@ const healthCardsData = [
     image: <Image src="/img/leaf.png" alt="Leaf Icon" objectFit="cover" fill />,
     title: 'Viver com Saúde é Viver Plenamente',
     description:
-      'Pequenos gestos criam grandes transformações no seu bem-estar.',
+      'Cultivar Saúde é o que nos permite desfrutar da Vida.',
   },
   {
     image: (
@@ -44,7 +44,7 @@ const healthCardsData = [
     ),
     title: 'O Natural é o Caminho para o Equilíbrio',
     description:
-      'A natureza tem tudo o que o seu corpo precisa para se renovar.',
+      'A Natureza sempre procura o bem do “Todo”, através do equilíbrio das suas “partes”.',
   },
   {
     image: (
@@ -52,7 +52,7 @@ const healthCardsData = [
     ),
     title: 'Cuide de Si, Todos os Dias',
     description:
-      'Cada escolha é um passo para uma vida mais saudável e consciente.',
+      'Pequenos gestos consistentes criam grandes transformações no seu bem-estar.',
   },
 ];
 

@@ -2,6 +2,7 @@
 
 import FAQs from '@/components/FAQS';
 import Page from '@/components/Page';
+import PriceTable from '@/components/PriceTable';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
 import { FAQS } from '@/constants/faqs';
@@ -177,14 +178,7 @@ function Services() {
           viewport={{ once: true }}
           className="mt-10"
         >
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam,
-            consequuntur ullam. Ab sunt tempora id facilis nemo quod harum
-            placeat, tenetur ullam quo cum sapiente assumenda expedita quia.
-            Veritatis velit inventore sint enim itaque iure a earum eos neque
-            cumque error ducimus, est repellat dolore, dolorem quasi blanditiis
-            suscipit fugit.
-          </p>
+       <PriceTable/>
         </motion.div>
       </Section>
       {/* FAQS */}
