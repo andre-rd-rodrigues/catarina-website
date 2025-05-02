@@ -4,6 +4,7 @@ import './globals.scss';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { PAGES_METADATA } from '@/metadata';
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: PAGES_METADATA.HOME.title,
@@ -16,10 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-PT">
       <body className={`${marcellus.variable} ${ibmPlexSans.variable}`}>
         <Navbar />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
