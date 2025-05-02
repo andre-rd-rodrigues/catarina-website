@@ -43,11 +43,11 @@ function Contacts() {
                 {/* Left Column: Main Office & Email */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className=" mb-2 text-lg">Consultórios</h4>
+                    <h4 className=" mb-2 text-lg">Atendimento Presencial:</h4>
                     <p>{CONTACTS.address}</p>
                   </div>
                   <div>
-                    <h4 className=" mb-2 text-lg">Email</h4>
+                    <h4 className=" mb-2 text-lg">Email:</h4>
                     <Link href={`mailto:${CONTACTS.email}`} target="_blank">
                       <p className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]">
                         {CONTACTS.email}
@@ -58,7 +58,7 @@ function Contacts() {
                 {/* Right Column: Phone & Follow Us */}
                 <div className="space-y-6">
                   <div>
-                    <h4 className=" mb-2 text-lg">Telemóvel</h4>
+                    <h4 className=" mb-2 text-lg">Telemóvel:</h4>
                     <Link
                       href={`https://wa.me/${CONTACTS.phone}`}
                       target="_blank"
@@ -69,7 +69,7 @@ function Contacts() {
                     </Link>
                   </div>
                   <div>
-                    <h4 className=" mb-2 text-lg">Redes Sociais</h4>
+                    <h4 className=" mb-2 text-lg">Redes Sociais:</h4>
                     <div className="mt-2 flex items-center space-x-4">
                       <a
                         href="#"

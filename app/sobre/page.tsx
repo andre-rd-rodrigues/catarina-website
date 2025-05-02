@@ -34,7 +34,7 @@ function About() {
               subtitle="Sobre mim"
               animation="left"
             />
-            <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
+            <motion.p variants={fadeInSlideLeftVariant} className="mt-8 text-justify">
               Bem-vindo(a). O meu nome é Catarina Paixão, e não sei se por
               influência do nome, carrego em mim uma enorme capacidade de me
               apaixonar pelas mais aleatórias e variadas coisas. Considero-me
@@ -109,7 +109,7 @@ function About() {
               subtitle="Sobre mim"
               animation="left"
             />
-            <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
+            <motion.p variants={fadeInSlideLeftVariant} className="mt-8 text-justify">
               No decorrer destes anos, dediquei-me também ao estudo dos
               fundamentos da Psicologia Analítica de Carl.G.Jung, integrando
               vários cursos e um grupo de supervisão, continuando a lapidar o
@@ -144,7 +144,7 @@ function About() {
         className="bg-[var(--color-background-alt)]"
         title="“É nosso dever recordar sempre que a medicina não é apenas uma ciência, mas é também
 a arte de deixar nossa individualidade interagir com a individualidade do paciente.”"
-        content="Carl Jung"
+        content="Albert Schweitzer"
       />
     </Page>
   );

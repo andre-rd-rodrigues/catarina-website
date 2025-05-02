@@ -86,7 +86,7 @@ export default function Home() {
             >
               <motion.div
                 variants={blurVariant}
-                className="relative mx-auto mb-5 h-28 w-28"
+                className="relative mx-auto mb-5 h-36 w-36"
               >
                 <Image
                   src="/logo.png"
@@ -106,12 +106,6 @@ export default function Home() {
                 className="mt-5 uppercase tracking-[5px] text-[var(--color-accent-light)]"
               >
                 Médica Funcional Integrativa
-              </motion.p>
-              <motion.p
-                variants={fadeInSlideInVariant}
-                className="mt-5 text-xs text-gray-400"
-              >
-                Cédula OM: 60969
               </motion.p>
             </motion.span>
           )}

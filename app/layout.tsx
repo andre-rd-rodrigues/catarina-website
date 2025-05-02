@@ -4,7 +4,7 @@ import './globals.scss';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { PAGES_METADATA } from '@/metadata';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: PAGES_METADATA.HOME.title,

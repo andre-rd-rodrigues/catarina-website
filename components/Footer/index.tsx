@@ -43,7 +43,7 @@ const Footer = () => (
       <div className="mx-auto flex flex-wrap justify-between gap-8 border-b border-white/20 py-16">
         {/* Address */}
         <div>
-          <h3 className="mb-3 text-lg font-medium">Endereço</h3>
+          <h3 className="mb-3 text-lg font-medium">Atendimento Presencial:</h3>
           <p className=" flex items-center gap-3 text-sm font-light text-gray-300">
             <MapPin size={18} />
             {CONTACTS.address}
@@ -53,7 +53,7 @@ const Footer = () => (
         </div>
         {/* Contacts */}
         <div>
-          <h3 className="mb-3 text-lg font-medium">Contactos</h3>
+          <h3 className="mb-3 text-lg font-medium">Contactos:</h3>
           <Link
             target="_blank"
             href={`https://wa.me/${CONTACTS.phone}`}
