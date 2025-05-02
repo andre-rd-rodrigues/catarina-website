@@ -7,7 +7,7 @@ function PrivacyPolicy() {
     <Page>
       <Page.Title
         src="https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/small-white-ceramic-mortar-with-eucalyptus-leaves-AANHPA2.jpg"
-        title="FAQS"
+        title="Política de Privacidade"
       />
       <Section>
         <Section.Title
