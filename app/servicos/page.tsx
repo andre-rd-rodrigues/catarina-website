@@ -23,6 +23,7 @@ function Services() {
       <span id="consulta-medicina-funcional-integrativa" />
       {/* Especialidades */}
       <Section>
+        
         {/* Consulta Medicina Funcional Integrativa */}
         <div className="mb-28 flex flex-col items-center gap-8 md:flex-row md:gap-12">
           <motion.div

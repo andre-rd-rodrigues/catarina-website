@@ -86,7 +86,7 @@ export default function Home() {
             >
               <motion.div
                 variants={blurVariant}
-                className="relative mx-auto mb-5 h-36 w-36"
+                className="relative mx-auto mb-5 h-64 w-64"
               >
                 <Image
                   src="/logo.png"
