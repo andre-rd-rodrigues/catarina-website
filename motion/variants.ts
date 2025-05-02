@@ -86,7 +86,7 @@ const fadeInSlideInVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1,
+      duration: 2,
       ease: [0.35, 0, 0, 1], // ease-smooth
     },
   },
@@ -197,7 +197,7 @@ const blurVariant = {
     opacity: 1,
     filter: 'blur(0)',
     transition: {
-      duration: 1.5,
+      duration: 2,
       ease: [0.35, 0, 0.25, 1],
     },
   },
