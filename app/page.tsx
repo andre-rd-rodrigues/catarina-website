@@ -143,19 +143,24 @@ export default function Home() {
               animation="left"
             />
             <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
-              Bem-vindo(a). O meu nome é Catarina Paixão, e não sei se por
-              influência do nome, carrego em mim uma enorme capacidade de me
-              apaixonar pelas mais aleatórias e variadas coisas. Considero-me
-              uma eterna aprendiz da vida e do Ser-Humano na sua Infinitude.
-              Percorri os anos na Faculdade de Medicina na Universidade de
-              Lisboa com cada vez com mais encanto e fascínio pela máquina
-              complexa e arquitetada que é o nosso corpo. Pelo mistério maior
-              que é a mente e a consciência humana, todas as áreas relacionadas
-              com a saúde mental, sempre tiveram um lugar de destaque no meu
-              coração. Completei a faculdade, com cada vez mais consciência que
-              somos mais que este corpo onde habitamos, e com uma dificuldade
-              crescente em escolher onde me especializar, por não querer deixar
-              nenhuma parte do “Ser” para trás.
+              Bem-vindo(a), o meu nome é Catarina Paixão. Carrego em mim uma
+              enorme capacidade de me apaixonar pelas mais diversas coisas e,
+              desde muito cedo me interessei, pelos mistérios da mente e do
+              corpo humano. Após concluir a Faculdade de Medicina na
+              Universidade de Lisboa, segui um percurso profissional que incluiu
+              urgências hospitalares, serviços prisionais e o início da
+              especialização em Anestesiologia. Estas experiências ensinaram-me
+              muito na prática sobre os limites e a capacidade de superação do
+              ser-humano, fortalecendo a minha compreensão acerca da conexão
+              entre corpo, mente e emoções. Paralelamente, aprofundei os meus
+              estudos em Psicologia Analítica Junguiana, Yoga e Meditação,
+              Astrologia e outras práticas integrativas. A minha própria jornada
+              de cura ensinou-me a importância de uma abordagem holística,
+              conduzindo-me posteriormente à Pós-graduação em Medicina Funcional
+              Integrativa. Como médica, coloco toda a minha paixão e
+              conhecimento ao serviço dos meus pacientes, mantendo-me em
+              constante aprendizagem sobre o Ser Humano e o Mistério da
+              Existência.
             </motion.p>
           </motion.div>
           <div className="flex-1">
