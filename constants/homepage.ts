@@ -15,7 +15,7 @@ export const HOMEPAGE_SERVICES = [
   },
   {
     number: '03.',
-    title: 'Mapa Astral + Human Design',
+    title: 'Outros Serviços',
     description:
       'Leitura intuitiva dos mapas astrológico e de Human Design, com enfoque nas questões de saúde, como ferramenta de autoconhecimento e alinhamento pessoal.',
     href: '/servicos#mapa-astral-human-design',
