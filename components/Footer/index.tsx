@@ -2,6 +2,7 @@ import AppLink from '@/components/Link';
 import { CONTACTS } from '@/constants/common';
 import { FOOTER_NAVBAR } from '@/constants/navbar';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => (
@@ -11,7 +12,16 @@ const Footer = () => (
       <div className="flex flex-wrap items-center justify-between border-b border-white/20 pb-16">
         {/* Logo & Description */}
         <div>
-          <h2 className="text-2xl font-semibold">Catarina Paixão</h2>
+          <Link href="/" >
+            <Image
+              src="/logo.png"
+              alt="Catarina Paixão Logo"
+              width={40}
+              height={40}
+              className="object-cover"
+            />
+          </Link>
+          <h2 className="text-2xl font-semibold mt-3">Catarina Paixão</h2>
           <p className="mt-2 text-sm text-gray-300">
             “Onde quer que a Arte da Medicina seja amada, <br />
             haverá também amor pela Humanidade!” - <i>Hipocrátes</i>
