@@ -1,5 +1,7 @@
 import React from 'react';
 import PricingCard from '../Cards/PricingCard';
+import { motion } from 'motion/react';
+import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
 
 const servicesData = [
   {
@@ -71,41 +73,57 @@ const packsData = [
 
 const PriceCards: React.FC = () => {
   return (
-    <div className="grid gap-6 p-6">
+    <motion.div
+      variants={containerVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="grid gap-6 p-6"
+    >
       {/* Serviços */}
-      <div className="space-y-6">
+      <motion.div variants={containerVariant} className="space-y-6">
         <h3 className="text-xl text-[var(--color-primary)]">Serviços</h3>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {servicesData.map((item, index) => (
-            <PricingCard
+            <motion.div
               key={index}
-              title={item.title}
-              subtitle={item.subtitle}
-              price={item.price}
-              services={item.services}
-              note={item.note}
-            />
+              variants={fadeInSlideInVariant}
+              custom={index}
+            >
+              <PricingCard
+                title={item.title}
+                subtitle={item.subtitle}
+                price={item.price}
+                services={item.services}
+                note={item.note}
+              />
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Packs */}
-      <div className="mt-10 space-y-6">
+      <motion.div variants={containerVariant} className="mt-10 space-y-6">
         <h3 className="text-xl text-[var(--color-primary)]">Packs</h3>
         <div className="flex h-full flex-wrap gap-6">
           {packsData.map((item, index) => (
-            <PricingCard
+            <motion.div
               key={index}
-              title={item.title}
-              subtitle={item.subtitle}
-              price={item.price}
-              services={item.services}
-              note={item.note}
-            />
+              variants={fadeInSlideInVariant}
+              custom={index + servicesData.length}
+            >
+              <PricingCard
+                title={item.title}
+                subtitle={item.subtitle}
+                price={item.price}
+                services={item.services}
+                note={item.note}
+              />
+            </motion.div>
           ))}
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
