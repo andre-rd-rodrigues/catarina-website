@@ -1,151 +1,140 @@
 import React from 'react';
 
-const PriceTable: React.FC = () => {
-  const borderColor = 'border-gray-300';
-  const tableColumnTitleBgColor = 'bg-[#56867386]';
+const servicesData = [
+  {
+    title: 'Consulta Medicina Funcional Integrativa',
+    subtitle: '1ª consulta',
+    price: '360€',
+    services: [
+      'Pre-questionário (on-line)',
+      '1º tempo consulta',
+      '2º tempo consulta',
+      'PDF com indicações + plano terapêutico',
+      'Outros materiais de apoio quando necessário',
+    ],
+    note: '2x180€',
+  },
+  {
+    title: 'Consulta Medicina Funcional Integrativa',
+    subtitle: '2ª consulta',
+    price: '140€',
+    services: [
+      '1º tempo consulta (reavaliação dos resultados)',
+      '2º tempo consulta (adaptação do plano)',
+      'Novo PDF com indicações + plano terapêutico',
+    ],
+    note: '-',
+  },
+  {
+    title: 'Sessão Terapia',
+    subtitle: '',
+    price: '75€/sessão',
+    services: ['Sessão 1h', 'Regime Presencial/Online'],
+    note: 'Semanal: pagamento único no início do mês = 5% desconto',
+  },
+  {
+    title: 'Leitura Mapa Astral + Human Design',
+    subtitle: '',
+    price: '120€',
+    services: ['Sessão 1h30min', 'Regime Presencial/Online'],
+    note: '-',
+  },
+];
 
+const packsData = [
+  {
+    title: 'Saúde Corpo-Mente',
+    subtitle: '3 meses',
+    price: '1400€',
+    services: [
+      '1ª Consulta MFI',
+      '12 Sessões Terapia Semanais',
+      '1 Consulta de Seguimento',
+      '1 Leitura Mapa Astral + Human Design',
+      'Mentoria / Dúvidas Whatsapp (durante os 3 meses)',
+    ],
+    note: '3x 480€',
+  },
+  {
+    title: 'Saúde Corpo-Mente',
+    subtitle: '6 meses',
+    price: '1800€',
+    services: [
+      '1ª Consulta MFI',
+      '12 Sessões Terapia Semanais + 6 Sessões Quinzenais',
+      '2 Consultas de Seguimento',
+      '1 Leitura Mapa Astral + Human Design',
+      'Mentoria / Dúvidas Whatsapp (durante os 6 meses)',
+    ],
+    note: '3x 610€ ou 6x 320€',
+  },
+];
+
+const PriceCards: React.FC = () => {
   return (
-    <div className="overflow-auto p-4">
-      <table className={`min-w-[1000px] border ${borderColor} text-sm`}>
-        <thead>
-          <tr className={tableColumnTitleBgColor}>
-            <th className={`border ${borderColor} p-2`} rowSpan={2}>
-              Serviços
-            </th>
-            <th className={`border ${borderColor} p-2`} colSpan={2}>
-              Consulta Medicina Funcional Integrativa
-            </th>
-            <th className={`border ${borderColor} p-2`} rowSpan={2}>
-              Sessão Terapia
-            </th>
-            <th className={`border ${borderColor} p-2`} rowSpan={2}>
-              Leitura Mapa Astral + Human Design
-            </th>
-          </tr>
-          <tr className={tableColumnTitleBgColor}>
-            <th className={`border ${borderColor} p-2`}>1ª consulta</th>
-            <th className={`border ${borderColor} p-2`}>2ª consulta</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className={`border ${borderColor} p-2 font-semibold`}>
-              O que inclui / Info
-            </td>
-            <td className={`border ${borderColor} p-2`}>
-              ● Pre-questionário (on-line)
-              <br />
-              ● 1º tempo consulta
-              <br />
-              ● 2º tempo consulta
-              <br />
-              ● PDF com indicações + plano terapêutico
-              <br />● Outros materiais de apoio quando necessário
-            </td>
-            <td className={`border ${borderColor} p-2`}>
-              ● 1º tempo consulta (reavaliação dos resultados)
-              <br />
-              ● 2º tempo consulta (adaptação do plano)
-              <br />● Novo PDF com indicações + plano terapêutico
-            </td>
-            <td className={`border ${borderColor} p-2`}>
-              Sessão 1h
-              <br />
-              Regime Presencial/Online
-            </td>
-            <td className={`border ${borderColor} p-2`}>
-              Sessão 1h30min
-              <br />
-              Regime Presencial/Online
-            </td>
-          </tr>
-          <tr>
-            <td className={`border ${borderColor} p-2 font-semibold`}>Valor</td>
-            <td className={`border ${borderColor} p-2`}>360€</td>
-            <td className={`border ${borderColor} p-2`}>140€</td>
-            <td className={`border ${borderColor} p-2`}>75€/sessão</td>
-            <td className={`border ${borderColor} p-2`}>120€</td>
-          </tr>
-          <tr>
-            <td className={`border ${borderColor} p-2 font-semibold`}>
-              Opção pagamento
-            </td>
-            <td className={`border ${borderColor} p-2`}>2x180€</td>
-            <td className={`border ${borderColor} p-2`}>-</td>
-            <td className={`border ${borderColor} p-2`}>
-              Semanal: pagamento único no início do mês = 5% desconto
-            </td>
-            <td className={`border ${borderColor} p-2`}>-</td>
-          </tr>
-        </tbody>
-      </table>
+    <div className="grid gap-6 p-6">
+      {/* Serviços */}
+      <div className="space-y-6">
+        <h3 className="text-xl text-[var(--color-primary)]">Serviços</h3>
+        <div className="grid gap-6 md:grid-cols-2">
+          {servicesData.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-md border border-gray-300 bg-white p-4 shadow-sm"
+            >
+              <h2 className="mb-1 text-center text-lg">{item.title}</h2>
+              {item.subtitle && (
+                <p className="text-center text-sm font-semibold uppercase tracking-[2px] text-[var(--color-accent)]">
+                  {item.subtitle}
+                </p>
+              )}
+              <div className="mb-3 mt-5 text-center text-lg text-[var(--color-danger)]">
+                {item.price}
+              </div>
+              <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-gray-800">
+                {item.services.map((service, idx) => (
+                  <li key={idx}>{service}</li>
+                ))}
+              </ul>
+              {item.note && (
+                <>
+                  <div className="my-7 h-[1px] w-full bg-[var(--color-accent)] opacity-25"></div>
+                  <div className="mt-2 text-xs text-gray-500">{item.note}</div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div className="mt-8">
-        <h2 className="mb-2 text-lg">
-          Opções para quem quer uma abordagem mais integrada e completa:
-        </h2>
-        <table className={`min-w-[800px] border ${borderColor} text-sm`}>
-          <thead>
-            <tr className={tableColumnTitleBgColor}>
-              <th className={`border ${borderColor} p-2`} rowSpan={2}>
-                Pacote
-              </th>
-              <th className={`border ${borderColor} p-2`} colSpan={2}>
-                Saúde Corpo-Mente
-              </th>
-            </tr>
-            <tr className={tableColumnTitleBgColor}>
-              <th className={`border ${borderColor} p-2`}>3 meses</th>
-              <th className={`border ${borderColor} p-2`}>6 meses</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className={`border ${borderColor} p-2 font-semibold`}>
-                O que inclui
-              </td>
-              <td className={`border ${borderColor} p-2`}>
-                ● 1ª Consulta MFI
-                <br />
-                ● 12 Sessões Terapia Semanais
-                <br />
-                ● 1 Consulta de Seguimento
-                <br />
-                ● 1 Leitura Mapa Astral + Human Design
-                <br />+ Mentoria / Dúvidas Whatsapp (durante os 3 meses)
-              </td>
-              <td className={`border ${borderColor} p-2`}>
-                ● 1ª Consulta MFI
-                <br />
-                ● 12 Sessões Terapia Semanais + 6 Sessões Quinzenais
-                <br />
-                ● 2 Consultas de Seguimento
-                <br />
-                ● 1 Leitura Mapa Astral + Human Design
-                <br />+ Mentoria / Dúvidas Whatsapp (durante os 6 meses)
-              </td>
-            </tr>
-            <tr>
-              <td className={`border ${borderColor} p-2 font-semibold`}>
-                Valor
-              </td>
-              <td className={`border ${borderColor} p-2`}>1400€</td>
-              <td className={`border ${borderColor} p-2`}>1800€</td>
-            </tr>
-            <tr>
-              <td className={`border ${borderColor} p-2 font-semibold`}>
-                Opções Pagamento
-              </td>
-              <td className={`border ${borderColor} p-2`}>3x 480€</td>
-              <td className={`border ${borderColor} p-2`}>
-                3x 610€ ou 6x 320€
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      {/* Packs */}
+      <div className="space-y-6">
+        <h3 className="text-xl text-[var(--color-primary)]">Packs</h3>
+        <div className="grid gap-6 md:grid-cols-2">
+          {packsData.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-sm border border-gray-300 bg-white p-4 shadow-sm"
+            >
+              <h2 className="mb-1 text-base">{item.title}</h2>
+              {item.subtitle && (
+                <h4 className="mb-2 text-sm text-gray-600">{item.subtitle}</h4>
+              )}
+              <div className="mb-3 text-lg text-gray-900">{item.price}</div>
+              <ul className="mb-3 list-disc space-y-1 pl-5 text-sm text-gray-800">
+                {item.services.map((service, idx) => (
+                  <li key={idx}>{service}</li>
+                ))}
+              </ul>
+              {item.note && (
+                <div className="mt-2 text-xs text-gray-500">{item.note}</div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
-export default PriceTable;
+export default PriceCards;
