@@ -21,19 +21,21 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
   return (
     <div
-      className={`flex h-full flex-col rounded-md border border-gray-300 bg-white p-4 w-full sm:max-w-[320px] shadow-sm ${className}`}
+      className={`flex h-full w-full flex-col rounded-md border border-gray-300 bg-white p-5 shadow-sm sm:max-w-[320px] ${className}`}
     >
       <div>
         <h2 className="mb-1 text-center text-lg">{title}</h2>
-        {subtitle && (
-          <p className="text-center text-sm font-semibold uppercase tracking-[2px] text-[var(--color-accent)]">
-            {subtitle}
-          </p>
-        )}
-        <div className="mb-3 mt-5 text-center text-lg text-[var(--color-danger)]">
-          {price}
+        <div className="mt-4 space-y-1">
+          <div className="text-center text-lg text-[var(--color-danger)]">
+            {price}
+          </div>
+          {subtitle && (
+            <p className="text-center text-xs font-semibold uppercase tracking-[2px] text-[var(--color-accent)]">
+              {subtitle}
+            </p>
+          )}
         </div>
-        <ul className="mb-3 space-y-2 text-sm text-gray-800">
+        <ul className="mb-3 mt-5 space-y-2 text-sm text-gray-800">
           {services.map((service, idx) => (
             <li key={idx} className="flex items-start gap-2">
               <svg
@@ -74,4 +76,4 @@ const PricingCard: React.FC<PricingCardProps> = ({
   );
 };
 
-export default PricingCard; 
+export default PricingCard;

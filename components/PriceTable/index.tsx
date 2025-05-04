@@ -87,14 +87,12 @@ const PriceCards: React.FC = () => {
             />
           ))}
         </div>
-
-        
       </div>
 
       {/* Packs */}
-      <div className="space-y-6 mt-10">
+      <div className="mt-10 space-y-6">
         <h3 className="text-xl text-[var(--color-primary)]">Packs</h3>
-        <div className="flex flex-wrap h-full gap-6">
+        <div className="flex h-full flex-wrap gap-6">
           {packsData.map((item, index) => (
             <PricingCard
               key={index}
