@@ -62,7 +62,7 @@ function Services() {
             >
               <span id="sessoes-de-terapia-saude-mental" />
               <Image
-                src="https://images.unsplash.com/photo-1541976844346-f18aeac57b06?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/img/servicos_mfi.jpg"
                 alt="Consulta Medicina Funcional Integrativa"
                 fill
                 className="object-cover"
@@ -155,7 +155,7 @@ function Services() {
               className="relative min-h-80 w-full overflow-hidden rounded-md shadow-lg"
             >
               <Image
-                src="https://images.unsplash.com/photo-1533294455009-a77b7557d2d1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/img/astral_reading.jpg"
                 alt="Mapa Astral + Human Design"
                 fill
                 className="object-cover"

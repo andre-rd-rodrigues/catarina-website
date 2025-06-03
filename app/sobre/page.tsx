@@ -72,7 +72,7 @@ function About() {
               className="relative aspect-[3/4] w-full overflow-hidden rounded-md shadow-lg"
             >
               <Image
-                src="https://images.unsplash.com/photo-1535553507350-349399fb7b72?q=80&w=1665&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/img/sobre_1.jpg"
                 alt="Sobre Mim - Catarina Paixão"
                 fill
                 className="object-cover"
@@ -93,7 +93,7 @@ function About() {
               className="relative aspect-[3/4] w-full overflow-hidden rounded-md shadow-lg"
             >
               <Image
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1598&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="/img/sobre_2.jpg"
                 alt="Sobre Mim - Catarina Paixão"
                 fill
                 className="object-cover"

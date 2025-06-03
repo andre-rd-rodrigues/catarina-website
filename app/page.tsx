@@ -165,10 +165,7 @@ export default function Home() {
           </motion.div>
           <div className="flex-1">
             <SplitLeaf
-              images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
-              ]}
+              images={['/img/homepage_2.jpg', '/img/homepage_1.jpg']}
             />
           </div>
         </div>
@@ -268,12 +265,7 @@ export default function Home() {
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
           <div className="flex-1">
-            <SplitLeaf
-              images={[
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-woman-in-the-jacuzzi-of-a-spa-DZY55NA-800x800.jpg',
-                'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/young-couple-relaxing-on-the-tepidarium-bed-in-the-KSPPWQB-683x1024.jpg',
-              ]}
-            />
+            <SplitLeaf images={['/img/homepage_3.jpg', '/img/meditacao.jpg']} />
           </div>
           <motion.div
             variants={containerVariant}
