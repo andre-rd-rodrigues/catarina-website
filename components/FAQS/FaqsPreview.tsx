@@ -1,7 +1,11 @@
 import React from 'react';
 import Section from '../Section';
 import SplitLeafImage from '../SplitLeaf';
-import { containerVariant, motion } from '@/motion/variants';
+import {
+  containerVariant,
+  fadeInSlideLeftVariant,
+  motion,
+} from '@/motion/variants';
 import { FAQS } from '@/constants/faqs';
 import FAQs from '@/components/FAQS';
 import Link from '../Link';
@@ -28,11 +32,11 @@ function FaqsPreview() {
             animation="left"
             className="mb-6"
           />
-          <p className="mb-8">
+          <motion.p className="mb-8" variants={fadeInSlideLeftVariant}>
             Encontre respostas para as perguntas mais comuns sobre medicina
             integrativa e os meus serviços. Se tiver mais dúvidas, não hesite em
             contactar-me.
-          </p>
+          </motion.p>
           <FAQs items={FAQS.slice(0, 4)} />
           <div className="mt-5 flex justify-end">
             <Link href="/faqs" variant="outline" label="Ver mais" />
