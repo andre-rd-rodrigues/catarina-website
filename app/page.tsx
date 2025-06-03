@@ -1,14 +1,13 @@
 'use client';
 import HealthCards from '@/components/Cards/HealthCards';
 import ServiceCard from '@/components/Cards/ServiceCard';
-import FAQs from '@/components/FAQS';
+import FaqsPreview from '@/components/FAQS/FaqsPreview';
 import GlowEffect from '@/components/GlowEffect';
 import Hero from '@/components/Hero';
 import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
-import { FAQS } from '@/constants/faqs';
 import {
   HOMEPAGE_CHOOSE_US_SECTION,
   HOMEPAGE_SERVICES,
@@ -27,7 +26,7 @@ import { ArrowRightIcon } from 'lucide-react';
 import { AnimatePresence } from 'motion/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [showQuote, setShowQuote] = useState(true);
@@ -270,34 +269,7 @@ export default function Home() {
       </Section>
 
       {/* FAQS */}
-      <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-          <div className="flex-1">
-            <SplitLeaf images={['/img/homepage_3.jpg', '/img/meditacao.jpg']} />
-          </div>
-          <motion.div
-            variants={containerVariant}
-            whileInView="visible"
-            initial="hidden"
-            viewport={{ once: true }}
-            className="flex-1"
-          >
-            <Section.Title
-              title="Perguntas Frequentes"
-              subtitle="FAQS"
-              animation="left"
-              className="mb-6"
-            />
-            <p className="mb-8">
-              Quando se trata da nossa saúde, queremos ter a certeza de que
-              estamos a fazer as melhores escolhas e, por isso, é natural que
-              muitas perguntas surjam. Para o ajudar, aqui estão algumas das
-              questões mais comuns:
-            </p>
-            <FAQs items={FAQS} />
-          </motion.div>
-        </div>
-      </Section>
+      <FaqsPreview />
     </Page>
   );
 }
