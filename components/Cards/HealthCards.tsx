@@ -39,19 +39,19 @@ const healthCardsData = [
   },
   {
     image: (
-      <Image src="/img/circle.png" alt="Circle Icon" objectFit="cover" fill />
-    ),
-    title: 'O Natural é o Caminho para o Equilíbrio',
-    description:
-      'A Natureza sempre procura o bem do “Todo”, através do equilíbrio das suas “partes”.',
-  },
-  {
-    image: (
       <Image src="/img/plant.png" alt="Plant Icon" objectFit="cover" fill />
     ),
     title: 'Cuide de Si, Todos os Dias',
     description:
       'Pequenos gestos consistentes criam grandes transformações no seu bem-estar.',
+  },
+  {
+    image: (
+      <Image src="/img/circle.png" alt="Circle Icon" objectFit="cover" fill />
+    ),
+    title: 'O Natural é o Caminho para o Equilíbrio',
+    description:
+      'A Natureza sempre procura o bem do “Todo”, através do equilíbrio das suas “partes”.',
   },
 ];
 

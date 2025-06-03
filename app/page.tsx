@@ -127,7 +127,7 @@ export default function Home() {
           />
         </motion.div>
       </Section>
-      {/* Sobre mim */}
+      {/* Apresentação */}
       <Section>
         <div className="flex flex-col gap-8 md:flex-row md:gap-12">
           <motion.div
@@ -138,29 +138,32 @@ export default function Home() {
             className="flex-1"
           >
             <Section.Title
-              title="Paixão é sinónimo de cuidar"
-              subtitle="Sobre mim"
+              title="Paixão mora-me no nome e vive no modo como cuido."
+              subtitle="Apresentação"
               animation="left"
             />
             <motion.p variants={fadeInSlideLeftVariant} className="mt-8">
               Bem-vindo(a), o meu nome é Catarina Paixão. Carrego em mim uma
-              enorme capacidade de me apaixonar pelas mais diversas coisas e,
-              desde muito cedo me interessei, pelos mistérios da mente e do
-              corpo humano. Após concluir a Faculdade de Medicina na
-              Universidade de Lisboa, segui um percurso profissional que incluiu
-              urgências hospitalares, serviços prisionais e o início da
-              especialização em Anestesiologia. Estas experiências ensinaram-me
-              muito na prática sobre os limites e a capacidade de superação do
-              ser-humano, fortalecendo a minha compreensão acerca da conexão
-              entre corpo, mente e emoções. Paralelamente, aprofundei os meus
-              estudos em Psicologia Analítica Junguiana, Yoga e Meditação,
-              Astrologia e outras práticas integrativas. A minha própria jornada
-              de cura ensinou-me a importância de uma abordagem holística,
-              conduzindo-me posteriormente à Pós-graduação em Medicina Funcional
-              Integrativa. Como médica, coloco toda a minha paixão e
-              conhecimento ao serviço dos meus pacientes, mantendo-me em
-              constante aprendizagem sobre o Ser Humano e o Mistério da
-              Existência.
+              enorme capacidade de me apaixonar pelas mais diversas expressões
+              da vida — e desde cedo me senti profundamente atraída pelos
+              mistérios da mente e do corpo humano. Após concluir a Faculdade de
+              Medicina na Universidade de Lisboa, iniciei um percurso
+              profissional que incluiu urgências hospitalares, serviços
+              prisionais e o início da especialização em Anestesiologia. Cada
+              uma dessas vivências foi me ensinando muito sobre os limites do
+              ser humano e a sua imensa capacidade de superação — aprofundando a
+              minha compreensão <b>prática</b> sobre a conexão entre corpo
+              -mente - emoções. <br />
+              Ao longo deste caminho, fui também mergulhando noutras linguagens
+              do cuidado: estudei Psicologia Analítica Junguiana, Yoga e
+              Meditação, Astrologia e outras práticas integrativas. A minha
+              própria jornada de cura foi o que me revelou o valor de uma
+              abordagem verdadeiramente holística —e o que me conduziu à
+              Pós-graduação em Medicina Funcional Integrativa. <br />
+              Hoje, como médica, coloco toda a minha <b>paixão</b> e
+              conhecimento ao serviço de quem me procura. Mantenho-me em
+              constante escuta e aprendizagem sobre o Ser Humano — e o Mistério
+              profundo que é existir.
             </motion.p>
           </motion.div>
           <div className="flex-1">
@@ -170,7 +173,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
       {/* Serviços */}
       <Section className="bg-[var(--color-background-alt)]">
         <Section.Title
@@ -184,11 +186,15 @@ export default function Home() {
           whileInView="visible"
           initial="hidden"
           viewport={{ once: true }}
-          className="mt-16 flex flex-wrap gap-5 md:flex-nowrap"
+          className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           {HOMEPAGE_SERVICES.map(({ number, title, description, href }) => (
-            <motion.span variants={fadeInSlideInVariant} key={number}>
-              <NextLink href={href}>
+            <motion.span
+              variants={fadeInSlideInVariant}
+              key={number}
+              className="h-full"
+            >
+              <NextLink href={href} className="block h-full">
                 <ServiceCard
                   subtitle={number}
                   title={title}
@@ -208,18 +214,20 @@ export default function Home() {
 
       {/* Promoção de serviços */}
       <Hero
-        subtitle="Sentir é sentir"
+        subtitle="Base no Sentir"
         title={`"Conheça todas as teorias, domine todas as técnicas, mas ao tocar uma alma humana, seja apenas outra alma humana." - Carl Jung`}
-        content="Este pode ser o início de uma jornada transformadora para a sua saúde e bem-estar. A Medicina Integrativa oferece um olhar atento e cuidadoso sobre o seu corpo e mente, combinando ciência e terapias complementares para encontrar o equilíbrio que merece. Vamos juntos trilhar este caminho rumo a uma vida mais saudável e harmoniosa."
+        content="Este pode ser o início de uma jornada transformadora para a sua saúde e bem-estar. Ofereço um olhar atento e cuidadoso sobre si mesmo, combinando ciência e intuição para encontrarmos o equilíbrio que merece. Vamos juntos trilhar este caminho?"
         actionButton={
           <Link href="/servicos" label="Saber mais" variant="outline" />
         }
       />
+
+      {/* Health cards */}
       <Section className="-mt-12">
         <HealthCards />
       </Section>
 
-      {/* Áreas de atuação */}
+      {/* Serviços */}
       <Section className="bg-[var(--color-secondary)]">
         <motion.div
           variants={containerVariant}

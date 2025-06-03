@@ -17,7 +17,7 @@ export const HOMEPAGE_SERVICES = [
     number: '03.',
     title: 'Outros Serviços',
     description:
-      'Leitura intuitiva dos mapas astrológico e de Human Design, com enfoque nas questões de saúde, como ferramenta de autoconhecimento e alinhamento pessoal.',
+      '- Leitura terapêutica de Mapa Astral + Human Design<br />- Programa de acompanhamento integrativo - 3 ou 6  meses',
     href: '/servicos#mapa-astral-human-design',
   },
 ];
@@ -31,16 +31,16 @@ export const HOMEPAGE_CHOOSE_US_SECTION = [
   {
     title: 'Medicina Natural e Integrativa',
     description:
-      'O meu compromisso é promover o seu bem-estar através de abordagens que respeitam o seu corpo e estimulam a cura do interior para o exterior.',
+      'O meu compromisso é promover o seu bem-estar através de abordagens que respeitam o seu Ser e estimulam a cura do interior para o exterior.',
   },
   {
     title: 'Harmonia e Equilíbrio',
     description:
-      'A saúde não é apenas a ausência de doença, mas um estado de equilíbrio entre corpo e mente.',
+      'A saúde não é apenas a ausência de doença, mas um estado de equilíbrio entre todas as suas partes.',
   },
   {
     title: 'Bem-Estar Sustentável',
     description:
-      'Irei ajudá-lo a adotar um estilo de vida saudável que favorece a sua energia e longevidade.',
+      'Ajudo a adotar medidas que tragam mais leveza ao autocuidado, favorecendo a sua energia e longevidade.',
   },
 ];

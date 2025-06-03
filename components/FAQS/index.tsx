@@ -61,11 +61,10 @@ const FAQs: React.FC<FAQsProps> = ({ items }) => {
             className="overflow-hidden"
           >
             <div className="my-5 text-[var(--color-text)]">
-              {item.answer.split('\n\n').map((paragraph, i) => (
-                <p key={i} className="mb-4 last:mb-0">
-                  {paragraph}
-                </p>
-              ))}
+              <p
+                className="mb-4 last:mb-0"
+                dangerouslySetInnerHTML={{ __html: item.answer }}
+              />
             </div>
           </motion.div>
         </motion.div>

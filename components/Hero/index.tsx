@@ -47,7 +47,7 @@ const Hero: React.FC<HeroProps> = ({
         )}
         <motion.h3
           variants={fadeInSlideInVariant}
-          className="mb-5 max-w-4xl text-3xl leading-tight"
+          className="mb-5 max-w-4xl text-3xl leading-tight text-[var(--color-danger)]"
         >
           {title}
         </motion.h3>
