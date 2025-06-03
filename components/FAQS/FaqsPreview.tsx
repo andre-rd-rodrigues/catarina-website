@@ -4,6 +4,7 @@ import SplitLeafImage from '../SplitLeaf';
 import { containerVariant, motion } from '@/motion/variants';
 import { FAQS } from '@/constants/faqs';
 import FAQs from '@/components/FAQS';
+import Link from '../Link';
 
 function FaqsPreview() {
   return (
@@ -32,7 +33,10 @@ function FaqsPreview() {
             integrativa e os meus serviços. Se tiver mais dúvidas, não hesite em
             contactar-me.
           </p>
-          <FAQs items={FAQS} />
+          <FAQs items={FAQS.slice(0, 4)} />
+          <div className="mt-5 flex justify-end">
+            <Link href="/faqs" variant="outline" label="Ver mais" />
+          </div>
         </motion.div>
       </div>
     </Section>

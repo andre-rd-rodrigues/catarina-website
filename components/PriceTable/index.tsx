@@ -6,16 +6,16 @@ import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
 const servicesData = [
   {
     title: 'Consulta Medicina Funcional Integrativa',
-    subtitle: '1ª consulta',
-    price: '360€*',
+    subtitle: 'PACOTE “1º CONSULTA”',
+    price: '320€*',
     services: [
-      'Pre-questionário (on-line)',
+      'Pré-questionário',
       '1º tempo consulta',
       '2º tempo consulta',
       'PDF com indicações + plano terapêutico',
       'Outros materiais de apoio quando necessário',
     ],
-    note: '*O valor total é correspondente a duas consultas: 2x180€',
+    note: '*O valor total é correspondente a duas consultas: 2x160€',
   },
   {
     title: 'Consulta Medicina Funcional Integrativa',
@@ -31,8 +31,11 @@ const servicesData = [
     title: 'Sessão Terapia',
     subtitle: '',
     price: '75€/sessão',
-    services: ['Sessão 1h', 'Regime Presencial/Online'],
-    note: 'Para sessões semanais, pagamento único no início do mês com 5% de desconto',
+    services: [
+      'Sessão 1h',
+      'Regime Presencial/Online',
+      'Regime Quinzenal ou Semanal ',
+    ],
   },
   {
     title: 'Leitura Mapa Astral + Human Design',
@@ -104,7 +107,9 @@ const PriceCards: React.FC = () => {
 
       {/* Packs */}
       <motion.div variants={containerVariant} className="mt-10 space-y-6">
-        <h3 className="text-xl text-[var(--color-primary)]">Packs</h3>
+        <h3 className="text-xl text-[var(--color-primary)]">
+          Programa de Acompanhamento Integrativo
+        </h3>
         <div className="flex h-full flex-wrap gap-6">
           {packsData.map((item, index) => (
             <motion.div

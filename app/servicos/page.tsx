@@ -1,14 +1,17 @@
 'use client';
 
+import InfoCard from '@/components/Cards/InfoCard';
 import FaqsPreview from '@/components/FAQS/FaqsPreview';
 import Page from '@/components/Page';
 import PriceTable from '@/components/PriceTable';
 import Section from '@/components/Section';
+import { ABOUT_VALUES } from '@/constants/about';
 import {
   containerVariant,
   fadeInSlideInVariant,
   fadeInSlideLeftVariant,
 } from '@/motion/variants';
+import { IconName } from 'lucide-react/dynamic';
 import { motion } from 'motion/react';
 import Image from 'next/image';
 
@@ -307,6 +310,36 @@ function Services() {
             </motion.div>
           </motion.div>
         </div>
+      </Section>
+
+      {/* Principios Terapeuticos */}
+      <Section className="bg-[var(--color-background-alt)]">
+        <Section.Title
+          title="Princípios Terapêuticos"
+          subtitle="Valores"
+          animation="left"
+        />
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-4"
+        >
+          {ABOUT_VALUES.map(({ icon, title, description }) => (
+            <motion.span
+              variants={fadeInSlideInVariant}
+              key={title}
+              className="h-full"
+            >
+              <InfoCard
+                key={title}
+                icon={icon as IconName}
+                title={title}
+                description={description}
+              />
+            </motion.span>
+          ))}
+        </motion.div>
       </Section>
 
       {/* Serviços & Packs */}
