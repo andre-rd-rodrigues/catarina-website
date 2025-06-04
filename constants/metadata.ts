@@ -2,7 +2,7 @@ export const PAGES_METADATA = {
   HOME: {
     title: 'Dra. Catarina Paixão ⦁ Medicina Integrativa',
     description:
-      'Bem-vinda(o) ao seu espaço de tranquilidade. Sou a Dra. Catarina Paixão, médica especializada em medicina integrativa. Aqui, você encontra uma abordagem individualizada que combina medicina convencional e terapias complementares, promovendo equilíbrio, saúde e bem-estar de forma holística.',
+      'Dra. Catarina Paixão - Medicina com alma. Une ciência, mente e espiritualidade num cuidado profundo e humano.',
   },
   ABOUT: {
     title: 'Sobre ⦁ Dra. Catarina Paixão',
