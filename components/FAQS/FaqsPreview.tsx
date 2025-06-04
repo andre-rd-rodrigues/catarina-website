@@ -8,7 +8,9 @@ import {
 } from '@/motion/variants';
 import { FAQS } from '@/constants/faqs';
 import FAQs from '@/components/FAQS';
-import Link from '../Link';
+import { CONTACTS } from '@/constants/common';
+import Link from 'next/link';
+import AppLink from '@/components/Link';
 
 function FaqsPreview() {
   return (
@@ -34,12 +36,18 @@ function FaqsPreview() {
           />
           <motion.p className="mb-8" variants={fadeInSlideLeftVariant}>
             Encontre respostas para as perguntas mais comuns sobre medicina
-            integrativa e os meus serviços. Se tiver mais dúvidas, não hesite em
-            contactar-me.
+            integrativa e os meus serviços. Se não encontrou a resposta que
+            pretendia,{' '}
+            <Link
+              className="text-[var(--color-danger)] hover:underline"
+              href={`https://wa.me/${CONTACTS.phone}`}
+            >
+              fale comigo.
+            </Link>
           </motion.p>
           <FAQs items={FAQS.slice(0, 4)} />
           <div className="mt-5 flex justify-end">
-            <Link href="/faqs" variant="outline" label="Ver mais" />
+            <AppLink href="/faqs" variant="outline" label="Ver mais" />
           </div>
         </motion.div>
       </div>

@@ -19,22 +19,22 @@ const servicesData = [
   },
   {
     title: 'Consulta Medicina Funcional Integrativa',
-    subtitle: '2ª consulta',
+    subtitle: 'consultas seguintes',
     price: '140€',
     services: [
-      '1º tempo consulta (reavaliação dos resultados)',
+      'Reavaliação dos resultados',
       '2º tempo consulta (adaptação do plano)',
       'Novo PDF com indicações + plano terapêutico',
     ],
   },
   {
-    title: 'Sessão Terapia',
+    title: 'Sessões Terapia',
     subtitle: '',
     price: '75€/sessão',
     services: [
-      'Sessão 1h',
+      'Duração: 50min',
       'Regime Presencial/Online',
-      'Regime Quinzenal ou Semanal ',
+      'Regime Semanal ou Quinzenal',
     ],
   },
   {
@@ -110,7 +110,7 @@ const PriceCards: React.FC = () => {
         <h3 className="text-xl text-[var(--color-primary)]">
           Programa de Acompanhamento Integrativo
         </h3>
-        <div className="flex h-full flex-wrap gap-6">
+        <div className="flex h-full flex-wrap justify-center gap-6">
           {packsData.map((item, index) => (
             <motion.div
               key={index}
