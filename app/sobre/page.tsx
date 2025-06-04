@@ -138,10 +138,10 @@ function About() {
               outras linguagens do cuidado e do autoconhecimento:{' '}
               <strong>
                 Nutrição, Medicina Tradicional Chinesa, Yoga, Meditação,
-                Astrologia, Human Design
+                Astrologia, Human Design, Teologia
               </strong>{' '}
-              — práticas e sistemas que, de forma intuitiva, me ajudaram a
-              reconectar com a minha saúde e a minha espiritualidade.
+              entre outros — práticas e sistemas que, de forma intuitiva, me
+              ajudaram a reconectar com a minha saúde e a minha espiritualidade.
               <br />
               Percebi então que, para verdadeiramente cuidar, precisava integrar
               tudo aquilo que havia aprendido —{' '}
