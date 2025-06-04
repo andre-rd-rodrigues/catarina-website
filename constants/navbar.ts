@@ -1,9 +1,5 @@
 export const NAVBAR = [
   {
-    name: 'Home',
-    href: '/',
-  },
-  {
     name: 'Sobre',
     href: '/sobre',
   },

@@ -122,7 +122,7 @@ function About() {
             className="order-1 flex-1 md:order-2"
           >
             <Section.Title
-              title="Motivada pelo meu próprio sofrimento e desconforto"
+              title="Entre a ciência e o sagrado, está a medicina que eu abraço"
               subtitle="Sobre mim"
               animation="left"
             />

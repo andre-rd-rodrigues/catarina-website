@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import { PAGES_METADATA } from '@/metadata';
 import Analytics from '@/components/Analytics';
 
-
 export const metadata: Metadata = {
   title: PAGES_METADATA.HOME.title,
   description: PAGES_METADATA.HOME.description,
