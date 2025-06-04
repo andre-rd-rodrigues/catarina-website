@@ -1,4 +1,4 @@
-export const WEBSITE_DOMAIN_URL = 'https://www.catarinapaixao.com';
+export const WEBSITE_DOMAIN_URL = 'https://www.paixaomed.com';
 export const CONTACTS = {
   email: 'consultas.cpaixao@gmail.com',
   phone: '+351928259010',

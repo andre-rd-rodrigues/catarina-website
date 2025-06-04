@@ -86,7 +86,7 @@ function About() {
               className="relative aspect-[3/4] w-full overflow-hidden rounded-md shadow-lg"
             >
               <Image
-                src="/img/sobre_1.jpg"
+                src="/img/profile.jpg"
                 alt="Sobre Mim - Catarina Paixão"
                 fill
                 className="object-cover"
