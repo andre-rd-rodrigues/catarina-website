@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@lucide/lab": "^0.1.2",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",

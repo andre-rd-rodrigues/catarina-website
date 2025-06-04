@@ -1,30 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import Button from '../Button';
+import { CheckCircle } from 'lucide-react';
 
-interface ContactFormProps {
-  onSubmit?: (data: {
-    firstName: string;
-    email: string;
-    phone: string;
-    message: string;
-  }) => void;
-}
-
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
-  const [firstName, setFirstName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (onSubmit) {
-      onSubmit({ firstName, email, phone, message });
-    }
-    // Otherwise, handle form submission logic here
-  };
-
+function ContactForm() {
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM_ID || '');
+  if (state.succeeded) {
+    return (
+      <div className="flex flex-col items-center justify-center py-8">
+        <CheckCircle size={70} className="text-[var(--color-accent)] mb-4" />
+        <h2 className="font-marcellus text-2xl mb-2">Obrigado pelo seu contacto!</h2>
+        <p className="text-center">Em breve entrarei em contacto consigo.</p>
+      </div>
+    );
+  }
   return (
     <form onSubmit={handleSubmit} className="mx-auto w-full">
       {/* Grid container: two columns on medium+ screens, single column on small */}
@@ -37,11 +27,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           <input
             id="firstName"
             type="text"
+            name="firstName"
             placeholder="Escreva o seu nome aqui..."
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            required
           />
+          <ValidationError prefix="Nome" field="firstName" errors={state.errors} />
         </div>
         {/* Email */}
         <div className="flex flex-col">
@@ -51,11 +42,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           <input
             id="email"
             type="email"
+            name="email"
             placeholder="exemplo@mail.com"
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            required
           />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
         </div>
         {/* Phone */}
         <div className="flex flex-col">
@@ -65,13 +57,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           <input
             id="phone"
             type="text"
+            name="phone"
             placeholder="Número de telemóvel"
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
           />
+          <ValidationError prefix="Telemóvel" field="phone" errors={state.errors} />
         </div>
-
         {/* Message (Spans two columns on medium+ screens) */}
         <div className="col-span-1 flex flex-col md:col-span-2">
           <label htmlFor="message" className="font-marcellus mb-1 text-lg">
@@ -79,26 +70,26 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit }) => {
           </label>
           <textarea
             id="message"
+            name="message"
             rows={2}
             placeholder="Escreva aqui a sua mensagem..."
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            required
           />
+          <ValidationError prefix="Mensagem" field="message" errors={state.errors} />
         </div>
       </div>
-
       {/* Submit Button */}
       <div className="mt-7 flex justify-center">
         <Button
           label="Submeter"
-          onClick={handleSubmit}
           variant="accent"
           type="submit"
+          disabled={state.submitting}
         />
       </div>
     </form>
   );
-};
+}
 
 export default ContactForm;
