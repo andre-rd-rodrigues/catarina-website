@@ -46,4 +46,12 @@ export const FOOTER_NAVBAR = [
     name: 'Contactos',
     href: '/contactos',
   },
+  {
+    name: 'Termos',
+    href: '/termos',
+  },
+  {
+    name: 'Política de Privacidade',
+    href: '/politica-de-privacidade',
+  },
 ];
