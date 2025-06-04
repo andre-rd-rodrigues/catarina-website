@@ -32,23 +32,30 @@ function PrivacyPolicy() {
 
         <h2 className="mt-6">2. Ferramenta de Análise Utilizada</h2>
         <p className="mb-4">
-          Utilizamos o serviço{' '}
-          <strong>Insights (https://getinsights.io)</strong> para obter
-          estatísticas anónimas sobre o uso do site, como número de visitantes,
-          páginas visualizadas e tempo de navegação.
+          Este website utiliza ferramentas de análise para compreender o
+          comportamento de navegação e melhorar a experiência do utilizador.
         </p>
         <p className="mb-4">
-          O Insights não utiliza cookies e não recolhe nem armazena dados
-          pessoais identificáveis. Toda a informação recolhida é completamente
-          anónima e serve apenas para fins estatísticos e de melhoria contínua
-          do site.
+          Também utilizamos o <strong>Google Search Console</strong> para
+          monitorizar a presença do website nos resultados de pesquisa do
+          Google. Esta ferramenta permite identificar problemas de indexação e
+          melhorar o desempenho do site nos motores de busca, sem recolher
+          qualquer dado pessoal dos visitantes.
+        </p>
+
+        <p className="mb-4">
+          Por fim, recorremos ao <strong>Hotjar</strong> para entender melhor
+          como os visitantes interagem com o website. O Hotjar recolhe dados de
+          forma anónima, incluindo cliques, movimentos do rato e mapas de calor.
+          Esses dados ajudam-nos a melhorar a usabilidade e a experiência geral
+          do utilizador. Nenhuma informação pessoal é recolhida ou armazenada.
         </p>
 
         <h2 className="mt-6">3. Partilha de Dados</h2>
         <p className="mb-4">
           Não partilhamos qualquer tipo de dado com terceiros. Todos os dados
-          anónimos recolhidos através do Insights permanecem privados e são
-          utilizados exclusivamente para análise interna.
+          anónimos recolhidos permanecem privados e são utilizados
+          exclusivamente para análise interna.
         </p>
 
         <h2 className="mt-6">4. Direitos do Utilizador</h2>

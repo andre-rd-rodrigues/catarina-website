@@ -59,11 +59,26 @@ function PrivacyPolicy() {
 
         <h2 className="mt-6">5. Análise de Utilização</h2>
         <p className="mb-4">
-          Este site utiliza o serviço{' '}
-          <strong>Insights (https://getinsights.io)</strong> para análise
-          anónima de tráfego. Este serviço não utiliza cookies nem recolhe dados
-          pessoais. A utilização deste website implica a aceitação dessa
-          prática.
+          Este site utiliza ferramentas de análise com o objetivo de melhorar
+          continuamente a experiência dos visitantes.
+        </p>
+
+        <p className="mb-4">
+          Adicionalmente, utilizamos o <strong>Google Search Console</strong>{' '}
+          para acompanhar o desempenho do website nos motores de busca,
+          identificar problemas técnicos e otimizar o conteúdo — sem recolha de
+          dados identificáveis.
+        </p>
+
+        <p className="mb-4">
+          Também recorremos ao <strong>Hotjar</strong>, que nos permite analisar
+          interações como cliques, scroll e navegação através de dados anónimos.
+          Estes dados são usados exclusivamente para fins de melhoria do site.
+        </p>
+
+        <p className="mb-4">
+          Ao utilizar este website, concorda com o uso destas ferramentas
+          conforme descrito.
         </p>
 
         <h2 className="mt-6">6. Alterações aos Termos</h2>
