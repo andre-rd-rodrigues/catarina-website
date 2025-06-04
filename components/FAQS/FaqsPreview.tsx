@@ -35,12 +35,11 @@ function FaqsPreview() {
             className="mb-6"
           />
           <motion.p className="mb-8" variants={fadeInSlideLeftVariant}>
-            Encontre respostas para as perguntas mais comuns sobre medicina
-            integrativa e os meus serviços. Se não encontrou a resposta que
-            pretendia,{' '}
+            Encontre respostas para as perguntas mais comuns acerca dos meus
+            serviços. Se não encontrar a que procura,{' '}
             <Link
-              className="text-[var(--color-danger)] hover:underline"
               href={`https://wa.me/${CONTACTS.phone}`}
+              className="relative inline-block text-[var(--color-danger)] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-[var(--color-danger)] after:transition-all after:duration-300 hover:after:w-full"
             >
               fale comigo.
             </Link>

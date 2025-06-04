@@ -9,7 +9,7 @@ export const NAVBAR = [
   },
   {
     name: 'Serviços',
-    href: '/serviços',
+    href: '/servicos',
   },
   {
     name: 'FAQs',

@@ -27,7 +27,7 @@ export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
 
   const pathname = usePathname();
-
+  console.log(pathname);
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -70,8 +70,10 @@ export default function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`rounded-md px-3 py-2 text-[1rem] text-xs tracking-widest text-white duration-300 hover:text-white/50 ${
-                      pathname === item.href ? 'text-white' : 'hover:text-white'
+                    className={`px-3 py-2 text-[1rem] text-xs tracking-widest text-white duration-300 hover:text-white/50 ${
+                      pathname === item.href
+                        ? 'text-white underline underline-offset-4'
+                        : 'hover:text-white'
                     } transition-colors duration-300`}
                   >
                     {item.name}
@@ -102,16 +104,16 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="mt-2 md:hidden"
           >
-            <div className="border-1 rounded-lg border-teal-950 bg-teal-950 bg-opacity-40 shadow-lg backdrop-blur-[20px]">
+            <div className="border-1 rounded-lg border-teal-950 bg-teal-950 bg-opacity-40 shadow-lg backdrop-blur-[20px] ">
               <div className="space-y-1 px-2 py-4 sm:px-3">
                 {NAVBAR.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block rounded-md px-3 py-3 text-right text-sm tracking-widest text-white ${
+                    className={`block px-3 py-3 text-right text-sm tracking-widest text-white hover:text-white/50 ${
                       pathname === item.href
-                        ? 'text-white'
-                        : 'text-gray-300 hover:text-white'
+                        ? 'text-white underline underline-offset-4'
+                        : 'hover:text-white'
                     } transition-colors duration-300`}
                     onClick={() => setIsOpen(false)}
                   >
