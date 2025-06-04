@@ -9,8 +9,10 @@ function ContactForm() {
   if (state.succeeded) {
     return (
       <div className="flex flex-col items-center justify-center py-8">
-        <CheckCircle size={70} className="text-[var(--color-accent)] mb-4" />
-        <h2 className="font-marcellus text-2xl mb-2">Obrigado pelo seu contacto!</h2>
+        <CheckCircle size={70} className="mb-4 text-[var(--color-accent)]" />
+        <h2 className="font-marcellus mb-2 text-2xl">
+          Obrigado pelo seu contacto!
+        </h2>
         <p className="text-center">Em breve entrarei em contacto consigo.</p>
       </div>
     );
@@ -32,7 +34,11 @@ function ContactForm() {
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
             required
           />
-          <ValidationError prefix="Nome" field="firstName" errors={state.errors} />
+          <ValidationError
+            prefix="Nome"
+            field="firstName"
+            errors={state.errors}
+          />
         </div>
         {/* Email */}
         <div className="flex flex-col">
@@ -61,7 +67,11 @@ function ContactForm() {
             placeholder="Número de telemóvel"
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
           />
-          <ValidationError prefix="Telemóvel" field="phone" errors={state.errors} />
+          <ValidationError
+            prefix="Telemóvel"
+            field="phone"
+            errors={state.errors}
+          />
         </div>
         {/* Message (Spans two columns on medium+ screens) */}
         <div className="col-span-1 flex flex-col md:col-span-2">
@@ -76,7 +86,11 @@ function ContactForm() {
             className="border-0 border-b border-gray-300 bg-transparent py-1 font-light text-[var(--color-text)] focus:border-green-700 focus:outline-none"
             required
           />
-          <ValidationError prefix="Mensagem" field="message" errors={state.errors} />
+          <ValidationError
+            prefix="Mensagem"
+            field="message"
+            errors={state.errors}
+          />
         </div>
       </div>
       {/* Submit Button */}
