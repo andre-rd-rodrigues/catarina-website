@@ -38,7 +38,7 @@ export default function Home() {
       setTimeout(() => {
         setShowTitle(true);
       }, 1000);
-    }, 6000);
+    }, 5500);
 
     return () => clearTimeout(timeout);
   }, []);

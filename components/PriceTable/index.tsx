@@ -54,10 +54,10 @@ const packsData = [
       '1ª Consulta MFI',
       '12 Sessões Terapia Semanais',
       '1 Consulta de Seguimento',
-      '1 Leitura Mapa Astral + Human Design',
+      '1 Leitura Mapa Astral + Human Design (Opcional)',
       'Mentoria / Dúvidas Whatsapp (durante os 3 meses)',
     ],
-    note: '*Para obter mais informações sobre este pacote, por favor contacte-me.',
+    note: '*Para obter mais informações sobre este plano, por favor <b>entre em contacto.</b>',
   },
   {
     title: 'Saúde Integrativa',
@@ -67,10 +67,10 @@ const packsData = [
       '1ª Consulta MFI',
       '12 Sessões Terapia Semanais + 6 Sessões Quinzenais',
       '2 Consultas de Seguimento',
-      '1 Leitura Mapa Astral + Human Design',
+      '1 Leitura Mapa Astral + Human Design (Opcional)',
       'Mentoria / Dúvidas Whatsapp (durante os 6 meses)',
     ],
-    note: '*Para obter mais informações sobre este pacote, por favor contacte-me.',
+    note: '*Para obter mais informações sobre este plano, por favor <b>entre em contacto.</b>',
   },
 ];
 

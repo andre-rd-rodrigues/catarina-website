@@ -58,7 +58,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
         {note && (
           <>
             <div className="my-7 h-[1px] w-full bg-[var(--color-accent)] opacity-25"></div>
-            <div className="mt-2 text-xs text-gray-500">{note}</div>
+            <div
+              className="mt-2 text-xs text-gray-500"
+              dangerouslySetInnerHTML={{ __html: note }}
+            />
           </>
         )}
       </div>

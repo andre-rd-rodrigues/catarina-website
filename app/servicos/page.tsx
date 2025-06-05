@@ -347,7 +347,7 @@ function Services() {
         <Section.Title
           title="Preçário"
           animation="left"
-          subtitle="Serviços & Programas"
+          subtitle="Serviços & Programas Integrativos"
           className="text-center"
         />
         <motion.div

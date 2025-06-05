@@ -45,16 +45,6 @@ function About() {
               sua vastidão e profundidade. Adoro metáforas e analogias desde que
               me lembro, e das mais diversas formas procuro entendimento.
               <br />
-              Iniciei a minha actividade profissional nas urgências hospitalares
-              e extra-hospitalares, passando também pela actuação em serviços
-              prisionais, e ainda percorri o primeiro ano de especialização em
-              Anestesiologia. As minhas experiências profissionais ensinaram-me
-              muito sobre os limites do ser- humano, os seus pontos de rutura,
-              mas também sobre as suas capacidades de superação, destacando a
-              importância da conexão entre a consciência e o corpo, e a
-              interação entre este e as emoções/reações, para navegar cenários
-              desafiantes e processos de cura.
-              <br />
               Percorri os anos na{' '}
               <b>Faculdade de Medicina da Universidade de Lisboa</b> com cada
               vez mais encanto e fascínio pela máquina complexa e arquitetada
@@ -140,7 +130,7 @@ function About() {
                 Nutrição, Medicina Tradicional Chinesa, Yoga, Meditação,
                 Astrologia, Human Design, Teologia
               </strong>{' '}
-              entre outros — práticas e sistemas que, de forma intuitiva, me
+              entre outras — práticas e sistemas que, de forma intuitiva, me
               ajudaram a reconectar com a minha saúde e a minha espiritualidade.
               <br />
               Percebi então que, para verdadeiramente cuidar, precisava integrar
