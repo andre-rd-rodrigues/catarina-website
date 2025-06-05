@@ -11,37 +11,6 @@ export const getMetadata = async (
   return {
     title: options.title,
     description: options.description,
-    icons: [
-      {
-        url: 'https://i.postimg.cc/wxn15zJV/favicon-16x16.png',
-        sizes: '16x16',
-        rel: 'icon',
-      },
-      {
-        url: 'https://i.postimg.cc/mgyhGFnX/favicon-32x32.png',
-        sizes: '32x32',
-        rel: 'icon',
-      },
-      {
-        url: 'https://i.postimg.cc/4NtmB0QT/apple-touch-icon.png',
-        sizes: '180x180',
-        rel: 'apple-touch-icon',
-      },
-      {
-        url: 'https://i.postimg.cc/qvTgYG16/android-chrome-192x192.png',
-        sizes: '192x192',
-        rel: 'icon',
-      },
-      {
-        url: 'https://i.postimg.cc/d0Q3QVPq/android-chrome-512x512.png',
-        sizes: '512x512',
-        rel: 'icon',
-      },
-      {
-        url: 'https://i.postimg.cc/d0Q3QVPq/android-chrome-512x512.png',
-        rel: 'shortcut icon',
-      },
-    ],
     alternates: {
       canonical: `${WEBSITE_DOMAIN_URL}/${pathname}`,
     },
