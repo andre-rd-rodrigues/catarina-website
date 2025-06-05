@@ -342,12 +342,12 @@ function Services() {
         </motion.div>
       </Section>
 
-      {/* Serviços & Pacotes */}
+      {/* Serviços & Programas */}
       <Section className="bg-[var(--color-background-alt)]">
         <Section.Title
           title="Preçário"
           animation="left"
-          subtitle="Serviços & Pacotes"
+          subtitle="Serviços & Programas"
           className="text-center"
         />
         <motion.div
