@@ -13,27 +13,27 @@ export const getMetadata = async (
     description: options.description,
     icons: [
       {
-        url: 'https://i.postimg.cc/wxn15zJV/favicon-16x16.png',
+        url: 'https://i.postimg.cc/CdHMYWcB/favicon-16x16.png',
         sizes: '16x16',
         rel: 'icon',
       },
       {
-        url: 'https://i.postimg.cc/mgyhGFnX/favicon-32x32.png',
+        url: 'https://i.postimg.cc/BjtJTt4H/favicon-32x32.png',
         sizes: '32x32',
         rel: 'icon',
       },
       {
-        url: 'https://i.postimg.cc/4NtmB0QT/apple-touch-icon.png',
+        url: 'https://i.postimg.cc/tYqqg2cr/apple-touch-icon.png',
         sizes: '180x180',
         rel: 'apple-touch-icon',
       },
       {
-        url: 'https://i.postimg.cc/qvTgYG16/android-chrome-192x192.png',
+        url: 'https://i.postimg.cc/2V0zLnRC/android-chrome-192x192.png',
         sizes: '192x192',
         rel: 'icon',
       },
       {
-        url: 'https://i.postimg.cc/d0Q3QVPq/android-chrome-512x512.png',
+        url: 'https://i.postimg.cc/v4jb3MZj/android-chrome-512x512.png',
         sizes: '512x512',
         rel: 'icon',
       },
@@ -48,7 +48,7 @@ export const getMetadata = async (
       type: 'website',
       images: [
         {
-          url: 'https://i.postimg.cc/m2QgQHTL/opengraph-image.png',
+          url: 'https://i.postimg.cc/Ln8SShqw/opengraph-image.png',
           width: 1200,
           height: 630,
         },
