@@ -37,7 +37,10 @@ export const getMetadata = async (
         sizes: '512x512',
         rel: 'icon',
       },
-      { url: '/img/favicon/favicon.ico', rel: 'shortcut icon' },
+      {
+        url: 'https://i.postimg.cc/d0Q3QVPq/android-chrome-512x512.png',
+        rel: 'shortcut icon',
+      },
     ],
     alternates: {
       canonical: `${WEBSITE_DOMAIN_URL}/${pathname}`,
