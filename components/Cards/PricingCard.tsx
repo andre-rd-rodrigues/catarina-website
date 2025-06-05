@@ -66,7 +66,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
         <AppLink
           icon="message-circle-more"
           variant="danger"
-          label="Agendar"
+          label={
+            title.toLowerCase() === 'saúde integrativa'
+              ? 'Consultar'
+              : 'Agendar'
+          }
           href={`https://wa.me/${CONTACTS.phone}`}
           className="ml-1 text-xs"
           target="_blank"

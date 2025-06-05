@@ -22,8 +22,8 @@ const servicesData = [
     subtitle: 'consultas seguintes',
     price: '140€',
     services: [
-      'Reavaliação dos resultados',
-      '2º tempo consulta (adaptação do plano)',
+      'Reavaliação da evolução',
+      'Adaptação do plano',
       'Novo PDF com indicações + plano terapêutico',
     ],
   },
@@ -47,9 +47,9 @@ const servicesData = [
 
 const packsData = [
   {
-    title: 'Saúde Corpo-Mente',
+    title: 'Saúde Integrativa',
     subtitle: '3 meses',
-    price: '1400€',
+    price: 'Sob consulta*',
     services: [
       '1ª Consulta MFI',
       '12 Sessões Terapia Semanais',
@@ -57,12 +57,12 @@ const packsData = [
       '1 Leitura Mapa Astral + Human Design',
       'Mentoria / Dúvidas Whatsapp (durante os 3 meses)',
     ],
-    note: 'Pagamento em 3 prestações mensais de 480€',
+    note: '*Para obter mais informações sobre este pacote, por favor contacte-me.',
   },
   {
-    title: 'Saúde Corpo-Mente',
+    title: 'Saúde Integrativa',
     subtitle: '6 meses',
-    price: '1800€',
+    price: 'Sob consulta*',
     services: [
       '1ª Consulta MFI',
       '12 Sessões Terapia Semanais + 6 Sessões Quinzenais',
@@ -70,7 +70,7 @@ const packsData = [
       '1 Leitura Mapa Astral + Human Design',
       'Mentoria / Dúvidas Whatsapp (durante os 6 meses)',
     ],
-    note: 'Opções de pagamento: 3 prestações de 610€ ou 6 prestações de 320€',
+    note: '*Para obter mais informações sobre este pacote, por favor contacte-me.',
   },
 ];
 
