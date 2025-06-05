@@ -46,13 +46,6 @@ export const getMetadata = async (
       title: options.title!,
       description: options.description!,
       type: 'website',
-      images: [
-        {
-          url: options?.src || '/img/thumbnail.png',
-          width: 1200,
-          height: 630,
-        },
-      ],
     },
   };
 };
