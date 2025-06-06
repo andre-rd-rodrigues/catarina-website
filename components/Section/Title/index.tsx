@@ -10,7 +10,7 @@ import clsx from 'clsx';
 
 type SectionTitleProps = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   className?: string;
   color?: string;
   animation?: 'left' | 'top';
@@ -34,15 +34,17 @@ const SectionTitle = ({
       viewport={{ once: true }}
       className={className}
     >
-      <motion.h2
-        variants={renderAnimation}
-        className={clsx(
-          'font-ibm-plex-sans mb-3 text-sm font-light uppercase tracking-[5px]',
-          color ? color : 'text-[var(--color-accent)]',
-        )}
-      >
-        {subtitle}
-      </motion.h2>
+      {subtitle && (
+        <motion.h2
+          variants={renderAnimation}
+          className={clsx(
+            'font-ibm-plex-sans mb-3 text-sm font-light uppercase tracking-[5px]',
+            color ? color : 'text-[var(--color-accent)]',
+          )}
+        >
+          {subtitle}
+        </motion.h2>
+      )}
       <motion.h3
         variants={renderAnimation}
         className={clsx(

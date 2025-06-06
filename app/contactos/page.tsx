@@ -10,6 +10,7 @@ import {
   fadeInSlideInVariant,
 } from '@/motion/variants';
 import { CONTACTS } from '@/constants/common';
+import Image from 'next/image';
 
 function Contacts() {
   return (
@@ -33,10 +34,7 @@ function Contacts() {
               title="Estou aqui para ajudar."
               animation="left"
             />
-            <p className="mt-3">
-              Vamos juntos trilhar este caminho rumo a uma vida mais saudável e
-              harmoniosa.
-            </p>
+            <p className="mt-3">Vamos juntos?</p>
             <div className="py-10">
               {/* Container up to ~1140px wide (max-w-5xl) */}
               <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
@@ -84,10 +82,31 @@ function Contacts() {
               </div>
             </div>
           </motion.div>
-          {/* Formulário de contacto */}
+          {/* Imagem */}
           <motion.div
             variants={fadeInSlideInVariant}
-            className="w-full rounded-md border p-9 shadow-md"
+            className="relative aspect-[3/4] max-h-[500px] w-full overflow-hidden rounded-md shadow-lg"
+          >
+            <Image
+              src="/img/profile.jpg"
+              alt="Sobre Mim - Catarina Paixão"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Formulário de contacto */}
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
+          className="mt-8"
+        >
+          <Section.Title title="Formulário:" animation="left" />
+          <motion.div
+            variants={fadeInSlideInVariant}
+            className="mt-8 w-full rounded-md border p-9 shadow-md"
           >
             <ContactForm />
           </motion.div>
