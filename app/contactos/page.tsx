@@ -85,7 +85,7 @@ function Contacts() {
           {/* Imagem */}
           <motion.div
             variants={fadeInSlideInVariant}
-            className="relative aspect-[3/4] max-h-[500px] w-full overflow-hidden rounded-md shadow-lg"
+            className="relative aspect-[1/1] w-full overflow-hidden rounded-md shadow-lg"
           >
             <Image
               src="/img/profile.jpg"
