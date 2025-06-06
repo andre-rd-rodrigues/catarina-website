@@ -9,12 +9,19 @@ import AppLink from '@/components/Link';
 import { NAVBAR } from '@/constants/navbar';
 import { CONTACTS } from '@/constants/common';
 
-export const ScheduleButton = ({ iconOnly }: { iconOnly?: boolean }) => {
+export const ScheduleButton = ({
+  iconOnly,
+  iconSize,
+}: {
+  iconOnly?: boolean;
+  iconSize?: number;
+}) => {
   return (
     <AppLink
       icon="message-circle-more"
       variant="danger"
       label={iconOnly ? undefined : 'Agendar'}
+      iconSize={iconSize}
       href={`https://wa.me/${CONTACTS.phone}`}
       className="ml-1 text-xs"
       target="_blank"

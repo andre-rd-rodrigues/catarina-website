@@ -26,7 +26,7 @@ export default function RootLayout({
         <Analytics />
         <Footer />
         <div className="fixed bottom-6 right-5 sm:hidden">
-          <ScheduleButton iconOnly />
+          <ScheduleButton iconOnly iconSize={20} />
         </div>
       </body>
     </html>

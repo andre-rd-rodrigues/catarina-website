@@ -15,6 +15,7 @@ type LinkProps = {
   children?: React.ReactNode;
   iconPrefix?: boolean;
   iconSuffix?: boolean;
+  iconSize?: number;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link: React.FC<LinkProps> = ({
@@ -26,6 +27,7 @@ const Link: React.FC<LinkProps> = ({
   children,
   iconPrefix = true,
   iconSuffix,
+  iconSize,
   ...restProps
 }) => {
   const getIconColor = () => {
@@ -51,7 +53,7 @@ const Link: React.FC<LinkProps> = ({
     <DynamicIcon
       name={icon}
       color={getIconColor()}
-      size={16}
+      size={iconSize || 16}
       className="hover:opacity-75"
     />
   ) : null;
