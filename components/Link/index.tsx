@@ -18,7 +18,7 @@ type LinkProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const Link: React.FC<LinkProps> = ({
-  label = 'Link',
+  label,
   className = '',
   icon,
   fullWidth = false,
@@ -60,7 +60,9 @@ const Link: React.FC<LinkProps> = ({
     <NextLink
       className={clsx(
         // Base styles for the link
-        'flex items-center gap-2 rounded-full px-7 py-3 text-sm font-normal transition-all duration-300 hover:opacity-75',
+        `flex items-center gap-2 rounded-full ${
+          !label ? 'px-3' : 'px-7'
+        } py-3 text-sm font-normal transition-all duration-300 hover:opacity-75`,
         {
           // Variant styles
           'bg-[var(--color-accent)] text-white': variant === 'accent',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { marcellus, ibmPlexSans } from '@/assets/fonts';
 import './globals.scss';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+import Navbar, { ScheduleButton } from '@/components/Navbar';
 import { PAGES_METADATA } from '@/metadata';
 import Analytics from '@/components/Analytics';
 
@@ -18,12 +18,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT">
-      <body className={`${marcellus.variable} ${ibmPlexSans.variable}`}>
+      <body
+        className={`${marcellus.variable} ${ibmPlexSans.variable} relative`}
+      >
         <Navbar />
         {children}
-        {/*  <ScheduleButton /> */}
         <Analytics />
         <Footer />
+        <div className="fixed bottom-6 right-5 sm:hidden">
+          <ScheduleButton iconOnly />
+        </div>
       </body>
     </html>
   );
