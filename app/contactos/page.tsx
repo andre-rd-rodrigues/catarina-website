@@ -91,7 +91,7 @@ function Contacts() {
               src="/img/profile.jpg"
               alt="Sobre Mim - Catarina Paixão"
               fill
-              className="object-cover"
+              className="object-cover object-top"
             />
           </motion.div>
         </motion.div>
