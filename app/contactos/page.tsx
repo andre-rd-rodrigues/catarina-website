@@ -70,7 +70,8 @@ function Contacts() {
                     <h4 className=" mb-2 text-lg">Redes Sociais:</h4>
                     <div className="mt-2 flex items-center space-x-4">
                       <a
-                        href="#"
+                        href={CONTACTS.instagram}
+                        target="_blank"
                         aria-label="Instagram"
                         className="text-[var(--color-accent)] duration-300 hover:text-[var(--color-secondary)]"
                       >
