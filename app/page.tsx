@@ -45,9 +45,9 @@ export default function Home() {
 
   return (
     <Page>
-      <GlowEffect className="" />
       {/* Title */}
-      <Section className="flex h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
+      <Section className="relative flex h-[100vh] items-center justify-center bg-[var(--color-secondary)] text-center">
+        <GlowEffect />
         <AnimatePresence>
           {showQuote && (
             <motion.div
