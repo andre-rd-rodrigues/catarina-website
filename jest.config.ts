@@ -21,6 +21,9 @@ const customJestConfig = {
     'components/ContactForm/**/*.{js,jsx,ts,tsx}',
     'components/Footer/**/*.{js,jsx,ts,tsx}',
     'components/Hero/**/*.{js,jsx,ts,tsx}',
+    'components/FAQS/index.tsx',
+    // TODO: Add FaqsPreview when complex mocking issues are resolved
+    // 'components/FAQS/FaqsPreview.tsx',
     // TODO: Uncomment when app coverage reaches 70%+
     // 'app/**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
