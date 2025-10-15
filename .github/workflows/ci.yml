@@ -1,10 +1,10 @@
-name: CI Pipeline
+name: 🚀 CI Pipeline
 
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
   quality-checks:
@@ -45,3 +45,49 @@ jobs:
         with:
           file: ./coverage/lcov.info
           fail_ci_if_error: false
+
+      - name: 💬 Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Read coverage summary if it exists
+            let coverageComment = '';
+            try {
+              const coveragePath = path.join(process.cwd(), 'coverage', 'coverage-summary.json');
+              if (fs.existsSync(coveragePath)) {
+                const coverage = JSON.parse(fs.readFileSync(coveragePath, 'utf8'));
+                const total = coverage.total;
+                coverageComment = `
+                ## 📊 Test Coverage
+                - **Lines**: ${total.lines.pct}%
+                - **Functions**: ${total.functions.pct}%
+                - **Branches**: ${total.branches.pct}%
+                - **Statements**: ${total.statements.pct}%
+                `;
+              }
+            } catch (error) {
+              console.log('Could not read coverage data');
+            }
+
+            const comment = `## ✅ CI Pipeline Complete
+
+            ${coverageComment}
+
+            ### 🎯 Summary
+            - ✅ Type checking passed
+            - ✅ Linting passed  
+            - ✅ Tests passed
+            - ✅ Build successful
+
+            This PR is ready for merge! 🚀`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
