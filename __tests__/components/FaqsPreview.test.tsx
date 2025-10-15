@@ -36,13 +36,31 @@ describe('FaqsPreview Component', () => {
     render(<FaqsPreview />);
 
     // Should show first 4 FAQ items from the mocked constants
-    expect(screen.getByText('O que é a medicina funcional integrativa e como me pode ajudar?')).toBeInTheDocument();
-    expect(screen.getByText('A medicina funcional integrativa é baseada em evidência científica?')).toBeInTheDocument();
-    expect(screen.getByText('Quanto tempo demora até ver resultados?')).toBeInTheDocument();
-    expect(screen.getByText('Como funciona a primeira consulta de Medicina Funcional Integrativa?')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'O que é a medicina funcional integrativa e como me pode ajudar?',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'A medicina funcional integrativa é baseada em evidência científica?',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('Quanto tempo demora até ver resultados?'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Como funciona a primeira consulta de Medicina Funcional Integrativa?',
+      ),
+    ).toBeInTheDocument();
 
     // Should not show the 5th item
-    expect(screen.queryByText('O que posso esperar das sessões de Terapia Junguiana?')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(
+        'O que posso esperar das sessões de Terapia Junguiana?',
+      ),
+    ).not.toBeInTheDocument();
   });
 
   it('renders the "Ver mais" link', () => {
