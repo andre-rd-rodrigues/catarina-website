@@ -5,8 +5,22 @@ import { renderWithMotion } from '../__utils__/test-helpers';
 
 // Mock lucide-react/dynamic
 jest.mock('lucide-react/dynamic', () => ({
-  DynamicIcon: ({ name, color, size }: { name: string; color: string; size: number }) => (
-    <svg data-testid={name} data-icon={name} color={color} width={size} height={size} />
+  DynamicIcon: ({
+    name,
+    color,
+    size,
+  }: {
+    name: string;
+    color: string;
+    size: number;
+  }) => (
+    <svg
+      data-testid={name}
+      data-icon={name}
+      color={color}
+      width={size}
+      height={size}
+    />
   ),
   IconName: {} as any,
 }));
@@ -22,7 +36,9 @@ describe('InfoCard Component', () => {
     renderWithMotion(<InfoCard {...mockProps} />);
 
     expect(screen.getByText('Test Title')).toBeInTheDocument();
-    expect(screen.getByText('Test description for the info card component.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Test description for the info card component.'),
+    ).toBeInTheDocument();
   });
 
   it('renders icon with correct attributes', () => {
@@ -33,9 +49,10 @@ describe('InfoCard Component', () => {
     expect(icon).toHaveAttribute('data-icon', 'heart');
   });
 
-
   it('handles different icon types', () => {
-    const { rerender } = renderWithMotion(<InfoCard {...mockProps} icon="star" />);
+    const { rerender } = renderWithMotion(
+      <InfoCard {...mockProps} icon="star" />,
+    );
     expect(screen.getByTestId('star')).toBeInTheDocument();
 
     rerender(<InfoCard {...mockProps} icon="shield" />);
@@ -43,29 +60,35 @@ describe('InfoCard Component', () => {
   });
 
   it('handles long descriptions', () => {
-    const longDescription = 'This is a very long description that should still be rendered correctly by the InfoCard component. It contains multiple sentences and should wrap properly within the card layout.';
-    
+    const longDescription =
+      'This is a very long description that should still be rendered correctly by the InfoCard component. It contains multiple sentences and should wrap properly within the card layout.';
+
     renderWithMotion(<InfoCard {...mockProps} description={longDescription} />);
-    
+
     expect(screen.getByText(longDescription)).toBeInTheDocument();
   });
 
   it('handles empty description', () => {
     renderWithMotion(<InfoCard {...mockProps} description="" />);
-    
+
     // Check that the description paragraph exists but is empty
-    const descriptionElement = document.querySelector('p.mt-4.text-sm.text-gray-600');
+    const descriptionElement = document.querySelector(
+      'p.mt-4.text-sm.text-gray-600',
+    );
     expect(descriptionElement).toBeInTheDocument();
     expect(descriptionElement).toHaveTextContent('');
   });
 
   it('renders with different title lengths', () => {
     const shortTitle = 'Short';
-    const longTitle = 'This is a very long title that should still be rendered correctly';
-    
-    const { rerender } = renderWithMotion(<InfoCard {...mockProps} title={shortTitle} />);
+    const longTitle =
+      'This is a very long title that should still be rendered correctly';
+
+    const { rerender } = renderWithMotion(
+      <InfoCard {...mockProps} title={shortTitle} />,
+    );
     expect(screen.getByText(shortTitle)).toBeInTheDocument();
-    
+
     rerender(<InfoCard {...mockProps} title={longTitle} />);
     expect(screen.getByText(longTitle)).toBeInTheDocument();
   });

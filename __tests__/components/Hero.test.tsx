@@ -1,7 +1,10 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import Hero from '@/components/Hero';
-import { expectElementToHaveClasses, renderWithMotion } from '../__utils__/test-helpers';
+import {
+  expectElementToHaveClasses,
+  renderWithMotion,
+} from '../__utils__/test-helpers';
 
 describe('Hero Component', () => {
   const defaultProps = {
@@ -11,11 +14,7 @@ describe('Hero Component', () => {
 
   describe('Basic Rendering', () => {
     it('renders with required props', () => {
-      renderWithMotion(
-       
-          <Hero {...defaultProps} />
-    
-      );
+      renderWithMotion(<Hero {...defaultProps} />);
 
       expect(screen.getByText('Test Title')).toBeInTheDocument();
       expect(screen.getByText('Test content description')).toBeInTheDocument();
@@ -29,7 +28,7 @@ describe('Hero Component', () => {
           subtitle="Test Subtitle"
           actionButton={actionButton}
           className="custom-class"
-        />
+        />,
       );
 
       expect(screen.getByText('Test Subtitle')).toBeInTheDocument();
@@ -81,7 +80,9 @@ describe('Hero Component', () => {
     });
 
     it('applies custom className when provided', () => {
-      const { container } = renderWithMotion(<Hero {...defaultProps} className="custom-class" />);
+      const { container } = renderWithMotion(
+        <Hero {...defaultProps} className="custom-class" />,
+      );
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('custom-class');

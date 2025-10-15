@@ -8,17 +8,31 @@ describe('HealthCards Component', () => {
     renderWithMotion(<HealthCards />);
 
     // Check that all three cards are rendered
-    expect(screen.getByText('Viver com Saúde é Viver Plenamente')).toBeInTheDocument();
+    expect(
+      screen.getByText('Viver com Saúde é Viver Plenamente'),
+    ).toBeInTheDocument();
     expect(screen.getByText('Cuide de Si, Todos os Dias')).toBeInTheDocument();
-    expect(screen.getByText('O Natural é o Caminho para o Equilíbrio')).toBeInTheDocument();
+    expect(
+      screen.getByText('O Natural é o Caminho para o Equilíbrio'),
+    ).toBeInTheDocument();
   });
 
   it('renders card descriptions correctly', () => {
     renderWithMotion(<HealthCards />);
 
-    expect(screen.getByText('Cultivar Saúde é o que nos permite desfrutar da Vida.')).toBeInTheDocument();
-    expect(screen.getByText('Pequenos gestos consistentes criam grandes transformações no seu bem-estar.')).toBeInTheDocument();
-    expect(screen.getByText(/A Natureza sempre procura o bem do.*Todo.*através do equilíbrio das suas.*partes/)).toBeInTheDocument();
+    expect(
+      screen.getByText('Cultivar Saúde é o que nos permite desfrutar da Vida.'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'Pequenos gestos consistentes criam grandes transformações no seu bem-estar.',
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /A Natureza sempre procura o bem do.*Todo.*através do equilíbrio das suas.*partes/,
+      ),
+    ).toBeInTheDocument();
   });
 
   it('renders images with correct alt text', () => {
@@ -44,7 +58,9 @@ describe('HealthCards Component', () => {
     renderWithMotion(<HealthCards />);
 
     // Check for separator divs (they have specific classes)
-    const separators = document.querySelectorAll('.hidden.h-44.w-\\[1px\\].bg-gray-300.md\\:block');
+    const separators = document.querySelectorAll(
+      '.hidden.h-44.w-\\[1px\\].bg-gray-300.md\\:block',
+    );
     expect(separators).toHaveLength(2); // 2 separators between 3 cards
   });
 
@@ -62,7 +78,7 @@ describe('HealthCards Component', () => {
     const cards = [
       'Viver com Saúde é Viver Plenamente',
       'Cuide de Si, Todos os Dias',
-      'O Natural é o Caminho para o Equilíbrio'
+      'O Natural é o Caminho para o Equilíbrio',
     ];
 
     cards.forEach((title) => {

@@ -73,9 +73,7 @@ export const renderWithMotion = (
   options?: Parameters<typeof render>[1],
 ) => {
   return render(
-    <MotionConfig transition={{ duration: 0 }}>
-      {component}
-    </MotionConfig>,
+    <MotionConfig transition={{ duration: 0 }}>{component}</MotionConfig>,
     options,
   );
 };

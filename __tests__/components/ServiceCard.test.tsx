@@ -14,11 +14,14 @@ describe('ServiceCard Component', () => {
 
     expect(screen.getByText('Test Subtitle')).toBeInTheDocument();
     expect(screen.getByText('Test Title')).toBeInTheDocument();
-    expect(screen.getByText('Test description for the service card.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Test description for the service card.'),
+    ).toBeInTheDocument();
   });
 
   it('renders HTML content in description', () => {
-    const htmlDescription = 'This is a <strong>bold</strong> and <em>italic</em> description.';
+    const htmlDescription =
+      'This is a <strong>bold</strong> and <em>italic</em> description.';
     render(<ServiceCard {...mockProps} description={htmlDescription} />);
 
     // Check that HTML elements are rendered
@@ -44,7 +47,7 @@ describe('ServiceCard Component', () => {
 
   it('renders with hover effect by default', () => {
     render(<ServiceCard {...mockProps} />);
-    
+
     // Check that the style tag is present for hover effect
     const styleTag = document.querySelector('style');
     expect(styleTag).toBeInTheDocument();
@@ -52,7 +55,7 @@ describe('ServiceCard Component', () => {
 
   it('disables hover effect when hoverEffect is false', () => {
     render(<ServiceCard {...mockProps} hoverEffect={false} />);
-    
+
     // Check that the style tag is not present when hoverEffect is false
     const styleTag = document.querySelector('style');
     expect(styleTag).not.toBeInTheDocument();
@@ -81,7 +84,7 @@ describe('ServiceCard Component', () => {
 
   it('handles empty description', () => {
     render(<ServiceCard {...mockProps} description="" />);
-    
+
     // Check that the description paragraph exists but is empty
     const descriptionElement = document.querySelector('p.mt-2');
     expect(descriptionElement).toBeInTheDocument();
@@ -89,11 +92,19 @@ describe('ServiceCard Component', () => {
   });
 
   it('handles long content', () => {
-    const longTitle = 'This is a very long title that should still be rendered correctly by the ServiceCard component';
-    const longDescription = 'This is a very long description that contains multiple sentences and should wrap properly within the card layout. It should maintain proper spacing and readability.';
-    
-    render(<ServiceCard {...mockProps} title={longTitle} description={longDescription} />);
-    
+    const longTitle =
+      'This is a very long title that should still be rendered correctly by the ServiceCard component';
+    const longDescription =
+      'This is a very long description that contains multiple sentences and should wrap properly within the card layout. It should maintain proper spacing and readability.';
+
+    render(
+      <ServiceCard
+        {...mockProps}
+        title={longTitle}
+        description={longDescription}
+      />,
+    );
+
     expect(screen.getByText(longTitle)).toBeInTheDocument();
     expect(screen.getByText(longDescription)).toBeInTheDocument();
   });
@@ -102,25 +113,30 @@ describe('ServiceCard Component', () => {
     const specialContent = {
       subtitle: 'Special & Characters',
       title: 'Title with "quotes" and \'apostrophes\'',
-      description: 'Description with <script>alert("test")</script> and &amp; entities.',
+      description:
+        'Description with <script>alert("test")</script> and &amp; entities.',
     };
-    
+
     render(<ServiceCard {...mockProps} {...specialContent} />);
-    
+
     expect(screen.getByText('Special & Characters')).toBeInTheDocument();
-    expect(screen.getByText('Title with "quotes" and \'apostrophes\'')).toBeInTheDocument();
-    expect(screen.getByText(/Description with.*and.*entities/)).toBeInTheDocument();
+    expect(
+      screen.getByText('Title with "quotes" and \'apostrophes\''),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Description with.*and.*entities/),
+    ).toBeInTheDocument();
   });
 
   it('maintains proper structure with all props', () => {
     const actionElement = <button>Action Button</button>;
     render(
-      <ServiceCard 
-        {...mockProps} 
+      <ServiceCard
+        {...mockProps}
         action={actionElement}
         className="test-class"
         hoverEffect={true}
-      />
+      />,
     );
 
     expect(screen.getByText('Action Button')).toBeInTheDocument();

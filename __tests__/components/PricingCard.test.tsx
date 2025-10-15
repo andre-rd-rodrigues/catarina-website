@@ -78,7 +78,6 @@ describe('PricingCard Component', () => {
     expect(link).toHaveAttribute('href', 'https://wa.me/+351928259010');
   });
 
-
   it('handles empty services array', () => {
     render(<PricingCard {...mockProps} services={[]} />);
 
