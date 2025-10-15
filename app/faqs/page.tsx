@@ -15,6 +15,7 @@ function FAQSPage() {
         src="https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/small-white-ceramic-mortar-with-eucalyptus-leaves-AANHPA2.jpg"
         title="FAQS"
       />
+
       <Section className="sm:py-12">
         <Section.Title
           title="Perguntas Frequentes"
