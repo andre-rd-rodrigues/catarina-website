@@ -67,6 +67,33 @@ export const mockLucideReact = () => {
   );
 };
 
+// Mock Lucide React Dynamic icons
+export const mockLucideReactDynamic = () => {
+  const DynamicIcon = ({
+    name,
+    color,
+    size,
+    ...props
+  }: {
+    name: string;
+    color?: string;
+    size?: number;
+  } & React.SVGProps<SVGSVGElement>) =>
+    createElement('svg', {
+      'data-testid': name,
+      'data-icon': name,
+      color,
+      width: size,
+      height: size,
+      ...props,
+    });
+
+  return {
+    DynamicIcon,
+    IconName: {} as Record<string, never>,
+  };
+};
+
 // Mock Next.js navigation hooks
 export const mockNextNavigation = () => ({
   usePathname: () => '/',
@@ -303,6 +330,7 @@ export const setupCommonMocks = () => {
   jest.mock('next/image', () => mockNextImage());
   jest.mock('next/link', () => mockNextLink());
   jest.mock('lucide-react', () => mockLucideReact());
+  jest.mock('lucide-react/dynamic', () => mockLucideReactDynamic());
   jest.mock('next/navigation', () => mockNextNavigation());
   jest.mock('@/components/Link/index', () => mockAppLink());
   jest.mock('@/components/Section', () => mockSection());

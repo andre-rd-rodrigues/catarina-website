@@ -3,28 +3,6 @@ import { screen } from '@testing-library/react';
 import InfoCard from '@/components/Cards/InfoCard';
 import { renderWithMotion } from '../__utils__/test-helpers';
 
-// Mock lucide-react/dynamic
-jest.mock('lucide-react/dynamic', () => ({
-  DynamicIcon: ({
-    name,
-    color,
-    size,
-  }: {
-    name: string;
-    color: string;
-    size: number;
-  }) => (
-    <svg
-      data-testid={name}
-      data-icon={name}
-      color={color}
-      width={size}
-      height={size}
-    />
-  ),
-  IconName: {} as any,
-}));
-
 describe('InfoCard Component', () => {
   const mockProps = {
     icon: 'heart' as const,
