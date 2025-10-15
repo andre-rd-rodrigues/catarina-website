@@ -19,3 +19,18 @@ Object.defineProperty(window, 'getComputedStyle', {
     },
   }),
 });
+
+// Mock IntersectionObserver for framer-motion
+global.IntersectionObserver = class IntersectionObserver {
+  root = null;
+  rootMargin = '';
+  thresholds = Object.freeze([]);
+
+  constructor() {}
+  disconnect() {}
+  observe() {}
+  unobserve() {}
+  takeRecords() {
+    return [];
+  }
+} as any;
