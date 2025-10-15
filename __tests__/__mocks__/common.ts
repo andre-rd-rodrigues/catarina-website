@@ -5,8 +5,9 @@ export const mockNextImage = () => {
   return function MockImage({
     src,
     alt,
+    fill,
     ...props
-  }: React.ComponentProps<'img'>) {
+  }: React.ComponentProps<'img'> & { fill?: boolean }) {
     return createElement('img', { src, alt, ...props });
   };
 };

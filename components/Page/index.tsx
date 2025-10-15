@@ -8,7 +8,7 @@ const Page = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  return <div className={clsx('min-h-screen', className)}>{children}</div>;
+  return <div data-testid="page" className={clsx('min-h-screen', className)}>{children}</div>;
 };
 Page.Title = Title;
 export default Page;
