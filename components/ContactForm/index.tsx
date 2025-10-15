@@ -19,7 +19,11 @@ function ContactForm() {
     );
   }
   return (
-    <form data-testid="contact-form" onSubmit={handleSubmit} className="mx-auto w-full">
+    <form
+      data-testid="contact-form"
+      onSubmit={handleSubmit}
+      className="mx-auto w-full"
+    >
       {/* Grid container: two columns on medium+ screens, single column on small */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* First Name */}

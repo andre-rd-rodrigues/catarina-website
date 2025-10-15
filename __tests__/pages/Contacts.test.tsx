@@ -48,7 +48,10 @@ describe('Contacts Page', () => {
     expect(emailLink).toHaveAttribute('target', '_blank');
 
     const phoneLink = screen.getByRole('link', { name: '+351 928259010' });
-    expect(phoneLink).toHaveAttribute('href', `https://wa.me/${CONTACTS.phone}`);
+    expect(phoneLink).toHaveAttribute(
+      'href',
+      `https://wa.me/${CONTACTS.phone}`,
+    );
     expect(phoneLink).toHaveAttribute('target', '_blank');
 
     const instagramLink = screen.getByRole('link', { name: 'Instagram' });
@@ -60,7 +63,9 @@ describe('Contacts Page', () => {
   it('renders the Instagram icon', () => {
     renderWithMotion(<Contacts />);
 
-    const instagramIcon = screen.getByRole('link', { name: 'Instagram' }).querySelector('svg');
+    const instagramIcon = screen
+      .getByRole('link', { name: 'Instagram' })
+      .querySelector('svg');
     expect(instagramIcon).toBeInTheDocument();
     expect(instagramIcon).toHaveAttribute('data-icon', 'Instagram');
   });
@@ -87,13 +92,21 @@ describe('Contacts Page', () => {
     expect(pageElement).toHaveClass('min-h-0');
 
     const motionDivs = screen.getAllByRole('generic');
-    expect(motionDivs.some(div => 
-      div.className.includes('flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10')
-    )).toBe(true);
+    expect(
+      motionDivs.some((div) =>
+        div.className.includes(
+          'flex flex-wrap justify-between gap-0 md:flex-nowrap md:gap-10',
+        ),
+      ),
+    ).toBe(true);
 
-    expect(motionDivs.some(div => 
-      div.className.includes('relative aspect-[1/1] w-full overflow-hidden rounded-md shadow-lg')
-    )).toBe(true);
+    expect(
+      motionDivs.some((div) =>
+        div.className.includes(
+          'relative aspect-[1/1] w-full overflow-hidden rounded-md shadow-lg',
+        ),
+      ),
+    ).toBe(true);
   });
 
   it('renders all motion components with correct variants', () => {
@@ -107,8 +120,17 @@ describe('Contacts Page', () => {
   it('displays contact information in a grid layout', () => {
     renderWithMotion(<Contacts />);
 
-    const gridContainer = screen.getByText('Atendimento Presencial:').closest('.mx-auto');
-    expect(gridContainer).toHaveClass('mx-auto', 'max-w-5xl', 'grid', 'grid-cols-1', 'gap-8', 'md:grid-cols-2');
+    const gridContainer = screen
+      .getByText('Atendimento Presencial:')
+      .closest('.mx-auto');
+    expect(gridContainer).toHaveClass(
+      'mx-auto',
+      'max-w-5xl',
+      'grid',
+      'grid-cols-1',
+      'gap-8',
+      'md:grid-cols-2',
+    );
   });
 
   it('renders all required headings with correct hierarchy', () => {
