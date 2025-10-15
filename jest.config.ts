@@ -7,8 +7,14 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const customJestConfig = {
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testEnvironment: 'jsdom',
-  testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  testPathIgnorePatterns: [
+    '<rootDir>/.next/',
+    '<rootDir>/node_modules/',
+    '<rootDir>/__tests__/__utils__/test-helpers.ts',
+    '<rootDir>/__tests__/__mocks__/common.ts',
+  ],
   transformIgnorePatterns: ['node_modules/(?!(lucide-react|@lucide)/)'],
   collectCoverageFrom: [
     'components/**/*.{js,jsx,ts,tsx}',

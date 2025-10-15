@@ -1,71 +1,14 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Footer from '@/components/Footer';
 import { CONTACTS } from '@/constants/common';
 import { FOOTER_NAVBAR } from '@/constants/navbar';
-
-jest.mock('next/image', () => {
-  return function MockImage({
-    src,
-    alt,
-    ...props
-  }: React.ComponentProps<'img'>) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} {...props} />;
-  };
-});
-
-jest.mock('next/link', () => {
-  return function MockLink({
-    href,
-    children,
-    ...props
-  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
-    return (
-      <a href={href} {...props}>
-        {children}
-      </a>
-    );
-  };
-});
-
-jest.mock('lucide-react', () => {
-  return new Proxy(
-    {},
-    {
-      get:
-        (_target, iconName: string) => (props: React.SVGProps<SVGSVGElement>) =>
-          createElement('svg', { 'data-icon': String(iconName), ...props }),
-    },
-  );
-});
-
-jest.mock('@/components/Link/index', () => {
-  return function MockAppLink({
-    href,
-    label,
-    variant,
-    icon,
-    ...props
-  }: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-    href: string;
-    label?: string;
-    variant?: string;
-    icon?: string;
-  }) {
-    return (
-      <a href={href} data-variant={variant} data-icon={icon} {...props}>
-        {label}
-      </a>
-    );
-  };
-});
-
-jest.mock('next/navigation', () => ({
-  usePathname: () => '/',
-  useSearchParams: () => ({ get: () => null }),
-}));
+import {
+  findNavLink,
+  findFooterBottomLink,
+  expectExternalLinksToOpenInNewTab,
+  expectElementToHaveClasses,
+} from '../__utils__/test-helpers';
 
 describe('Footer Component', () => {
   beforeEach(() => {
@@ -94,11 +37,7 @@ describe('Footer Component', () => {
 
     it('renders all navigation links', () => {
       FOOTER_NAVBAR.forEach(({ name, href }) => {
-        const links = screen.getAllByRole('link', { name });
-        // Find the link in the navigation section (first occurrence)
-        const navLink = links.find((link) =>
-          link.closest('div')?.className.includes('mt-10 flex flex-wrap gap-6'),
-        );
+        const navLink = findNavLink(name);
         expect(navLink).toBeInTheDocument();
         expect(navLink).toHaveAttribute('href', href);
       });
@@ -185,13 +124,7 @@ describe('Footer Component', () => {
     });
 
     it('renders privacy policy link', () => {
-      const privacyLinks = screen.getAllByRole('link', {
-        name: 'Política de Privacidade',
-      });
-      // Find the link in the footer bottom section (second occurrence)
-      const footerLink = privacyLinks.find((link) =>
-        link.className.includes('text-xs font-light'),
-      );
+      const footerLink = findFooterBottomLink('Política de Privacidade');
       expect(footerLink).toBeInTheDocument();
       expect(footerLink).toHaveAttribute('href', '/politica-de-privacidade');
     });
@@ -220,28 +153,28 @@ describe('Footer Component', () => {
   describe('Styling and Layout', () => {
     it('applies correct CSS classes to the footer element', () => {
       const footer = screen.getByRole('contentinfo');
-      expect(footer).toHaveClass(
+      expectElementToHaveClasses(footer, [
         'bg-[var(--color-secondary)]',
         'px-6',
         'py-12',
         'text-white',
-      );
+      ]);
     });
 
     it('applies correct CSS classes to navigation links', () => {
       const firstNavLink = screen.getByRole('link', { name: 'Home' });
-      expect(firstNavLink).toHaveClass(
+      expectElementToHaveClasses(firstNavLink, [
         'text-sm',
         'font-normal',
         'text-gray-300',
         'duration-200',
         'hover:text-white',
-      );
+      ]);
     });
 
     it('applies correct CSS classes to contact links', () => {
       const phoneLink = screen.getByRole('link', { name: /\+351 928259010/ });
-      expect(phoneLink).toHaveClass(
+      expectElementToHaveClasses(phoneLink, [
         'flex',
         'items-center',
         'gap-3',
@@ -250,7 +183,7 @@ describe('Footer Component', () => {
         'text-gray-300',
         'duration-200',
         'hover:text-white',
-      );
+      ]);
     });
   });
 
@@ -284,17 +217,13 @@ describe('Footer Component', () => {
 
   describe('External Links', () => {
     it('opens external links in new tabs', () => {
-      const externalLinks = [
-        screen.getByRole('link', { name: 'André Rodrigo' }),
-        screen.getByRole('link', { name: 'Livro de Reclamações' }),
-        screen.getByRole('link', { name: /\+351 928259010/ }),
-        screen.getByRole('link', { name: CONTACTS.email }),
-        screen.getByRole('link', { name: 'Agendar' }),
-      ];
-
-      externalLinks.forEach((link) => {
-        expect(link).toHaveAttribute('target', '_blank');
-      });
+      expectExternalLinksToOpenInNewTab([
+        'André Rodrigo',
+        'Livro de Reclamações',
+        /\+351 928259010/,
+        CONTACTS.email,
+        'Agendar',
+      ]);
     });
   });
 });
