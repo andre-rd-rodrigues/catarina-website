@@ -7,9 +7,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  checks:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: 📥 Checkout code
         uses: actions/checkout@v4
