@@ -1,4 +1,6 @@
-import { screen } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import { MotionConfig } from 'motion/react';
+import React from 'react';
 
 /**
  * Helper function to find a specific link when there are multiple links with the same text
@@ -58,4 +60,22 @@ export const expectElementToHaveClasses = (
   expectedClasses.forEach((className) => {
     expect(element).toHaveClass(className);
   });
+};
+
+/**
+ * Helper function to render components with MotionConfig for testing
+ * This disables animations to make tests more predictable and faster
+ * @param component - The React component to render
+ * @param options - Optional render options
+ */
+export const renderWithMotion = (
+  component: React.ReactElement,
+  options?: Parameters<typeof render>[1],
+) => {
+  return render(
+    <MotionConfig transition={{ duration: 0 }}>
+      {component}
+    </MotionConfig>,
+    options,
+  );
 };

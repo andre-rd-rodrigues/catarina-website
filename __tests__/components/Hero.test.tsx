@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MotionConfig } from 'motion/react';
+import { screen } from '@testing-library/react';
 import Hero from '@/components/Hero';
-import { expectElementToHaveClasses } from '../__utils__/test-helpers';
+import { expectElementToHaveClasses, renderWithMotion } from '../__utils__/test-helpers';
 
 describe('Hero Component', () => {
   const defaultProps = {
@@ -12,10 +11,10 @@ describe('Hero Component', () => {
 
   describe('Basic Rendering', () => {
     it('renders with required props', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
+      renderWithMotion(
+       
           <Hero {...defaultProps} />
-        </MotionConfig>,
+    
       );
 
       expect(screen.getByText('Test Title')).toBeInTheDocument();
@@ -24,15 +23,13 @@ describe('Hero Component', () => {
 
     it('renders with all props', () => {
       const actionButton = <button>Click me</button>;
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero
-            {...defaultProps}
-            subtitle="Test Subtitle"
-            actionButton={actionButton}
-            className="custom-class"
-          />
-        </MotionConfig>,
+      renderWithMotion(
+        <Hero
+          {...defaultProps}
+          subtitle="Test Subtitle"
+          actionButton={actionButton}
+          className="custom-class"
+        />
       );
 
       expect(screen.getByText('Test Subtitle')).toBeInTheDocument();
@@ -44,42 +41,26 @@ describe('Hero Component', () => {
 
   describe('Conditional Rendering', () => {
     it('does not render subtitle when not provided', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} />);
 
       expect(screen.queryByText('Test Subtitle')).not.toBeInTheDocument();
     });
 
     it('renders subtitle when provided', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} subtitle="Test Subtitle" />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} subtitle="Test Subtitle" />);
 
       expect(screen.getByText('Test Subtitle')).toBeInTheDocument();
     });
 
     it('does not render action button when not provided', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} />);
 
       expect(screen.queryByText('Click me')).not.toBeInTheDocument();
     });
 
     it('renders action button when provided', () => {
       const actionButton = <button>Click me</button>;
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} actionButton={actionButton} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} actionButton={actionButton} />);
 
       expect(screen.getByText('Click me')).toBeInTheDocument();
     });
@@ -87,11 +68,7 @@ describe('Hero Component', () => {
 
   describe('Styling and Classes', () => {
     it('applies correct CSS classes to container', () => {
-      const { container } = render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      const { container } = renderWithMotion(<Hero {...defaultProps} />);
 
       const section = container.querySelector('section');
       expectElementToHaveClasses(section!, [
@@ -104,22 +81,14 @@ describe('Hero Component', () => {
     });
 
     it('applies custom className when provided', () => {
-      const { container } = render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} className="custom-class" />
-        </MotionConfig>,
-      );
+      const { container } = renderWithMotion(<Hero {...defaultProps} className="custom-class" />);
 
       const section = container.querySelector('section');
       expect(section).toHaveClass('custom-class');
     });
 
     it('applies correct classes to subtitle', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} subtitle="Test Subtitle" />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} subtitle="Test Subtitle" />);
 
       const subtitle = screen.getByText('Test Subtitle');
       expectElementToHaveClasses(subtitle, [
@@ -133,11 +102,7 @@ describe('Hero Component', () => {
     });
 
     it('applies correct classes to title', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} />);
 
       const title = screen.getByText('Test Title');
       expectElementToHaveClasses(title, [
@@ -150,11 +115,7 @@ describe('Hero Component', () => {
     });
 
     it('applies correct classes to content', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} />);
 
       const content = screen.getByText('Test content description');
       expectElementToHaveClasses(content, [
@@ -169,11 +130,7 @@ describe('Hero Component', () => {
 
   describe('Content Types', () => {
     it('renders string content', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} content="String content" />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} content="String content" />);
 
       expect(screen.getByText('String content')).toBeInTheDocument();
     });
@@ -185,11 +142,7 @@ describe('Hero Component', () => {
           <strong>JSX strong</strong>
         </>
       );
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} content={jsxContent} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} content={jsxContent} />);
 
       expect(screen.getByText('JSX span')).toBeInTheDocument();
       expect(screen.getByText('JSX strong')).toBeInTheDocument();
@@ -202,11 +155,7 @@ describe('Hero Component', () => {
           <span>Secondary text</span>
         </div>
       );
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} actionButton={complexButton} />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} actionButton={complexButton} />);
 
       expect(screen.getByText('Primary Action')).toBeInTheDocument();
       expect(screen.getByText('Secondary text')).toBeInTheDocument();
@@ -215,11 +164,7 @@ describe('Hero Component', () => {
 
   describe('Accessibility', () => {
     it('has proper heading structure', () => {
-      render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} subtitle="Test Subtitle" />
-        </MotionConfig>,
-      );
+      renderWithMotion(<Hero {...defaultProps} subtitle="Test Subtitle" />);
 
       const subtitle = screen.getByText('Test Subtitle');
       const title = screen.getByText('Test Title');
@@ -229,11 +174,7 @@ describe('Hero Component', () => {
     });
 
     it('maintains semantic structure', () => {
-      const { container } = render(
-        <MotionConfig transition={{ duration: 0 }}>
-          <Hero {...defaultProps} />
-        </MotionConfig>,
-      );
+      const { container } = renderWithMotion(<Hero {...defaultProps} />);
 
       const section = container.querySelector('section');
       expect(section).toBeInTheDocument();

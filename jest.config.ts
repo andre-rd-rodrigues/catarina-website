@@ -12,10 +12,10 @@ const customJestConfig = {
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
-    '<rootDir>/__tests__/__utils__/test-helpers.ts',
+    '<rootDir>/__tests__/__utils__/test-helpers.tsx',
     '<rootDir>/__tests__/__mocks__/common.ts',
   ],
-  transformIgnorePatterns: ['node_modules/(?!(lucide-react|@lucide)/)'],
+  transformIgnorePatterns: ['node_modules/(?!(lucide-react|@lucide|motion)/)'],
   collectCoverageFrom: [
     'components/Button/**/*.{js,jsx,ts,tsx}',
     'components/ContactForm/**/*.{js,jsx,ts,tsx}',
