@@ -1,4 +1,4 @@
-name: 🎯 CI/CD
+name: Code Quality
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  quality-checks:
+  checks:
     runs-on: ubuntu-latest
 
     steps:
