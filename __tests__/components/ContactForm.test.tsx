@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ContactForm from '@/components/ContactForm';
 import { expectElementToHaveClasses } from '../__utils__/test-helpers';
-import { ValidationErrorProps } from '@formspree/react';
+import { useForm, ValidationErrorProps } from '@formspree/react';
 
 // Mock @formspree/react
 jest.mock('@formspree/react', () => ({
@@ -17,13 +17,27 @@ jest.mock('@formspree/react', () => ({
     phone: string;
     message: string;
   }>) => {
-    const errorArray = Array.isArray(errors) ? errors : [];
-    const fieldErrors = errorArray.filter(
+    // Handle both array format and SubmissionError object format
+    let fieldErrors: Array<{ field: string; message: string }> = [];
+
+    if (Array.isArray(errors)) {
+      fieldErrors = errors;
+    } else if (
+      errors &&
+      typeof errors === 'object' &&
+      'fieldErrors' in errors
+    ) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      fieldErrors = (errors as any).fieldErrors || [];
+    }
+
+    const matchingErrors = fieldErrors.filter(
       (error: { field: string; message: string }) => error.field === field,
     );
-    return fieldErrors?.length > 0 ? (
+
+    return matchingErrors?.length > 0 ? (
       <div data-testid={`${field}-error`} className="mt-1 text-sm text-red-500">
-        {prefix}: {fieldErrors[0].message}
+        {prefix}: {matchingErrors[0].message}
       </div>
     ) : null;
   },
@@ -31,7 +45,27 @@ jest.mock('@formspree/react', () => ({
 
 describe('ContactForm Component', () => {
   const mockHandleSubmit = jest.fn();
-  const mockUseForm = jest.mocked(require('@formspree/react').useForm);
+  const mockUseForm = jest.mocked(useForm);
+
+  const createMockError = (
+    fieldErrors: Array<{ field: string; message: string }>,
+  ) =>
+    ({
+      kind: 'error' as const,
+      fieldErrors,
+      getFormErrors: jest.fn(() => []),
+      getFieldError: jest.fn((field: string) =>
+        fieldErrors.find((e) => e.field === field),
+      ),
+      getFieldErrors: jest.fn((field: string) =>
+        fieldErrors.filter((e) => e.field === field),
+      ),
+      getAllFieldErrors: jest.fn(() => fieldErrors),
+      hasFieldError: jest.fn((field: string) =>
+        fieldErrors.some((e) => e.field === field),
+      ),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -40,9 +74,11 @@ describe('ContactForm Component', () => {
       {
         succeeded: false,
         submitting: false,
-        errors: [],
+        errors: null,
+        result: null,
       },
       mockHandleSubmit,
+      jest.fn(),
     ]);
   });
 
@@ -205,9 +241,11 @@ describe('ContactForm Component', () => {
         {
           succeeded: true,
           submitting: false,
-          errors: [],
+          errors: null,
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -226,9 +264,11 @@ describe('ContactForm Component', () => {
         {
           succeeded: true,
           submitting: false,
-          errors: [],
+          errors: null,
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -253,9 +293,11 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: true,
-          errors: [],
+          errors: null,
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -269,9 +311,11 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [],
+          errors: null,
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -287,9 +331,13 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [{ field: 'firstName', message: 'Nome é obrigatório' }],
+          errors: createMockError([
+            { field: 'firstName', message: 'Nome é obrigatório' },
+          ]),
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -304,9 +352,13 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [{ field: 'email', message: 'Email inválido' }],
+          errors: createMockError([
+            { field: 'email', message: 'Email inválido' },
+          ]),
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -321,9 +373,13 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [{ field: 'phone', message: 'Número inválido' }],
+          errors: createMockError([
+            { field: 'phone', message: 'Número inválido' },
+          ]),
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -338,9 +394,13 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [{ field: 'message', message: 'Mensagem é obrigatória' }],
+          errors: createMockError([
+            { field: 'message', message: 'Mensagem é obrigatória' },
+          ]),
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -357,13 +417,15 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [
+          errors: createMockError([
             { field: 'firstName', message: 'Nome é obrigatório' },
             { field: 'email', message: 'Email inválido' },
             { field: 'message', message: 'Mensagem é obrigatória' },
-          ],
+          ]),
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
@@ -378,9 +440,11 @@ describe('ContactForm Component', () => {
         {
           succeeded: false,
           submitting: false,
-          errors: [],
+          errors: null,
+          result: null,
         },
         mockHandleSubmit,
+        jest.fn(),
       ]);
 
       render(<ContactForm />);
