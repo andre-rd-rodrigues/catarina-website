@@ -5,7 +5,8 @@ import Button from '../Button';
 import { CheckCircle } from 'lucide-react';
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM_ID || '');
+  const formId = process.env.NEXT_PUBLIC_FORM_ID || 'contact-form';
+  const [state, handleSubmit] = useForm(formId);
   if (state.succeeded) {
     return (
       <div className="flex flex-col items-center justify-center py-8">

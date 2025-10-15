@@ -543,7 +543,7 @@ describe('ContactForm Component', () => {
 
       render(<ContactForm />);
 
-      expect(mockUseForm).toHaveBeenCalledWith('');
+      expect(mockUseForm).toHaveBeenCalledWith('contact-form');
 
       // Restore original value
       process.env.NEXT_PUBLIC_FORM_ID = originalEnv;
