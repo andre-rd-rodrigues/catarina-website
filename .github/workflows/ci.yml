@@ -34,7 +34,7 @@ jobs:
         run: pnpm run lint
 
       - name: 🧪 Run tests
-        run: pnpm run test --coverage --watchAll=false
+        run: pnpm run test --watchAll=false
 
       - name: 🏗️ Build application
         run: pnpm run build
