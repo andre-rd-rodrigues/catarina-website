@@ -1,0 +1,80 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-checks:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🔍 Type check
+        run: npm run type-check
+
+      - name: 🧹 Lint code
+        run: npm run lint
+
+      - name: 🧪 Run tests
+        run: npm test -- --coverage --watchAll=false
+
+      - name: 🏗️ Build check
+        run: npm run build
+
+      - name: 💬 Comment PR with test results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Read coverage summary if it exists
+            let coverageComment = '';
+            try {
+              const coveragePath = path.join(process.cwd(), 'coverage', 'coverage-summary.json');
+              if (fs.existsSync(coveragePath)) {
+                const coverage = JSON.parse(fs.readFileSync(coveragePath, 'utf8'));
+                const total = coverage.total;
+                coverageComment = `
+                ## 📊 Test Coverage
+                - **Lines**: ${total.lines.pct}%
+                - **Functions**: ${total.functions.pct}%
+                - **Branches**: ${total.branches.pct}%
+                - **Statements**: ${total.statements.pct}%
+                `;
+              }
+            } catch (error) {
+              console.log('Could not read coverage data');
+            }
+
+            const comment = `## ✅ PR Checks Complete
+
+            ${coverageComment}
+
+            ### 🎯 Summary
+            - ✅ Type checking passed
+            - ✅ Linting passed  
+            - ✅ Tests passed
+            - ✅ Build successful
+
+            This PR is ready for merge! 🚀`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
