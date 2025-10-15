@@ -44,7 +44,9 @@ describe('Terms and Conditions Page', () => {
 
     expect(screen.getByText('1. Uso do Website')).toBeInTheDocument();
     expect(screen.getByText('2. Propriedade Intelectual')).toBeInTheDocument();
-    expect(screen.getByText('3. Limitação de Responsabilidade')).toBeInTheDocument();
+    expect(
+      screen.getByText('3. Limitação de Responsabilidade'),
+    ).toBeInTheDocument();
     expect(screen.getByText('4. Ligações a Terceiros')).toBeInTheDocument();
     expect(screen.getByText('5. Análise de Utilização')).toBeInTheDocument();
     expect(screen.getByText('6. Alterações aos Termos')).toBeInTheDocument();
@@ -58,7 +60,9 @@ describe('Terms and Conditions Page', () => {
       screen.getByText(/Este website é disponibilizado para fins informativos/),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/O conteúdo aqui apresentado não constitui aconselhamento/),
+      screen.getByText(
+        /O conteúdo aqui apresentado não constitui aconselhamento/,
+      ),
     ).toBeInTheDocument();
   });
 

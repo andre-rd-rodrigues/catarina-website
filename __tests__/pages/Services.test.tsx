@@ -87,7 +87,9 @@ describe('Services Page', () => {
     renderWithMotion(<Services />);
 
     expect(
-      screen.getByText(/Uma leitura que une astrologia simbólica e Human Design/),
+      screen.getByText(
+        /Uma leitura que une astrologia simbólica e Human Design/,
+      ),
     ).toBeInTheDocument();
     expect(
       screen.getByText(/Nesta sessão, exploramos as principais dinâmicas/),
@@ -111,11 +113,11 @@ describe('Services Page', () => {
     renderWithMotion(<Services />);
 
     expect(
-      screen.getByText(/Este programa nasce da visão de que o verdadeiro equilíbrio/),
+      screen.getByText(
+        /Este programa nasce da visão de que o verdadeiro equilíbrio/,
+      ),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(/O acompanhamento inclui/),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/O acompanhamento inclui/)).toBeInTheDocument();
     expect(
       screen.getByText(/Uma consulta médica inicial estruturada/),
     ).toBeInTheDocument();
@@ -130,10 +132,18 @@ describe('Services Page', () => {
     const images = screen.getAllByRole('img');
     expect(images.length).toBeGreaterThanOrEqual(4);
 
-    expect(screen.getByAltText('Consulta Medicina Funcional Integrativa')).toBeInTheDocument();
-    expect(screen.getByAltText('Sessões de Terapia (Saúde Mental)')).toBeInTheDocument();
-    expect(screen.getByAltText('Mapa Astral + Human Design')).toBeInTheDocument();
-    expect(screen.getByAltText('Programa de acompanhamento integrativo - 3/6 meses')).toBeInTheDocument();
+    expect(
+      screen.getByAltText('Consulta Medicina Funcional Integrativa'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByAltText('Sessões de Terapia (Saúde Mental)'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByAltText('Mapa Astral + Human Design'),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByAltText('Programa de acompanhamento integrativo - 3/6 meses'),
+    ).toBeInTheDocument();
   });
 
   it('renders therapeutic principles section', () => {
@@ -156,7 +166,9 @@ describe('Services Page', () => {
     renderWithMotion(<Services />);
 
     expect(screen.getByText('Preçário')).toBeInTheDocument();
-    expect(screen.getByText('Serviços & Programas Integrativos')).toBeInTheDocument();
+    expect(
+      screen.getByText('Serviços & Programas Integrativos'),
+    ).toBeInTheDocument();
   });
 
   it('renders FAQ preview section', () => {
@@ -188,7 +200,7 @@ describe('Services Page', () => {
     serviceTitles.forEach((title) => {
       const elements = screen.getAllByText(title);
       // Check that at least one element is an h3
-      const h3Element = elements.find(el => el.tagName === 'H3');
+      const h3Element = elements.find((el) => el.tagName === 'H3');
       expect(h3Element).toBeInTheDocument();
     });
   });
@@ -206,7 +218,9 @@ describe('Services Page', () => {
 
     expect(screen.getByText('Primeiro encontro')).toBeInTheDocument();
     expect(screen.getByText('Segundo encontro')).toBeInTheDocument();
-    expect(screen.getByText('Guia Terapêutico personalizado')).toBeInTheDocument();
+    expect(
+      screen.getByText('Guia Terapêutico personalizado'),
+    ).toBeInTheDocument();
   });
 
   it('displays service subtitles correctly', () => {
