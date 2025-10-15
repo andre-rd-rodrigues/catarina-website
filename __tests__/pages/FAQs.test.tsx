@@ -31,10 +31,15 @@ describe('FAQs Page', () => {
   it('displays the introductory text with contact link', () => {
     renderWithMotion(<FAQSPage />);
 
-    expect(screen.getByText(/Encontre respostas para as perguntas mais comuns/)).toBeInTheDocument();
-    
+    expect(
+      screen.getByText(/Encontre respostas para as perguntas mais comuns/),
+    ).toBeInTheDocument();
+
     const contactLink = screen.getByRole('link', { name: 'fale comigo.' });
-    expect(contactLink).toHaveAttribute('href', `https://wa.me/${CONTACTS.phone}`);
+    expect(contactLink).toHaveAttribute(
+      'href',
+      `https://wa.me/${CONTACTS.phone}`,
+    );
   });
 
   it('renders all FAQ items', () => {
@@ -52,8 +57,8 @@ describe('FAQs Page', () => {
     expect(faqContainer).toBeInTheDocument();
 
     const faqItems = screen.getAllByRole('generic');
-    const faqItemContainers = faqItems.filter(item => 
-      item.className.includes('group cursor-pointer px-8 py-6')
+    const faqItemContainers = faqItems.filter((item) =>
+      item.className.includes('group cursor-pointer px-8 py-6'),
     );
     expect(faqItemContainers).toHaveLength(FAQS.length);
   });
@@ -69,8 +74,8 @@ describe('FAQs Page', () => {
     renderWithMotion(<FAQSPage />);
 
     const chevronIcons = screen.getAllByRole('generic');
-    const chevronElements = chevronIcons.filter(item => 
-      item.querySelector('svg[data-icon="ChevronDown"]')
+    const chevronElements = chevronIcons.filter((item) =>
+      item.querySelector('svg[data-icon="ChevronDown"]'),
     );
     expect(chevronElements.length).toBeGreaterThan(0);
   });
@@ -97,7 +102,7 @@ describe('FAQs Page', () => {
 
     // Click to open
     fireEvent.click(firstFAQ!);
-    
+
     // Click again to close
     fireEvent.click(firstFAQ!);
   });
@@ -110,7 +115,7 @@ describe('FAQs Page', () => {
 
     // Open first FAQ
     fireEvent.click(firstFAQ!);
-    
+
     // Open second FAQ
     fireEvent.click(secondFAQ!);
   });
@@ -133,7 +138,9 @@ describe('FAQs Page', () => {
     expect(pageElement).toBeInTheDocument();
 
     const sectionElements = screen.getAllByRole('generic');
-    const sectionElement = sectionElements.find(el => el.className.includes('sm:py-12'));
+    const sectionElement = sectionElements.find((el) =>
+      el.className.includes('sm:py-12'),
+    );
     expect(sectionElement).toBeInTheDocument();
   });
 
@@ -141,8 +148,10 @@ describe('FAQs Page', () => {
     renderWithMotion(<FAQSPage />);
 
     expect(screen.getByText('Perguntas Frequentes')).toBeInTheDocument();
-    expect(screen.getByText(/Encontre respostas para as perguntas mais comuns/)).toBeInTheDocument();
-    
+    expect(
+      screen.getByText(/Encontre respostas para as perguntas mais comuns/),
+    ).toBeInTheDocument();
+
     const faqContainer = screen.getByTestId('faqs');
     expect(faqContainer).toBeInTheDocument();
   });
@@ -155,8 +164,8 @@ describe('FAQs Page', () => {
 
     // Check that FAQ items are clickable
     const faqItems = screen.getAllByRole('generic');
-    const clickableFAQs = faqItems.filter(item => 
-      item.className.includes('cursor-pointer')
+    const clickableFAQs = faqItems.filter((item) =>
+      item.className.includes('cursor-pointer'),
     );
     expect(clickableFAQs.length).toBeGreaterThan(0);
   });
@@ -166,10 +175,10 @@ describe('FAQs Page', () => {
 
     expect(screen.getAllByText('FAQS')).toHaveLength(2); // One in page title, one in section title
     expect(screen.getByText('Perguntas Frequentes')).toBeInTheDocument();
-    
+
     // Check that all FAQ questions are rendered as h3 elements
-    const faqQuestions = FAQS.map(faq => screen.getByText(faq.question));
-    faqQuestions.forEach(question => {
+    const faqQuestions = FAQS.map((faq) => screen.getByText(faq.question));
+    faqQuestions.forEach((question) => {
       expect(question.tagName).toBe('H3');
     });
   });
@@ -183,7 +192,7 @@ describe('FAQs Page', () => {
 
     // Click to open
     fireEvent.click(firstFAQ!);
-    
+
     // Click to close
     fireEvent.click(firstFAQ!);
   });
