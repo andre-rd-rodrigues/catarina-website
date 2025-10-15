@@ -88,6 +88,23 @@ export const mockAppLink = () => {
   };
 };
 
+// Mock SplitLeaf component
+export const mockSplitLeaf = () => {
+  return function MockSplitLeaf({ images }: { images: string[] }) {
+    return createElement(
+      'div',
+      { 'data-testid': 'split-leaf' },
+      ...images.map((image, index) =>
+        createElement('img', {
+          key: index,
+          src: image,
+          alt: `Split leaf ${index + 1}`,
+        }),
+      ),
+    );
+  };
+};
+
 // Mock framer-motion with proper animation handling based on the article
 export const mockFramerMotion = () => {
   const actual = jest.requireActual('motion/react');
@@ -213,6 +230,7 @@ export const setupCommonMocks = () => {
   jest.mock('next/navigation', () => mockNextNavigation());
   jest.mock('@/components/Link/index', () => mockAppLink());
   jest.mock('@/components/Section', () => mockSection());
+  jest.mock('@/components/SplitLeaf', () => mockSplitLeaf());
   jest.mock('motion/react', () => mockFramerMotion());
   jest.mock('@/motion/variants', () => ({
     containerVariant: {
