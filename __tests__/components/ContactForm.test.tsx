@@ -31,9 +31,7 @@ jest.mock('@formspree/react', () => ({
 
 describe('ContactForm Component', () => {
   const mockHandleSubmit = jest.fn();
-  const mockUseForm = jest.mocked(
-    jest.requireActual('@formspree/react').useForm,
-  );
+  const mockUseForm = jest.mocked(require('@formspree/react').useForm);
 
   beforeEach(() => {
     jest.clearAllMocks();
