@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import FAQs from '@/components/FAQS';
+import { renderWithMotion } from '../__utils__/test-helpers';
 
 describe('FAQs Component', () => {
   const mockItems = [
@@ -22,7 +23,7 @@ describe('FAQs Component', () => {
   ];
 
   it('renders FAQ items correctly', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     expect(
       screen.getByText('What is functional medicine?'),
@@ -34,14 +35,14 @@ describe('FAQs Component', () => {
   });
 
   it('renders chevron icons for each FAQ', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     const chevronIcons = document.querySelectorAll('[data-icon="ChevronDown"]');
     expect(chevronIcons).toHaveLength(3);
   });
 
   it('toggles FAQ expansion when clicked', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     const firstQuestion = screen.getByText('What is functional medicine?');
     const firstAnswer = screen.getByText(
@@ -59,7 +60,7 @@ describe('FAQs Component', () => {
   });
 
   it('closes FAQ when clicked again', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     const firstQuestion = screen.getByText('What is functional medicine?');
 
@@ -74,7 +75,7 @@ describe('FAQs Component', () => {
   });
 
   it('only allows one FAQ to be open at a time', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     const firstQuestion = screen.getByText('What is functional medicine?');
     const secondQuestion = screen.getByText('How long does treatment take?');
@@ -99,7 +100,7 @@ describe('FAQs Component', () => {
       },
     ];
 
-    render(<FAQs items={itemsWithHtml} />);
+    renderWithMotion(<FAQs items={itemsWithHtml} />);
 
     const question = screen.getByText('What is functional medicine?');
     fireEvent.click(question);
@@ -109,16 +110,16 @@ describe('FAQs Component', () => {
   });
 
   it('handles empty items array', () => {
-    render(<FAQs items={[]} />);
+    renderWithMotion(<FAQs items={[]} />);
 
-    // Should render the container but no FAQ items
+    // Should renderWithMotion the container but no FAQ items
     const container = document.querySelector('.mx-auto.w-full.max-w-2xl');
     expect(container).toBeInTheDocument();
     expect(container).toHaveClass('mx-auto', 'w-full', 'max-w-2xl');
   });
 
   it('applies correct CSS classes', () => {
-    render(<FAQs items={mockItems} />);
+    renderWithMotion(<FAQs items={mockItems} />);
 
     const container = document.querySelector('.mx-auto.w-full.max-w-2xl');
     expect(container).toHaveClass(
