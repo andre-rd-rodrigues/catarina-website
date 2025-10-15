@@ -22,6 +22,19 @@ export const mockNextLink = () => {
   };
 };
 
+// Mock Section component
+export const mockSection = () => {
+  return function MockSection({
+    children,
+    className,
+  }: {
+    children: React.ReactNode;
+    className?: string;
+  }) {
+    return createElement('section', { className }, children);
+  };
+};
+
 // Mock Lucide React icons
 export const mockLucideReact = () => {
   return new Proxy(
@@ -199,6 +212,7 @@ export const setupCommonMocks = () => {
   jest.mock('lucide-react', () => mockLucideReact());
   jest.mock('next/navigation', () => mockNextNavigation());
   jest.mock('@/components/Link/index', () => mockAppLink());
+  jest.mock('@/components/Section', () => mockSection());
   jest.mock('motion/react', () => mockFramerMotion());
   jest.mock('@/motion/variants', () => ({
     containerVariant: {

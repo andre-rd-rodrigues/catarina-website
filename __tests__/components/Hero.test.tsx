@@ -4,19 +4,6 @@ import { MotionConfig } from 'motion/react';
 import Hero from '@/components/Hero';
 import { expectElementToHaveClasses } from '../__utils__/test-helpers';
 
-// Mock Section component
-jest.mock('@/components/Section', () => {
-  return function MockSection({
-    children,
-    className,
-  }: {
-    children: React.ReactNode;
-    className?: string;
-  }) {
-    return <section className={className}>{children}</section>;
-  };
-});
-
 describe('Hero Component', () => {
   const defaultProps = {
     title: 'Test Title',
