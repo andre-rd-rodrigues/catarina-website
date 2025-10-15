@@ -2,9 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import FaqsPreview from '@/components/FAQS/FaqsPreview';
 
-// All mocks are handled globally in common.ts
-
-describe.skip('FaqsPreview Component', () => {
+describe('FaqsPreview Component', () => {
   it('renders the main title and subtitle', () => {
     render(<FaqsPreview />);
 
@@ -21,7 +19,7 @@ describe.skip('FaqsPreview Component', () => {
     expect(screen.getByText('fale comigo.')).toBeInTheDocument();
 
     const whatsappLink = screen.getByText('fale comigo.');
-    expect(whatsappLink).toHaveAttribute('href', 'https://wa.me/123456789');
+    expect(whatsappLink).toHaveAttribute('href', 'https://wa.me/+351928259010');
   });
 
   it('renders the SplitLeaf component with correct images', () => {

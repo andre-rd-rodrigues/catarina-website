@@ -24,7 +24,7 @@ export const mockNextLink = () => {
 
 // Mock Section component
 export const mockSection = () => {
-  return function MockSection({
+  const MockSection = function MockSection({
     children,
     className,
   }: {
@@ -33,6 +33,26 @@ export const mockSection = () => {
   }) {
     return createElement('section', { className }, children);
   };
+
+  // Add Title property to Section
+  MockSection.Title = function MockSectionTitle({
+    title,
+    subtitle,
+    className,
+  }: {
+    title: string;
+    subtitle?: string;
+    className?: string;
+  }) {
+    return createElement(
+      'div',
+      { className },
+      subtitle && createElement('h2', {}, subtitle),
+      createElement('h3', {}, title),
+    );
+  };
+
+  return MockSection;
 };
 
 // Mock Lucide React icons
@@ -100,6 +120,57 @@ export const mockSplitLeaf = () => {
           src: image,
           alt: `Split leaf ${index + 1}`,
         }),
+      ),
+    );
+  };
+};
+
+// Mock FAQs component
+export const mockFAQs = () => {
+  return function MockFAQs({ items }: { items: Array<{ question: string; answer: string }> }) {
+    return createElement(
+      'div',
+      { 
+        'data-testid': 'faqs',
+        className: 'mx-auto w-full max-w-2xl divide-y rounded-lg border shadow-md'
+      },
+      ...items.map((item, index) =>
+        createElement(
+          'div',
+          { 
+            key: index,
+            className: 'group cursor-pointer px-8 py-6'
+          },
+          createElement(
+            'div',
+            { className: 'flex items-center justify-between' },
+            createElement(
+              'h3',
+              { className: 'text-lg font-medium text-[var(--color-primary)] transition-all duration-200 group-hover:text-[var(--color-danger)]' },
+              item.question
+            ),
+            createElement(
+              'span',
+              { className: 'text-[var(--color-danger)]' },
+              createElement('svg', { 'data-icon': 'ChevronDown', size: 20 })
+            )
+          ),
+          createElement(
+            'div',
+            { className: 'overflow-hidden' },
+            createElement(
+              'div',
+              { className: 'my-5 text-[var(--color-text)]' },
+              createElement(
+                'p',
+                { 
+                  className: 'mb-4 last:mb-0',
+                  dangerouslySetInnerHTML: { __html: item.answer }
+                }
+              )
+            )
+          )
+        ),
       ),
     );
   };
@@ -231,6 +302,7 @@ export const setupCommonMocks = () => {
   jest.mock('@/components/Link/index', () => mockAppLink());
   jest.mock('@/components/Section', () => mockSection());
   jest.mock('@/components/SplitLeaf', () => mockSplitLeaf());
+  jest.mock('@/components/FAQS', () => mockFAQs());
   jest.mock('motion/react', () => mockFramerMotion());
   jest.mock('@/motion/variants', () => ({
     containerVariant: {
