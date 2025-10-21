@@ -33,13 +33,27 @@ const Card: FC<CardProps> = ({ image, title, description }) => {
 
 const healthCardsData = [
   {
-    image: <Image src="/img/leaf.png" alt="Leaf Icon" objectFit="cover" fill />,
+    image: (
+      <Image
+        src="/img/leaf.png"
+        alt="Leaf Icon"
+        width={80}
+        height={80}
+        style={{ objectFit: 'cover' }}
+      />
+    ),
     title: 'Viver com Saúde é Viver Plenamente',
     description: 'Cultivar Saúde é o que nos permite desfrutar da Vida.',
   },
   {
     image: (
-      <Image src="/img/plant.png" alt="Plant Icon" objectFit="cover" fill />
+      <Image
+        src="/img/plant.png"
+        alt="Plant Icon"
+        width={80}
+        height={80}
+        style={{ objectFit: 'cover' }}
+      />
     ),
     title: 'Cuide de Si, Todos os Dias',
     description:
@@ -47,11 +61,17 @@ const healthCardsData = [
   },
   {
     image: (
-      <Image src="/img/circle.png" alt="Circle Icon" objectFit="cover" fill />
+      <Image
+        src="/img/circle.png"
+        alt="Circle Icon"
+        width={80}
+        height={80}
+        style={{ objectFit: 'cover' }}
+      />
     ),
     title: 'O Natural é o Caminho para o Equilíbrio',
     description:
-      'A Natureza sempre procura o bem do “Todo”, através do equilíbrio das suas “partes”.',
+      'A Natureza sempre procura o bem do "Todo", através do equilíbrio das suas "partes".',
   },
 ];
 

@@ -5,7 +5,8 @@ import Button from '../Button';
 import { CheckCircle } from 'lucide-react';
 
 function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM_ID || '');
+  const formId = process.env.NEXT_PUBLIC_FORM_ID || 'contact-form';
+  const [state, handleSubmit] = useForm(formId);
   if (state.succeeded) {
     return (
       <div className="flex flex-col items-center justify-center py-8">
@@ -18,7 +19,11 @@ function ContactForm() {
     );
   }
   return (
-    <form onSubmit={handleSubmit} className="mx-auto w-full">
+    <form
+      data-testid="contact-form"
+      onSubmit={handleSubmit}
+      className="mx-auto w-full"
+    >
       {/* Grid container: two columns on medium+ screens, single column on small */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* First Name */}

@@ -34,7 +34,6 @@ export default function Navbar() {
   const navRef = useRef<HTMLDivElement>(null);
 
   const pathname = usePathname();
-  console.log(pathname);
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);

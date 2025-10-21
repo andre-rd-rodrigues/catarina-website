@@ -2,7 +2,7 @@ import Page from '@/components/Page';
 import Section from '@/components/Section';
 import React from 'react';
 
-function PrivacyPolicy() {
+function TermsAndConditions() {
   return (
     <Page>
       <Page.Title
@@ -102,4 +102,4 @@ function PrivacyPolicy() {
   );
 }
 
-export default PrivacyPolicy;
+export default TermsAndConditions;

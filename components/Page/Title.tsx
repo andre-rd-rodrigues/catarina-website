@@ -9,6 +9,7 @@ interface TitleProps {
 const Title: React.FC<TitleProps> = ({ src, title, subtitle }) => {
   return (
     <div
+      data-testid="page-title"
       className="relative flex h-64 w-full items-center justify-center bg-cover bg-center px-5 sm:px-28 md:justify-start"
       style={{
         background: `url(${src}) center/cover no-repeat`,
