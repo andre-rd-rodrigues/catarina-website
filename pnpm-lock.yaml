@@ -15,9 +15,6 @@ importers:
       '@formspree/react':
         specifier: ^3.0.0
         version: 3.0.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@hotjar/browser':
-        specifier: ^1.0.9
-        version: 1.0.9
       '@lucide/lab':
         specifier: ^0.1.2
         version: 0.1.2
@@ -389,9 +386,6 @@ packages:
     peerDependencies:
       react: ^16.8 || ^17.0 || ^18.0 || ^19.0
       react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0
-
-  '@hotjar/browser@1.0.9':
-    resolution: {integrity: sha512-n9akDMod8BLGpYEQCrHwlYWWd63c1HlhUSXNIDfClZtKYXbUjIUOFlNZNNcUxgHTCsi4l2i+SWKsGsO0t93S8w==}
 
   '@humanfs/core@0.19.1':
     resolution: {integrity: sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA==}
@@ -3679,8 +3673,6 @@ snapshots:
       '@stripe/stripe-js': 5.10.0
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-
-  '@hotjar/browser@1.0.9': {}
 
   '@humanfs/core@0.19.1': {}
 
