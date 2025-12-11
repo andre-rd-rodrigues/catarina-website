@@ -83,8 +83,8 @@ importers:
         specifier: 15.4.8
         version: 15.4.8(eslint@9.19.0(jiti@1.21.7))(typescript@5.7.3)
       eslint-config-prettier:
-        specifier: ^4.3.0
-        version: 4.3.0(eslint@9.19.0(jiti@1.21.7))
+        specifier: ^10.1.8
+        version: 10.1.8(eslint@9.19.0(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: 3.0.1
         version: 3.0.1(eslint@9.19.0(jiti@1.21.7))(prettier@2.8.8)
@@ -1623,11 +1623,11 @@ packages:
       typescript:
         optional: true
 
-  eslint-config-prettier@4.3.0:
-    resolution: {integrity: sha512-sZwhSTHVVz78+kYD3t5pCWSYEdVSBR0PXnwjDRsUs8ytIrK8PLXw+6FKp8r3Z7rx4ZszdetWlXYKOHoUrrwPlA==}
+  eslint-config-prettier@10.1.8:
+    resolution: {integrity: sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w==}
     hasBin: true
     peerDependencies:
-      eslint: '>=3.14.1'
+      eslint: '>=7.0.0'
 
   eslint-import-resolver-node@0.3.9:
     resolution: {integrity: sha512-WFj2isz22JahUv+B788TlO3N6zL3nNJGU8CcZbPZvVEkBPaJdCV4vy5wyghty5ROFbCRnm132v8BScu5/1BQ8g==}
@@ -1868,10 +1868,6 @@ packages:
   get-proto@1.0.1:
     resolution: {integrity: sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==}
     engines: {node: '>= 0.4'}
-
-  get-stdin@6.0.0:
-    resolution: {integrity: sha512-jp4tHawyV7+fkkSKyvjuLZswblUtz+SQKzSWnBbii16BuZksJlU1wuBYXY75r+duh/llF1ur6oNwi+2ZzjKZ7g==}
-    engines: {node: '>=4'}
 
   get-stream@6.0.1:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
@@ -4974,10 +4970,9 @@ snapshots:
       - eslint-plugin-import-x
       - supports-color
 
-  eslint-config-prettier@4.3.0(eslint@9.19.0(jiti@1.21.7)):
+  eslint-config-prettier@10.1.8(eslint@9.19.0(jiti@1.21.7)):
     dependencies:
       eslint: 9.19.0(jiti@1.21.7)
-      get-stdin: 6.0.0
 
   eslint-import-resolver-node@0.3.9:
     dependencies:
@@ -5303,8 +5298,6 @@ snapshots:
     dependencies:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
-
-  get-stdin@6.0.0: {}
 
   get-stream@6.0.1: {}
 
