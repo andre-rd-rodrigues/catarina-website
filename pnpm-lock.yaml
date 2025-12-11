@@ -49,8 +49,8 @@ importers:
         specifier: ^1.83.4
         version: 1.83.4
       swiper:
-        specifier: ^11.2.1
-        version: 11.2.1
+        specifier: ^12.0.3
+        version: 12.0.3
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -3097,8 +3097,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  swiper@11.2.1:
-    resolution: {integrity: sha512-62G69+iQRIfUqTmJkWpZDcX891Ra8O9050ckt1/JI2H+0483g+gq0m7gINecDqMtDh2zt5dK+uzBRxGhGOOvQA==}
+  swiper@12.0.3:
+    resolution: {integrity: sha512-BHd6U1VPEIksrXlyXjMmRWO0onmdNPaTAFduzqR3pgjvi7KfmUCAm/0cj49u2D7B0zNjMw02TSeXfinC1hDCXg==}
     engines: {node: '>= 4.7.0'}
 
   symbol-tree@3.2.4:
@@ -6721,7 +6721,7 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swiper@11.2.1: {}
+  swiper@12.0.3: {}
 
   symbol-tree@3.2.4: {}
 
