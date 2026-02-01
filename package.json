@@ -8,8 +8,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "lint:strict": "next lint '*/**/*.{js,jsx,ts,tsx}'",
     "prettier": "prettier --write \"**/*.{js,jsx,json,ts,tsx,scss,css,md}\"",
     "analyze": "ANALYZE=true npm run build",
@@ -20,15 +20,15 @@
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@lucide/lab": "^0.1.2",
-    "@next/third-parties": "^16.0.8",
+    "@next/third-parties": "16.1.6",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.561.0",
     "motion": "^12.0.6",
-    "next": "16.1.5",
+    "next": "16.1.6",
     "next-sitemap": "^4.2.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "sass": "^1.83.4",
     "swiper": "^11.2.1"
   },
@@ -39,10 +39,11 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^22",
-    "@types/react": "19.1.8",
-    "@types/react-dom": "19.1.6",
+    "@types/react": "19.2.10",
+    "@types/react-dom": "19.2.3",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9",
-    "eslint-config-next": "15.4.8",
+    "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-prettier": "3.0.1",
     "husky": "^8.0.0",
@@ -65,8 +66,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@types/react": "19.1.8",
-      "@types/react-dom": "19.1.6"
+      "@types/react": "19.2.10",
+      "@types/react-dom": "19.2.3"
     }
   }
 }
