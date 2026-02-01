@@ -27,7 +27,6 @@ jest.mock('@formspree/react', () => ({
       typeof errors === 'object' &&
       'fieldErrors' in errors
     ) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       fieldErrors = (errors as any).fieldErrors || [];
     }
 
@@ -64,7 +63,6 @@ describe('ContactForm Component', () => {
       hasFieldError: jest.fn((field: string) =>
         fieldErrors.some((e) => e.field === field),
       ),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
   beforeEach(() => {

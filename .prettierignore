@@ -11,3 +11,11 @@ node_modules
 next-env.d.ts
 next.config.ts
 yarn.lock
+.vercel
+.cursor
+.husky
+.prettierignore
+.prettierrc
+.prettierrc.json
+.prettierrc.json
+__tests__
