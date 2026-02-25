@@ -20,7 +20,7 @@ const servicesData = [
   {
     title: 'Consulta Medicina Funcional Integrativa',
     subtitle: 'consultas seguintes',
-    price: '140€',
+    price: '150€',
     services: [
       'Reavaliação da evolução',
       'Adaptação do plano',

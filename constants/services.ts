@@ -4,7 +4,7 @@ export const SERVICES = [
     title: 'Consulta de Medicina Funcional Integrativa',
     description:
       'Consulta em dois tempos que avalia profundamente o histórico e hábitos do paciente, culminando num plano terapêutico individualizado para promover saúde integral e bem-estar sustentável.',
-    valor: '140€ x 2 = 280€',
+    valor: '150€ x 2 = 300€',
   },
   {
     number: '02.',
