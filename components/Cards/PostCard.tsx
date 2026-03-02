@@ -22,7 +22,7 @@ const PostCard: React.FC<PostCardProps> = ({
   const content = (
     <>
       <div className=" shrink-0 p-3 pb-0">
-        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-gray-200 bg-white">
+        <div className="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/40">
           <Image
             src={image}
             alt=""
@@ -45,7 +45,7 @@ const PostCard: React.FC<PostCardProps> = ({
         </p>
         <div className="mt-4 flex shrink-0 justify-end">
           <span
-            className="inline-flex size-10 items-center justify-center rounded-full border border-[var(--color-border-primary)] bg-white text-gray-600 shadow-sm transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)]"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-gray-300/40 bg-white/60 text-gray-600 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover:border-[var(--color-accent)] group-hover:bg-white/80 group-hover:text-[var(--color-accent)]"
             aria-hidden
           >
             <ArrowRightIcon size={18} strokeWidth={2} />
@@ -56,7 +56,7 @@ const PostCard: React.FC<PostCardProps> = ({
   );
 
   const className =
-    'group flex h-full flex-col overflow-hidden rounded-[2rem] border border-[var(--color-border-primary)] bg-white shadow-md transition-all duration-300 hover:shadow-lg';
+    'group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/30 bg-white/70 shadow-lg shadow-black/5 backdrop-blur-xl transition-all duration-300 hover:bg-white/80 hover:shadow-xl hover:shadow-black/10';
 
   if (href) {
     return (
