@@ -34,9 +34,7 @@ function filterAndSortPosts(
     return matchCategory && matchSearch;
   });
 
-  return [...result].sort((a, b) =>
-    b.dateSort.localeCompare(a.dateSort),
-  );
+  return [...result].sort((a, b) => b.dateSort.localeCompare(a.dateSort));
 }
 
 const SEARCH_DEBOUNCE_MS = 300;
