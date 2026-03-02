@@ -12,13 +12,13 @@ export const NAVBAR = [
     href: '/faqs',
   },
   {
+    name: 'Blog',
+    href: '/blog',
+  },
+  {
     name: 'Contactos',
     href: '/contactos',
   },
-  /*   {
-    name: 'Blog',
-    href: '/blog',
-  }, */
 ];
 
 export const FOOTER_NAVBAR = [
@@ -37,6 +37,10 @@ export const FOOTER_NAVBAR = [
   {
     name: 'FAQs',
     href: '/faqs',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
   },
   {
     name: 'Contactos',

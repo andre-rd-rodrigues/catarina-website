@@ -1,5 +1,6 @@
 'use client';
 import HealthCards from '@/components/Cards/HealthCards';
+import PostCard from '@/components/Cards/PostCard';
 import ServiceCard from '@/components/Cards/ServiceCard';
 import FaqsPreview from '@/components/FAQS/FaqsPreview';
 import GlowEffect from '@/components/GlowEffect';
@@ -8,6 +9,7 @@ import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
+import { BLOG_POSTS } from '@/constants/blog';
 import {
   HOMEPAGE_CHOOSE_US_SECTION,
   HOMEPAGE_SERVICES,
@@ -265,6 +267,40 @@ export default function Home() {
               )}
             </motion.div>
           </div>
+        </motion.div>
+      </Section>
+
+      {/* Blog */}
+      <Section id="blog" className="bg-[var(--color-background-alt)]">
+        <Section.Title
+          subtitle="Blog"
+          title="Novidades e reflexões"
+          className="text-center"
+          animation="left"
+        />
+        <motion.div
+          variants={containerVariant}
+          whileInView="visible"
+          initial="hidden"
+          viewport={{ once: true }}
+          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {BLOG_POSTS.map((post) => (
+            <motion.div
+              variants={fadeInSlideInVariant}
+              key={post.slug}
+              className="h-full"
+            >
+              <PostCard
+                title={post.title}
+                excerpt={post.excerpt}
+                date={post.date}
+                category={post.category}
+                image={post.image}
+                href={`/blog/${post.slug}`}
+              />
+            </motion.div>
+          ))}
         </motion.div>
       </Section>
 
