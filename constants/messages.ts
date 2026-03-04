@@ -7,4 +7,6 @@ export const CMS_MESSAGES = {
 
   missingToken:
     'Configure o token de acesso ao CMS no ficheiro .env. Obtenha o token em',
+
+  noBlogPosts: 'Ainda não há artigos disponíveis.',
 } as const;

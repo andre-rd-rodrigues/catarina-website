@@ -3,12 +3,14 @@ import { CMS_MESSAGES } from '@/constants/messages';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import {
-  getStory,
   extractBlogStoryContent,
+  getArticles,
+  getStory,
 } from '@/lib/storyblok-api';
 
 export default async function BlogPage() {
   let storyContent = null;
+  let articles: Awaited<ReturnType<typeof getArticles>> = [];
 
   if (process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN) {
     try {
@@ -25,7 +27,12 @@ export default async function BlogPage() {
         </Page>
       );
     }
+    try {
+      articles = await getArticles();
+    } catch {
+      // Keep empty articles
+    }
   }
 
-  return <BlogPageContent storyContent={storyContent} />;
+  return <BlogPageContent storyContent={storyContent} articles={articles} />;
 }

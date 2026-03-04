@@ -25,7 +25,11 @@ export default function StoryblokHeading({ blok }: StoryblokHeadingProps) {
   return (
     <div {...storyblokEditable(blok as SbBlokData)}>
       <Page.Title
-        src={typeof src === 'string' ? src : (src as { filename?: string })?.filename ?? ''}
+        src={
+          typeof src === 'string'
+            ? src
+            : (src as { filename?: string })?.filename ?? ''
+        }
         title={blok.heading ?? ''}
         subtitle={blok.subtitle}
       />

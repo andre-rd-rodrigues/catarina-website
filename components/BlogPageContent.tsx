@@ -1,10 +1,10 @@
 'use client';
 
 import PostCard from '@/components/Cards/PostCard';
+import { CMS_MESSAGES } from '@/constants/messages';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
-import { BLOG_POSTS } from '@/constants/blog';
-import type { BlogStoryContent } from '@/lib/storyblok-api';
+import type { BlogStoryContent, PostCardData } from '@/lib/storyblok-api';
 import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
 import { SearchIcon } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -15,22 +15,17 @@ const DEFAULT_TITLE_IMAGE =
 
 export type BlogPageContentProps = {
   storyContent?: BlogStoryContent | null;
+  articles: PostCardData[];
 };
-
-const posts = [...BLOG_POSTS].sort((a, b) =>
-  b.dateSort.localeCompare(a.dateSort),
-);
 
 export default function BlogPageContent({
   storyContent,
+  articles,
 }: BlogPageContentProps) {
   const [category, setCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = useMemo(
-    () => [...new Set(BLOG_POSTS.map((p) => p.category))].sort(),
-    [],
-  );
+  const categories = ['lifestyle']; // TODO
 
   const heading = storyContent?.heading ?? 'Blog';
   const titleImage = storyContent?.image ?? DEFAULT_TITLE_IMAGE;
@@ -106,30 +101,38 @@ export default function BlogPageContent({
           </div>
         </motion.div>
 
-        <motion.div
-          variants={containerVariant}
-          whileInView="visible"
-          initial="hidden"
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {posts.map((post) => (
-            <motion.div
-              variants={fadeInSlideInVariant}
-              key={post.slug}
-              className="h-full"
-            >
-              <PostCard
-                title={post.title}
-                excerpt={post.excerpt}
-                date={post.date}
-                category={post.category}
-                image={post.image}
-                href={`/blog/${post.slug}`}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {articles.length > 0 ? (
+          <motion.div
+            variants={containerVariant}
+            whileInView="visible"
+            initial="hidden"
+            viewport={{ once: true }}
+            className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {articles.map((post) => (
+              <motion.div
+                variants={fadeInSlideInVariant}
+                key={post.slug}
+                className="h-full"
+              >
+                <PostCard
+                  title={post.title}
+                  summary={post.summary}
+                  date={post.date}
+                  category={post.category}
+                  image={post.image}
+                  href={`/blog/${post.slug}`}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <div className="mt-16 rounded-lg border border-dashed border-[var(--color-border-primary)] bg-white/50 px-8 py-12 text-center">
+            <p className="text-lg font-light text-gray-600">
+              {CMS_MESSAGES.noBlogPosts}
+            </p>
+          </div>
+        )}
       </Section>
     </Page>
   );

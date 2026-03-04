@@ -4,7 +4,7 @@
   "private": true,
   "author": "Andre Rodrigo <geral@andrerodrigo.com> (http://andrerodrigo.com/)",
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "next dev --turbopack",
     "dev:cms": "npx next dev --experimental-https",
     "build": "next build",
     "postbuild": "next-sitemap",

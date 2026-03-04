@@ -5,6 +5,7 @@ interface StoryblokPostBlok {
   _uid: string;
   component: 'post';
   title?: string;
+  summary?: string;
   excerpt?: string;
   date?: string;
   category?: string;
@@ -16,7 +17,9 @@ interface StoryblokPostProps {
   blok: StoryblokPostBlok;
 }
 
-function getImageUrl(image: string | { filename?: string } | undefined): string {
+function getImageUrl(
+  image: string | { filename?: string } | undefined,
+): string {
   if (!image) return '/img/homepage_1.jpg';
   if (typeof image === 'string') return image;
   return (image as { filename?: string }).filename ?? '/img/homepage_1.jpg';
@@ -24,7 +27,7 @@ function getImageUrl(image: string | { filename?: string } | undefined): string 
 
 /**
  * Renders a Storyblok Post blok as a PostCard.
- * Expects fields: title, excerpt, date, category, image, slug
+ * Expects fields: title, summary, date, category, image, slug
  */
 export default function StoryblokPost({ blok }: StoryblokPostProps) {
   const href = blok.slug ? `/blog/${blok.slug}` : undefined;
@@ -33,7 +36,7 @@ export default function StoryblokPost({ blok }: StoryblokPostProps) {
     <div {...storyblokEditable(blok as SbBlokData)}>
       <PostCard
         title={blok.title ?? ''}
-        excerpt={blok.excerpt ?? ''}
+        summary={blok.summary ?? blok.excerpt ?? ''}
         date={blok.date ?? ''}
         category={blok.category ?? ''}
         image={getImageUrl(blok.image)}

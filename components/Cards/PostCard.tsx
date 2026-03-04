@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export type PostCardProps = {
   title: string;
-  excerpt: string;
+  summary: string;
   date: string;
   category: string;
   image: string;
@@ -13,7 +13,7 @@ export type PostCardProps = {
 
 const PostCard: React.FC<PostCardProps> = ({
   title,
-  excerpt,
+  summary,
   date,
   category,
   image,
@@ -41,7 +41,7 @@ const PostCard: React.FC<PostCardProps> = ({
           {title}
         </h3>
         <p className="mt-2 line-clamp-3 min-h-0 flex-1 text-sm text-gray-600">
-          {excerpt}
+          {summary}
         </p>
         <div className="mt-4 flex shrink-0 justify-end">
           <span
