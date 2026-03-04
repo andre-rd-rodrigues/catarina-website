@@ -9,9 +9,9 @@ const Page = ({
   className?: string;
 }) => {
   return (
-    <div data-testid="page" className={clsx('min-h-screen', className)}>
+    <main data-testid="page" className={clsx('min-h-screen', className)}>
       {children}
-    </div>
+    </main>
   );
 };
 Page.Title = Title;
