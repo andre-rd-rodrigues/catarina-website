@@ -52,8 +52,8 @@ export default async function CmsPage() {
       <div className="mx-auto max-w-4xl p-8 text-center">
         <h1 className="mb-4 text-2xl font-bold">Storyblok CMS</h1>
         <p className="text-gray-600">
-          Failed to fetch story. Check your access token and that a &quot;home&quot;
-          story exists in your Storyblok space.
+          Failed to fetch story. Check your access token and that a
+          &quot;home&quot; story exists in your Storyblok space.
         </p>
       </div>
     );

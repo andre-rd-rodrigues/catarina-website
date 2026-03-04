@@ -12,7 +12,7 @@ export type StoryblokSlug =
 
 export async function getStory(
   slug: StoryblokSlug,
-  version: 'draft' | 'published' = 'draft'
+  version: 'draft' | 'published' = 'draft',
 ) {
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, { version });
