@@ -2,7 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm run test --onlyChanged
-pnpm run lint:fix
+pnpm run lint
 pnpm run type-check
-pnpm run prettier
 

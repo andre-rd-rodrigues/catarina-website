@@ -28,7 +28,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <article className="mx-auto max-w-3xl">
           <div className="text-[var(--color-primary)]">
             {post.body ? (
-              <StoryblokServerRichText doc={post.body as Parameters<typeof StoryblokServerRichText>[0]['doc']} />
+              <StoryblokServerRichText
+                doc={
+                  post.body as Parameters<
+                    typeof StoryblokServerRichText
+                  >[0]['doc']
+                }
+              />
             ) : (
               <p className="text-justify leading-relaxed">{post.summary}</p>
             )}

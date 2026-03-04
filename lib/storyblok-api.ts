@@ -65,7 +65,7 @@ export async function getArticles(
   });
 
   const stories = data?.stories ?? [];
-  
+
   const mapped: (PostCardData & { _sortKey: string })[] = stories.map(
     (story: {
       slug: string;
@@ -79,10 +79,10 @@ export async function getArticles(
         typeof c.summary === 'string'
           ? c.summary
           : typeof c.excerpt === 'string'
-            ? c.excerpt
-            : typeof c.content === 'string'
-              ? c.content.slice(0, 150) + '...'
-              : '';
+          ? c.excerpt
+          : typeof c.content === 'string'
+          ? c.content.slice(0, 150) + '...'
+          : '';
       return {
         slug: story.slug ?? '',
         title: String(c.title ?? c.headline ?? story.name ?? ''),
@@ -126,8 +126,8 @@ export async function getArticleBySlug(
       typeof c.summary === 'string'
         ? c.summary
         : typeof c.excerpt === 'string'
-          ? c.excerpt
-          : '';
+        ? c.excerpt
+        : '';
 
     return {
       slug: story.slug ?? '',
