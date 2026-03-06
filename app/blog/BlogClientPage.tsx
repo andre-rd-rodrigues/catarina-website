@@ -1,40 +1,47 @@
 'use client';
 
 import PostCard from '@/components/Cards/PostCard';
-import { CMS_MESSAGES } from '@/constants/messages';
-import Page from '@/components/Page';
 import Section from '@/components/Section';
-import type { BlogStoryContent, PostCardData } from '@/lib/storyblok-api';
+import StoryblokPage from '@/components/storyblok/StoryblokPage';
+import { CMS_MESSAGES } from '@/constants/messages';
+import type { PostCardData } from '@/lib/storyblok-api';
 import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
+import { useStoryblokState } from '@storyblok/react';
+import { ISbStoryData } from '@storyblok/react/rsc';
 import { SearchIcon } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useMemo, useState } from 'react';
 
-const DEFAULT_TITLE_IMAGE =
-  'https://askproject.net/medral/wp-content/uploads/sites/154/2023/09/small-white-ceramic-mortar-with-eucalyptus-leaves-AANHPA2.jpg';
+export default function BlogClientPage({
+  initialStory,
+  initialArticles,
+  categories,
+}: {
+  initialStory: ISbStoryData;
+  initialArticles: PostCardData[];
+  categories: { label: string; value: string }[];
+}) {
+  const blogStory = useStoryblokState(initialStory);
 
-export type BlogPageContentProps = {
-  storyContent?: BlogStoryContent | null;
-  articles: PostCardData[];
-};
-
-export default function BlogPageContent({
-  storyContent,
-  articles,
-}: BlogPageContentProps) {
-  const [category, setCategory] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const [category, setCategory] = useState('');
 
-  const categories = ['lifestyle']; // TODO
+  const filteredArticles = useMemo(
+    () =>
+      initialArticles.filter((post) => {
+        const matchesSearch = post.title
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase());
+        const matchesCategory = category ? post.category === category : true;
+        return matchesSearch && matchesCategory;
+      }),
+    [initialArticles, searchQuery, category],
+  );
 
-  const heading = storyContent?.heading ?? 'Blog';
-  const titleImage = storyContent?.image ?? DEFAULT_TITLE_IMAGE;
-  const subtitle = storyContent?.subtitle;
+  if (!blogStory) return <div>Loading...</div>;
 
   return (
-    <Page>
-      <Page.Title src={titleImage} title={heading} subtitle={subtitle} />
-
+    <StoryblokPage story={blogStory}>
       <Section className="bg-[var(--color-background-alt)]">
         <Section.Title
           subtitle="Artigos"
@@ -43,7 +50,6 @@ export default function BlogPageContent({
           animation="left"
         />
 
-        {/* Filters */}
         <motion.div
           variants={containerVariant}
           whileInView="visible"
@@ -68,7 +74,6 @@ export default function BlogPageContent({
             />
           </div>
 
-          {/* Category buttons */}
           <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
@@ -85,23 +90,23 @@ export default function BlogPageContent({
             </button>
             {categories.map((cat) => (
               <button
-                key={cat}
+                key={cat.value}
                 type="button"
-                onClick={() => setCategory(cat)}
+                onClick={() => setCategory(cat.value)}
                 className={`rounded-full px-4 py-2 text-sm font-light transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 ${
-                  category === cat
+                  category === cat.value
                     ? 'bg-[var(--color-accent)] text-white'
                     : 'border border-[var(--color-border-primary)] bg-transparent text-[var(--color-primary)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]'
                 }`}
-                aria-pressed={category === cat}
+                aria-pressed={category === cat.value}
               >
-                {cat}
+                {cat.label}
               </button>
             ))}
           </div>
         </motion.div>
 
-        {articles.length > 0 ? (
+        {filteredArticles.length > 0 ? (
           <motion.div
             variants={containerVariant}
             whileInView="visible"
@@ -109,7 +114,7 @@ export default function BlogPageContent({
             viewport={{ once: true }}
             className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {articles.map((post) => (
+            {filteredArticles.map((post) => (
               <motion.div
                 variants={fadeInSlideInVariant}
                 key={post.slug}
@@ -134,6 +139,6 @@ export default function BlogPageContent({
           </div>
         )}
       </Section>
-    </Page>
+    </StoryblokPage>
   );
 }

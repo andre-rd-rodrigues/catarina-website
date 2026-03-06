@@ -1,24 +1,22 @@
 import {
   storyblokEditable,
   StoryblokServerComponent,
+  type ISbStoryData,
+  type SbBlokData,
 } from '@storyblok/react/rsc';
 
 interface StoryblokPageProps {
-  blok: {
-    body?: Array<{
-      _uid: string;
-      component: string;
-      [key: string]: unknown;
-    }>;
-  };
+  story: ISbStoryData;
+  children: React.ReactNode;
 }
 
-export default function StoryblokPage({ blok }: StoryblokPageProps) {
+export default function StoryblokPage({ story, children }: StoryblokPageProps) {
   return (
-    <main {...storyblokEditable(blok)}>
-      {blok.body?.map((nestedBlok) => (
+    <main {...storyblokEditable(story.content)}>
+      {story.content?.body?.map((nestedBlok: SbBlokData) => (
         <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
+      {children}
     </main>
   );
 }

@@ -1,4 +1,5 @@
 import { getStoryblokApi } from '@/lib/storyblok';
+import { formatDate } from '@/lib/common.utils';
 
 export type StoryblokSlug =
   | 'home'
@@ -8,10 +9,10 @@ export type StoryblokSlug =
   | 'blog'
   | 'contactos'
   | 'termos'
-  | 'politica-de-privacidade';
+  | 'politica-de-privacidade' ;
 
 export async function getStory(
-  slug: StoryblokSlug,
+  slug: StoryblokSlug | string,
   version: 'draft' | 'published' = 'draft',
 ) {
   const storyblokApi = getStoryblokApi();
@@ -33,20 +34,6 @@ function getImageUrl(image: unknown): string {
   if (typeof image === 'string') return image;
   const obj = image as { filename?: string };
   return obj?.filename ?? '/img/homepage_1.jpg';
-}
-
-function formatDate(value: string | undefined): string {
-  if (!value) return '';
-  try {
-    const d = new Date(value);
-    return d.toLocaleDateString('pt-PT', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    });
-  } catch {
-    return value;
-  }
 }
 
 /**
@@ -143,69 +130,19 @@ export async function getArticleBySlug(
   }
 }
 
-export type BlogStoryContent = {
-  heading?: string;
-  title?: string;
-  subtitle?: string;
-  image?: string;
-};
+export async function getDatasourceEntries(slug: string) {
+  const storyblokApi = getStoryblokApi();
 
-/**
- * Extracts heading/title content from a blog story.
- * Checks: content.heading, content.title, or first "heading" blok in content.body
- */
-export function extractBlogStoryContent(
-  content:
-    | {
-        heading?: string;
-        title?: string;
-        subtitle?: string;
-        image?: string | { filename?: string };
-        body?: Array<{
-          component?: string;
-          heading?: string;
-          title?: string;
-          subtitle?: string;
-          image?: string | { filename?: string };
-        }>;
-      }
-    | null
-    | undefined,
-): BlogStoryContent {
-  if (!content) return {};
+  // Procuramos pelas 'datasource_entries' filtrando pelo slug do datasource
+  const { data } = await storyblokApi.get(`cdn/datasource_entries`, {
+    datasource: slug,
+    version: 'draft', // ou 'published'
+  });
 
-  const getImage = (
-    img: string | { filename?: string } | undefined,
-  ): string | undefined => {
-    if (!img) return undefined;
-    if (typeof img === 'string') return img;
-    return (img as { filename?: string }).filename;
-  };
-
-  // Direct fields on content
-  if (content.heading || content.title) {
-    return {
-      heading: content.heading ?? content.title,
-      subtitle: content.subtitle,
-      image: getImage(content.image),
-    };
-  }
-
-  // Traverse body for heading blok
-  const body = content.body ?? [];
-  const headingBlok = body.find(
-    (b) =>
-      b.component === 'heading' ||
-      b.component === 'page_title' ||
-      b.component === 'title',
+  return data.datasource_entries.map(
+    (entry: { name?: string; value?: string }) => ({
+      label: entry.name,
+      value: entry.value,
+    }),
   );
-  if (headingBlok) {
-    return {
-      heading: headingBlok.heading ?? headingBlok.title ?? '',
-      subtitle: headingBlok.subtitle,
-      image: getImage(headingBlok.image),
-    };
-  }
-
-  return {};
 }
