@@ -1,10 +1,19 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import About from '@/app/sobre/page';
+import AboutClientPage from '@/app/sobre/AboutClientPage';
+import { mockAboutStory } from '../__mocks__/about-story';
 import { setupCommonMocks } from '../__mocks__/common';
 import { renderWithMotion } from '../__utils__/test-helpers';
 
+// Ensure Storyblok components are registered for StoryblokServerComponent
+import '@/lib/storyblok';
+
 setupCommonMocks();
+
+jest.mock('@storyblok/react', () => ({
+  ...jest.requireActual('@storyblok/react'),
+  useStoryblokState: (initialStory: unknown) => initialStory,
+}));
 
 describe('About Page', () => {
   beforeEach(() => {
@@ -12,7 +21,7 @@ describe('About Page', () => {
   });
 
   it('renders the page title correctly', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(screen.getByTestId('page')).toBeInTheDocument();
     expect(screen.getByTestId('page-title')).toBeInTheDocument();
@@ -20,7 +29,7 @@ describe('About Page', () => {
   });
 
   it('renders the first section with correct title and subtitle', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText('Uma eterna aprendiz da vida e do Ser-Humano'),
@@ -29,7 +38,7 @@ describe('About Page', () => {
   });
 
   it('displays the first section content', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(screen.getByText(/Bem-vindo\(a\)/)).toBeInTheDocument();
     expect(screen.getByText('Catarina Paixão')).toBeInTheDocument();
@@ -39,7 +48,7 @@ describe('About Page', () => {
   });
 
   it('renders the second section with correct title and subtitle', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText(
@@ -50,7 +59,7 @@ describe('About Page', () => {
   });
 
   it('displays the second section content', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText(/Psicologia Analítica de Carl Jung/),
@@ -62,7 +71,7 @@ describe('About Page', () => {
   });
 
   it('renders all images with correct alt text', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     const images = screen.getAllByRole('img');
     expect(images).toHaveLength(2);
@@ -73,7 +82,7 @@ describe('About Page', () => {
   });
 
   it('displays the services link', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     const servicesLink = screen.getByRole('link', { name: 'Ver serviços' });
     expect(servicesLink).toBeInTheDocument();
@@ -81,7 +90,7 @@ describe('About Page', () => {
   });
 
   it('renders the hero section with quote', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText(
@@ -92,7 +101,7 @@ describe('About Page', () => {
   });
 
   it('displays educational background information', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText(/urgências hospitalares e extra-hospitalares/),
@@ -102,7 +111,7 @@ describe('About Page', () => {
   });
 
   it('displays areas of study and interest', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(
       screen.getByText(/Nutrição, Medicina Tradicional Chinesa/),
@@ -114,14 +123,14 @@ describe('About Page', () => {
   });
 
   it('renders all motion components', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(screen.getAllByText('Sobre mim')).toHaveLength(2);
     expect(screen.getByText(/Bem-vindo\(a\)/)).toBeInTheDocument();
   });
 
   it('has proper heading hierarchy', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     // Check that section titles are rendered as h3 elements (they are h3 in the actual component)
     const sectionTitles = [
@@ -136,7 +145,7 @@ describe('About Page', () => {
   });
 
   it('displays all paragraphs with content', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     // Check that multiple paragraphs are rendered
     const paragraphs = screen.getAllByText(/^[^<>]*$/);
@@ -144,7 +153,7 @@ describe('About Page', () => {
   });
 
   it('renders strong elements for emphasis', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(screen.getByText('Catarina Paixão')).toBeInTheDocument();
     expect(
@@ -156,13 +165,13 @@ describe('About Page', () => {
   });
 
   it('renders italic elements for emphasis', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     expect(screen.getByText(/o Mistério que nos habita/)).toBeInTheDocument();
   });
 
   it('displays line breaks in content', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     // Check that content with line breaks is rendered
     expect(screen.getByText(/Bem-vindo\(a\)/)).toBeInTheDocument();
@@ -170,7 +179,7 @@ describe('About Page', () => {
   });
 
   it('renders all sections with proper structure', () => {
-    renderWithMotion(<About />);
+    renderWithMotion(<AboutClientPage initialStory={mockAboutStory} />);
 
     // Check that both main sections are present
     expect(

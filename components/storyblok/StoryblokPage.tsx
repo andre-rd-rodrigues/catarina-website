@@ -12,7 +12,10 @@ interface StoryblokPageProps {
 
 export default function StoryblokPage({ story, children }: StoryblokPageProps) {
   return (
-    <main {...storyblokEditable(story.content)}>
+    <main
+      data-testid="page"
+      {...storyblokEditable(story.content)}
+    >
       {story.content?.body?.map((nestedBlok: SbBlokData) => (
         <StoryblokServerComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}

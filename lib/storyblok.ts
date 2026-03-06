@@ -12,7 +12,7 @@ export const getStoryblokApi = storyblokInit({
     page: StoryblokPage,
     'page header': StoryblokPageHeader,
     post: StoryblokPost,
-    text_image_section: StoryblokTextImageSection,
+    'text image section': StoryblokTextImageSection,
     hero: StoryblokHero,
   },
   apiOptions: {

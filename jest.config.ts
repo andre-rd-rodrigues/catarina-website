@@ -13,7 +13,7 @@ const customJestConfig = {
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
     '<rootDir>/__tests__/__utils__/test-helpers.tsx',
-    '<rootDir>/__tests__/__mocks__/common.ts',
+    '<rootDir>/__tests__/__mocks__/',
   ],
   transformIgnorePatterns: ['node_modules/(?!(lucide-react|@lucide|motion)/)'],
   collectCoverageFrom: [

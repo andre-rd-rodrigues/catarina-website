@@ -10,6 +10,7 @@ const StoryblokPageHeader: React.FC<StoryblokPageHeaderProps> = ({ blok }) => {
   const imageSrc = blok.image?.filename ?? '';
   return (
     <div
+      data-testid="page-title"
       {...storyblokEditable(blok as SbBlokData)}
       key={blok._uid}
       className="relative flex h-64 w-full items-center justify-center bg-cover bg-center px-5 sm:px-28 md:justify-start"
