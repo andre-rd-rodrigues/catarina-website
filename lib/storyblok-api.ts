@@ -9,7 +9,7 @@ export type StoryblokSlug =
   | 'blog'
   | 'contactos'
   | 'termos'
-  | 'politica-de-privacidade' ;
+  | 'politica-de-privacidade';
 
 export async function getStory(
   slug: StoryblokSlug | string,
@@ -42,13 +42,14 @@ function getImageUrl(image: unknown): string {
  */
 export async function getArticles(
   version: 'draft' | 'published' = 'draft',
+  limit = 5,
 ): Promise<PostCardData[]> {
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get('cdn/stories', {
     version,
     starts_with: 'blog',
     content_type: 'post',
-    per_page: 5,
+    per_page: limit,
   });
 
   const stories = data?.stories ?? [];

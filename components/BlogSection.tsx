@@ -1,20 +1,29 @@
-import PostCard from '@/components/Cards/PostCard';
+'use client';
+
+import { useEffect, useState } from 'react';
 import { CMS_MESSAGES } from '@/constants/messages';
 import Section from '@/components/Section';
-import { getArticles } from '@/lib/storyblok-api';
-import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
-import { motion } from 'motion/react';
+import Link from '@/components/Link';
+import { getArticles, type PostCardData } from '@/lib/storyblok-api';
+import BlogPostsGrid from './BlogPostsGrid';
 
-export default async function BlogSection() {
-  let posts: Awaited<ReturnType<typeof getArticles>> = [];
+export default function BlogSection() {
+  const [posts, setPosts] = useState<PostCardData[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
-  if (process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN) {
-    try {
-      posts = await getArticles();
-    } catch {
-      // Keep empty
+  useEffect(() => {
+    if (!process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN) {
+      setLoaded(true);
+      return;
     }
-  }
+
+    getArticles('draft', 3)
+      .then(setPosts)
+      .catch(() => {})
+      .finally(() => setLoaded(true));
+  }, []);
+
+  if (!loaded) return null;
 
   return (
     <Section id="blog" className="bg-[var(--color-background-alt)]">
@@ -25,30 +34,7 @@ export default async function BlogSection() {
         animation="left"
       />
       {posts.length > 0 ? (
-        <motion.div
-          variants={containerVariant}
-          whileInView="visible"
-          initial="hidden"
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {posts.map((post) => (
-            <motion.div
-              variants={fadeInSlideInVariant}
-              key={post.slug}
-              className="h-full"
-            >
-              <PostCard
-                title={post.title}
-                summary={post.summary}
-                date={post.date}
-                category={post.category}
-                image={post.image}
-                href={`/blog/${post.slug}`}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        <BlogPostsGrid posts={posts} />
       ) : (
         <div className="mt-16 rounded-lg border border-dashed border-[var(--color-border-primary)] bg-white/50 px-8 py-12 text-center">
           <p className="text-lg font-light text-gray-600">
@@ -56,6 +42,9 @@ export default async function BlogSection() {
           </p>
         </div>
       )}
+      <div className="mt-12 flex justify-center">
+        <Link href="/blog" label="Ver artigos" variant="outline" />
+      </div>
     </Section>
   );
 }
