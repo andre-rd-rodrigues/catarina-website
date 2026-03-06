@@ -8,6 +8,7 @@ import Link from '@/components/Link';
 import Page from '@/components/Page';
 import Section from '@/components/Section';
 import SplitLeaf from '@/components/SplitLeaf';
+import BlogSection from '@/components/BlogSection';
 import {
   HOMEPAGE_CHOOSE_US_SECTION,
   HOMEPAGE_SERVICES,
@@ -267,6 +268,9 @@ export default function Home() {
           </div>
         </motion.div>
       </Section>
+
+      {/* Blog */}
+      <BlogSection />
 
       {/* FAQS */}
       <FaqsPreview />

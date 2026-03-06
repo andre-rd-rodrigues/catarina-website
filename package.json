@@ -4,7 +4,8 @@
   "private": true,
   "author": "Andre Rodrigo <geral@andrerodrigo.com> (http://andrerodrigo.com/)",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbopack",
+    "dev:cms": "npx next dev --experimental-https",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -15,12 +16,17 @@
     "analyze": "ANALYZE=true npm run build",
     "type-check": "tsc --noEmit",
     "test": "jest",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate-sb-types": "storyblok-generate-ts source=./.storyblok/components/290938228602180/components.json target=./component-types-sb",
+    "cms:pull": "storyblok components pull --space 290938228602180",
+    "cms:push": "storyblok components push --space 290938228602180",
+    "cms:sync": "pnpm cms:pull && pnpm generate-sb-types"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@lucide/lab": "^0.1.2",
     "@next/third-parties": "16.1.6",
+    "@storyblok/react": "^6.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.561.0",
     "motion": "^12.0.6",
@@ -29,6 +35,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "sass": "^1.83.4",
+    "storyblok-generate-ts": "^2.2.0",
     "swiper": "^12.1.2"
   },
   "devDependencies": {
