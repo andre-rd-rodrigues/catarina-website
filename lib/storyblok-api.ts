@@ -151,7 +151,8 @@ export async function getDatasourceEntries(slug: string) {
     version: getStoryblokVersion(),
   });
 
-  return data.datasource_entries.map(
+  const entries = data?.datasource_entries ?? [];
+  return entries.map(
     (entry: { name?: string; value?: string }) => ({
       label: entry.name,
       value: entry.value,

@@ -3,6 +3,7 @@
 import PostCard from '@/components/Cards/PostCard';
 import Section from '@/components/Section';
 import StoryblokPage from '@/components/storyblok/StoryblokPage';
+import { useDebounce } from '@/hooks/useDebounce';
 import { CMS_MESSAGES } from '@/constants/messages';
 import { getArticles, type PostCardData } from '@/lib/storyblok-api';
 import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
@@ -28,19 +29,11 @@ export default function BlogClientPage({
   const blogStory = useStoryblokState(initialStory);
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
+  const debouncedSearchQuery = useDebounce(searchQuery, SEARCH_DEBOUNCE_MS);
   const [articles, setArticles] = useState<PostCardData[]>(initialArticles);
   const [isSearching, setIsSearching] = useState(false);
   const [category, setCategory] = useState('');
   const isInitialMount = useRef(true);
-
-  // Debounce searchQuery by 300ms
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, SEARCH_DEBOUNCE_MS);
-    return () => window.clearTimeout(timer);
-  }, [searchQuery]);
 
   // Fetch articles when debounced search changes (skip redundant fetch on initial mount)
   useEffect(() => {
