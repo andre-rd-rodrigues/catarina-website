@@ -4,38 +4,86 @@ import PostCard from '@/components/Cards/PostCard';
 import Section from '@/components/Section';
 import StoryblokPage from '@/components/storyblok/StoryblokPage';
 import { CMS_MESSAGES } from '@/constants/messages';
-import type { PostCardData } from '@/lib/storyblok-api';
+import { getArticles, type PostCardData } from '@/lib/storyblok-api';
 import { containerVariant, fadeInSlideInVariant } from '@/motion/variants';
 import { useStoryblokState } from '@storyblok/react';
 import { ISbStoryData } from '@storyblok/react/rsc';
 import { SearchIcon } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+
+const SEARCH_DEBOUNCE_MS = 300;
 
 export default function BlogClientPage({
   initialStory,
   initialArticles,
   categories,
+  defaultArticlesLimit = 25,
 }: {
   initialStory: ISbStoryData;
   initialArticles: PostCardData[];
   categories: { label: string; value: string }[];
+  defaultArticlesLimit?: number;
 }) {
   const blogStory = useStoryblokState(initialStory);
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
+  const [articles, setArticles] = useState<PostCardData[]>(initialArticles);
+  const [isSearching, setIsSearching] = useState(false);
   const [category, setCategory] = useState('');
+  const isInitialMount = useRef(true);
+
+  // Debounce searchQuery by 300ms
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, SEARCH_DEBOUNCE_MS);
+    return () => window.clearTimeout(timer);
+  }, [searchQuery]);
+
+  // Fetch articles when debounced search changes (skip redundant fetch on initial mount)
+  useEffect(() => {
+    if (isInitialMount.current && debouncedSearchQuery === '') {
+      isInitialMount.current = false;
+      return;
+    }
+
+    const controller = new AbortController();
+
+    const fetchArticles = async () => {
+      setIsSearching(true);
+      try {
+        const fetched = await getArticles(
+          undefined,
+          defaultArticlesLimit,
+          debouncedSearchQuery.trim() || undefined,
+        );
+        if (!controller.signal.aborted) {
+          setArticles(fetched);
+        }
+      } catch {
+        if (!controller.signal.aborted) {
+          setArticles([]);
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setIsSearching(false);
+        }
+      }
+    };
+
+    fetchArticles();
+    return () => controller.abort();
+  }, [debouncedSearchQuery, defaultArticlesLimit]);
 
   const filteredArticles = useMemo(
     () =>
-      initialArticles.filter((post) => {
-        const matchesSearch = post.title
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase());
+      articles.filter((post) => {
         const matchesCategory = category ? post.category === category : true;
-        return matchesSearch && matchesCategory;
+        return matchesCategory;
       }),
-    [initialArticles, searchQuery, category],
+    [articles, category],
   );
 
   if (!blogStory) return <div>Loading...</div>;
@@ -70,6 +118,7 @@ export default function BlogClientPage({
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full rounded-full border border-[var(--color-border-primary)] bg-transparent py-2.5 pl-10 pr-4 font-light text-[var(--color-primary)] placeholder:text-gray-400 focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
               aria-label="Pesquisar artigos"
+              aria-busy={isSearching}
               autoComplete="off"
             />
           </div>
@@ -109,9 +158,8 @@ export default function BlogClientPage({
         {filteredArticles.length > 0 ? (
           <motion.div
             variants={containerVariant}
-            whileInView="visible"
+            animate="visible"
             initial="hidden"
-            viewport={{ once: true }}
             className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
             {filteredArticles.map((post) => (

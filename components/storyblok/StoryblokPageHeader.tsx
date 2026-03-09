@@ -12,18 +12,25 @@ const StoryblokPageHeader: React.FC<StoryblokPageHeaderProps> = ({ blok }) => {
     <div
       data-testid="page-title"
       {...storyblokEditable(blok as SbBlokData)}
-      key={blok._uid}
       className="relative flex h-64 w-full items-center justify-center bg-cover bg-center px-5 sm:px-28 md:justify-start"
       style={{
         background: `url(${imageSrc}) center/cover no-repeat`,
       }}
     >
-      <div className="absolute inset-0 bg-emerald-950/45 backdrop-blur-sm" />
+      <div
+        key={`${blok._uid}-overlay`}
+        className="absolute inset-0 bg-emerald-950/45 backdrop-blur-sm"
+      />
 
-      <div className="relative z-10 text-white">
-        <h1 className="mt-5 text-4xl md:text-5xl">{blok.title}</h1>
+      <div key={`${blok._uid}-content`} className="relative z-10 text-white">
+        <h1 key={`${blok._uid}-title`} className="mt-5 text-4xl md:text-5xl">
+          {blok.title}
+        </h1>
         {blok.subtitle && (
-          <p className="mt-3 text-sm text-white/50 opacity-90 md:text-base">
+          <p
+            key={`${blok._uid}-subtitle`}
+            className="mt-3 text-sm text-white/50 opacity-90 md:text-base"
+          >
             {blok.subtitle}
           </p>
         )}

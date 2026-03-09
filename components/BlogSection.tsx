@@ -17,7 +17,7 @@ export default function BlogSection() {
       return;
     }
 
-    getArticles('draft', 3)
+    getArticles(undefined, 3)
       .then(setPosts)
       .catch(() => {})
       .finally(() => setLoaded(true));

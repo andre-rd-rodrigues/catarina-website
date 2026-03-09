@@ -10,11 +10,6 @@ import '@/lib/storyblok';
 
 setupCommonMocks();
 
-jest.mock('@storyblok/react', () => ({
-  ...jest.requireActual('@storyblok/react'),
-  useStoryblokState: (initialStory: unknown) => initialStory,
-}));
-
 describe('About Page', () => {
   beforeEach(() => {
     jest.clearAllMocks();

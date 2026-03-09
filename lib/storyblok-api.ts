@@ -1,6 +1,11 @@
 import { getStoryblokApi } from '@/lib/storyblok';
 import { formatDate } from '@/lib/common.utils';
 
+/** Draft in development (preview unpublished content), published in production. */
+export function getStoryblokVersion(): 'draft' | 'published' {
+  return process.env.NODE_ENV === 'production' ? 'published' : 'draft';
+}
+
 export type StoryblokSlug =
   | 'home'
   | 'sobre'
@@ -13,7 +18,7 @@ export type StoryblokSlug =
 
 export async function getStory(
   slug: StoryblokSlug | string,
-  version: 'draft' | 'published' = 'draft',
+  version: 'draft' | 'published' = getStoryblokVersion(),
 ) {
   const storyblokApi = getStoryblokApi();
   const { data } = await storyblokApi.get(`cdn/stories/${slug}`, { version });
@@ -39,18 +44,24 @@ function getImageUrl(image: unknown): string {
 /**
  * Fetches post stories from the articles folder (content_type: post).
  * Maps to PostCard format. See: https://www.storyblok.com/docs/guides/nextjs/content-modeling
+ * @param searchTerm - Optional. When provided, fetches articles matching the search string (full-text search).
  */
 export async function getArticles(
-  version: 'draft' | 'published' = 'draft',
+  version: 'draft' | 'published' = getStoryblokVersion(),
   limit = 5,
+  searchTerm?: string,
 ): Promise<PostCardData[]> {
   const storyblokApi = getStoryblokApi();
-  const { data } = await storyblokApi.get('cdn/stories', {
+  const params: Record<string, string | number> = {
     version,
     starts_with: 'blog',
     content_type: 'post',
     per_page: limit,
-  });
+  };
+  if (searchTerm?.trim()) {
+    params.search_term = searchTerm.trim();
+  }
+  const { data } = await storyblokApi.get('cdn/stories', params);
 
   const stories = data?.stories ?? [];
 
@@ -98,7 +109,7 @@ export type ArticleDetail = PostCardData & {
  */
 export async function getArticleBySlug(
   slug: string,
-  version: 'draft' | 'published' = 'draft',
+  version: 'draft' | 'published' = getStoryblokVersion(),
 ): Promise<ArticleDetail | null> {
   const storyblokApi = getStoryblokApi();
   try {
@@ -137,7 +148,7 @@ export async function getDatasourceEntries(slug: string) {
   // Procuramos pelas 'datasource_entries' filtrando pelo slug do datasource
   const { data } = await storyblokApi.get(`cdn/datasource_entries`, {
     datasource: slug,
-    version: 'draft', // ou 'published'
+    version: getStoryblokVersion(),
   });
 
   return data.datasource_entries.map(
