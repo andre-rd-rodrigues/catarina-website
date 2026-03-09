@@ -4,6 +4,7 @@ import StoryblokPageHeader from '@/components/storyblok/StoryblokPageHeader';
 import StoryblokPost from '@/components/storyblok/StoryblokPost';
 import StoryblokTextImageSection from '@/components/storyblok/StoryblokTextImageSection';
 import StoryblokHero from '@/components/storyblok/StoryblokHero';
+import StoryblokSection from '@/components/storyblok/StoryblokSection';
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN,
@@ -14,6 +15,7 @@ export const getStoryblokApi = storyblokInit({
     post: StoryblokPost,
     'text image section': StoryblokTextImageSection,
     hero: StoryblokHero,
+    section: StoryblokSection,
   },
   apiOptions: {
     region: 'eu',

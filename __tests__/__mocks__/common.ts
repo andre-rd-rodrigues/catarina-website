@@ -172,6 +172,14 @@ function renderStoryblokRichTextNode(
     return createElement('p', { key }, ...children);
   }
 
+  if (node.type === 'bullet_list') {
+    return createElement('ul', { key }, ...children);
+  }
+
+  if (node.type === 'list_item') {
+    return createElement('li', { key }, ...children);
+  }
+
   if (node.type === 'doc') {
     return createElement(React.Fragment, { key }, ...children);
   }

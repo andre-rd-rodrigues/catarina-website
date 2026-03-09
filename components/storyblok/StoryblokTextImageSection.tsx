@@ -42,6 +42,14 @@ export default function StoryblokTextImageSection({
         subtitle={blok.subtitle ?? ''}
         animation="left"
       />
+      {blok.tagline && (
+        <motion.p
+          variants={fadeInSlideLeftVariant}
+          className="font-ibm-plex-sans text-md mb-3 mt-2 font-light text-[var(--color-accent)]"
+        >
+          {blok.tagline}
+        </motion.p>
+      )}
       <motion.div
         variants={fadeInSlideLeftVariant}
         className="mt-8 text-justify text-[var(--color-primary)]"
@@ -85,10 +93,8 @@ export default function StoryblokTextImageSection({
     </div>
   );
 
-  return (
-    <div {...storyblokEditable(blok as SbBlokData)}>
-      <Section>
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
+  const sectionContent = (
+    <div className="flex flex-col gap-8 md:flex-row md:items-center md:gap-12">
         {isTextFirst ? (
           <>
             {textBlock}
@@ -101,7 +107,14 @@ export default function StoryblokTextImageSection({
           </>
         )}
         </div>
-      </Section>
+  );
+
+  return (
+    <div
+      {...storyblokEditable(blok as SbBlokData)}
+      {...(blok.anchor_id ? { id: blok.anchor_id } : {})}
+    >
+      <Section>{sectionContent}</Section>
     </div>
   );
 }

@@ -1,9 +1,13 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import Services from '@/app/servicos/page';
+import ServicesClientPage from '@/app/servicos/ServicesClientPage';
+import { mockServicesStory } from '../__mocks__/services-story';
 import { setupCommonMocks } from '../__mocks__/common';
 import { renderWithMotion } from '../__utils__/test-helpers';
 import { ABOUT_VALUES } from '@/constants/about';
+
+// Ensure Storyblok components are registered for StoryblokServerComponent
+import '@/lib/storyblok';
 
 setupCommonMocks();
 
@@ -13,15 +17,15 @@ describe('Services Page', () => {
   });
 
   it('renders the page title correctly', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(screen.getByTestId('page')).toBeInTheDocument();
-    expect(screen.getByTestId('page-title')).toBeInTheDocument();
-    expect(screen.getAllByText('Serviços')).toHaveLength(2);
+    expect(screen.getByText('Princípios Terapêuticos')).toBeInTheDocument();
+    expect(screen.getByText('Preçário')).toBeInTheDocument();
   });
 
   it('renders the first service section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getAllByText('Consulta Medicina Funcional Integrativa'),
@@ -33,7 +37,7 @@ describe('Services Page', () => {
   });
 
   it('displays first service content', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText(/Uma consulta médica que vai além da doença/),
@@ -46,7 +50,7 @@ describe('Services Page', () => {
   });
 
   it('renders the second service section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText('Sessões de Terapia (Saúde Mental)'),
@@ -58,7 +62,7 @@ describe('Services Page', () => {
   });
 
   it('displays second service content', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText(/Um espaço de escuta simbólica, transformação interior/),
@@ -72,7 +76,7 @@ describe('Services Page', () => {
   });
 
   it('renders the third service section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText(/Leitura terapêutica do Mapa Astral/),
@@ -84,7 +88,7 @@ describe('Services Page', () => {
   });
 
   it('displays third service content', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText(
@@ -98,7 +102,7 @@ describe('Services Page', () => {
   });
 
   it('renders the fourth service section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText('Programa de acompanhamento integrativo - 3/6 meses'),
@@ -110,7 +114,7 @@ describe('Services Page', () => {
   });
 
   it('displays fourth service content', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText(
@@ -127,7 +131,7 @@ describe('Services Page', () => {
   });
 
   it('renders all service images with correct alt text', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     const images = screen.getAllByRole('img');
     expect(images.length).toBeGreaterThanOrEqual(4);
@@ -147,14 +151,14 @@ describe('Services Page', () => {
   });
 
   it('renders therapeutic principles section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(screen.getByText('Princípios Terapêuticos')).toBeInTheDocument();
     expect(screen.getByText('Valores')).toBeInTheDocument();
   });
 
   it('displays all therapeutic principle cards', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     ABOUT_VALUES.forEach(({ title, description }) => {
       expect(screen.getByText(title)).toBeInTheDocument();
@@ -163,7 +167,7 @@ describe('Services Page', () => {
   });
 
   it('renders pricing section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(screen.getByText('Preçário')).toBeInTheDocument();
     expect(
@@ -172,23 +176,27 @@ describe('Services Page', () => {
   });
 
   it('renders FAQ preview section', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
-    // The FaqsPreview component should be rendered
-    expect(screen.getByTestId('page')).toBeInTheDocument();
+    expect(screen.getByText('Perguntas Frequentes')).toBeInTheDocument();
+    expect(screen.getByText('FAQS')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Ver mais' })).toHaveAttribute(
+      'href',
+      '/faqs',
+    );
   });
 
   it('renders all motion components', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
-    expect(screen.getAllByText('Serviços')).toHaveLength(2);
+    expect(screen.getByText('Princípios Terapêuticos')).toBeInTheDocument();
     expect(
       screen.getAllByText('Consulta Medicina Funcional Integrativa'),
     ).toHaveLength(3);
   });
 
   it('has proper heading hierarchy', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     // Check that service titles are rendered as h3 elements (they are h3 in the actual component)
     const serviceTitles = [
@@ -206,7 +214,7 @@ describe('Services Page', () => {
   });
 
   it('displays all paragraphs with content', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     // Check that multiple paragraphs are rendered
     const paragraphs = screen.getAllByText(/^[^<>]*$/);
@@ -214,7 +222,7 @@ describe('Services Page', () => {
   });
 
   it('renders strong elements for emphasis', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(screen.getByText('Primeiro encontro')).toBeInTheDocument();
     expect(screen.getByText('Segundo encontro')).toBeInTheDocument();
@@ -224,7 +232,7 @@ describe('Services Page', () => {
   });
 
   it('displays service subtitles correctly', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(screen.getByText('01.')).toBeInTheDocument();
     expect(screen.getByText('02.')).toBeInTheDocument();
@@ -233,7 +241,7 @@ describe('Services Page', () => {
   });
 
   it('renders service descriptions with proper formatting', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     expect(
       screen.getByText('Escutar o corpo como quem decifra um mapa vivo.'),
@@ -250,7 +258,7 @@ describe('Services Page', () => {
   });
 
   it('displays list items for service details', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     // Check that list items are rendered
     const listItems = screen.getAllByRole('listitem');
@@ -258,7 +266,7 @@ describe('Services Page', () => {
   });
 
   it('renders all sections with proper structure', () => {
-    renderWithMotion(<Services />);
+    renderWithMotion(<ServicesClientPage initialStory={mockServicesStory} />);
 
     // Check that all main service sections are present
     expect(

@@ -152,6 +152,10 @@
     "schema": {
       "title": { "type": "text", "required": true },
       "subtitle": { "type": "text" },
+      "tagline": {
+        "type": "text",
+        "description": "Short quote in accent color below the title (e.g. service tagline)"
+      },
       "layout": {
         "type": "option",
         "options": [
@@ -164,7 +168,64 @@
       "image_alt": { "type": "text" },
       "body": { "type": "richtext" },
       "cta_label": { "type": "text" },
-      "cta_href": { "type": "text" }
+      "cta_href": { "type": "text" },
+      "anchor_id": {
+        "type": "text",
+        "description": "HTML id for deep linking (e.g. consulta-medicina-funcional-integrativa)"
+      }
+    },
+    "is_root": false,
+    "is_nestable": true
+  },
+  {
+    "name": "section",
+    "display_name": "Section",
+    "description": "Generic content section with optional heading and background color",
+    "schema": {
+      "title": {
+        "type": "text",
+        "description": "Optional section title"
+      },
+      "subtitle": {
+        "type": "text",
+        "description": "Optional section subtitle or kicker"
+      },
+      "title_animation": {
+        "type": "option",
+        "description": "Animation style for the section title",
+        "default_value": "left",
+        "options": [
+          { "name": "Slide Left", "value": "left" },
+          { "name": "Slide Top", "value": "top" }
+        ]
+      },
+      "heading_align": {
+        "type": "option",
+        "description": "Alignment of the section heading",
+        "default_value": "left",
+        "options": [
+          { "name": "Left", "value": "left" },
+          { "name": "Center", "value": "center" }
+        ]
+      },
+      "section_id": {
+        "type": "text",
+        "description": "Optional HTML id for anchor links"
+      },
+      "background_color": {
+        "type": "option",
+        "description": "Choose a predefined section background color",
+        "default_value": "transparent",
+        "options": [
+          { "name": "Transparent", "value": "transparent" },
+          { "name": "Background Default", "value": "background_default" },
+          { "name": "Background Alt", "value": "background_alt" }
+        ]
+      },
+      "body": {
+        "type": "bloks",
+        "description": "Nested blocks rendered inside the section container"
+      }
     },
     "is_root": false,
     "is_nestable": true

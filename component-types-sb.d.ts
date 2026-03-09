@@ -1,3 +1,18 @@
+export interface PageStoryblok {
+  body?: (
+    | PageStoryblok
+    | PageHeaderStoryblok
+    | PostStoryblok
+    | TextImageSectionStoryblok
+    | SectionStoryblok
+    | HeroStoryblok
+  )[];
+  _uid: string;
+  component: "page";
+  uuid?: string;
+  [k: string]: unknown;
+}
+
 export interface AssetStoryblok {
   _uid?: string;
   id: number | null;
@@ -16,49 +31,12 @@ export interface AssetStoryblok {
   [k: string]: unknown;
 }
 
-export interface HeadingStoryblok {
-  title: string;
-  image?: AssetStoryblok;
-  _uid: string;
-  component: 'heading';
-  [k: string]: unknown;
-}
-
-export interface PageStoryblok {
-  body?: (
-    | HeadingStoryblok
-    | PageStoryblok
-    | PageHeaderStoryblok
-    | PostStoryblok
-    | TextImageSectionStoryblok
-    | HeroStoryblok
-  )[];
-  _uid: string;
-  component: 'page';
-  uuid?: string;
-  [k: string]: unknown;
-}
-
-export interface TextImageSectionStoryblok {
-  layout: 'text_first' | 'image_first';
-  title: string;
-  subtitle?: string;
-  body: RichtextStoryblok;
-  image: AssetStoryblok;
-  image_alt?: string;
-  cta_href?: string;
-  cta_label?: string;
-  _uid: string;
-  component: 'text_image_section';
-  [k: string]: unknown;
-}
-
 export interface PageHeaderStoryblok {
   image: AssetStoryblok;
   title: string;
   subtitle?: string;
   _uid: string;
-  component: 'page header';
+  component: "page header";
   [k: string]: unknown;
 }
 
@@ -71,6 +49,53 @@ export interface RichtextStoryblok {
   [k: string]: unknown;
 }
 
+export interface PostStoryblok {
+  title: string;
+  image?: AssetStoryblok;
+  category: number | string;
+  summary: string;
+  body: RichtextStoryblok;
+  _uid: string;
+  component: "post";
+  [k: string]: unknown;
+}
+
+export interface TextImageSectionStoryblok {
+  title: string;
+  subtitle?: string;
+  tagline?: string;
+  layout?: "" | "text_first" | "image_first";
+  image?: AssetStoryblok;
+  image_alt?: string;
+  body?: RichtextStoryblok;
+  cta_label?: string;
+  cta_href?: string;
+  anchor_id?: string;
+  _uid: string;
+  component: "text image section";
+  [k: string]: unknown;
+}
+
+export interface SectionStoryblok {
+  title?: string;
+  subtitle?: string;
+  title_animation?: "" | "left" | "top";
+  heading_align?: "" | "left" | "center";
+  section_id?: string;
+  background_color?: "" | "transparent" | "background_default" | "background_alt";
+  body?: (
+    | PageStoryblok
+    | PageHeaderStoryblok
+    | PostStoryblok
+    | TextImageSectionStoryblok
+    | SectionStoryblok
+    | HeroStoryblok
+  )[];
+  _uid: string;
+  component: "section";
+  [k: string]: unknown;
+}
+
 export interface HeroStoryblok {
   title: string;
   subtitle?: string;
@@ -79,17 +104,6 @@ export interface HeroStoryblok {
   action_href?: string;
   class_name?: string;
   _uid: string;
-  component: 'hero';
-  [k: string]: unknown;
-}
-
-export interface PostStoryblok {
-  title: string;
-  image?: AssetStoryblok;
-  category: number | string;
-  summary: string;
-  body: RichtextStoryblok;
-  _uid: string;
-  component: 'post';
+  component: "hero";
   [k: string]: unknown;
 }
