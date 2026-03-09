@@ -113,7 +113,6 @@ export const mockServicesStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Consulta Medicina Funcional Integrativa',
       },
       {
         _uid: 'service-2',
@@ -148,7 +147,6 @@ export const mockServicesStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Sessões de Terapia (Saúde Mental)',
       },
       {
         _uid: 'service-3',
@@ -182,7 +180,6 @@ export const mockServicesStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Mapa Astral + Human Design',
       },
       {
         _uid: 'service-4',
@@ -282,7 +279,6 @@ export const mockServicesStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Programa de acompanhamento integrativo - 3/6 meses',
       },
     ],
   },

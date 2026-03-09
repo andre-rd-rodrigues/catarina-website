@@ -66,7 +66,6 @@ export interface TextImageSectionStoryblok {
   tagline?: string;
   layout?: "" | "text_first" | "image_first";
   image?: AssetStoryblok;
-  image_alt?: string;
   body?: RichtextStoryblok;
   cta_label?: string;
   cta_href?: string;

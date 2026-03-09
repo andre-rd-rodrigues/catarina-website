@@ -23,11 +23,20 @@ function getImageSrc(image: TextImageSectionStoryblok['image']): string {
   return image?.filename ?? '/img/sobre_1.jpg';
 }
 
+function getImageAlt(
+  image: TextImageSectionStoryblok['image'],
+  fallback: string,
+): string {
+  if (!image || typeof image === 'string') return fallback;
+  return (image as { alt?: string }).alt ?? fallback;
+}
+
 export default function StoryblokTextImageSection({
   blok,
 }: StoryblokTextImageSectionProps) {
   const isTextFirst = blok.layout === 'text_first';
   const imageSrc = getImageSrc(blok.image);
+  const imageAlt = getImageAlt(blok.image, blok.title ?? '');
 
   const textBlock = (
     <motion.div
@@ -85,7 +94,7 @@ export default function StoryblokTextImageSection({
       >
         <Image
           src={imageSrc}
-          alt={blok.image_alt ?? ''}
+          alt={imageAlt}
           fill
           className="object-cover"
         />

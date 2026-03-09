@@ -165,7 +165,6 @@
         "default_value": "text_first"
       },
       "image": { "type": "asset", "filetypes": ["images"] },
-      "image_alt": { "type": "text" },
       "body": { "type": "richtext" },
       "cta_label": { "type": "text" },
       "cta_href": { "type": "text" },

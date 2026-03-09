@@ -74,7 +74,6 @@ export const mockAboutStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Sobre Mim - Catarina Paixão',
       },
       {
         _uid: 'section-2',
@@ -133,7 +132,6 @@ export const mockAboutStory: ISbStoryData = {
           title: null,
           copyright: null,
         },
-        image_alt: 'Sobre Mim - Catarina Paixão',
         cta_href: '/servicos',
         cta_label: 'Ver serviços',
       },
