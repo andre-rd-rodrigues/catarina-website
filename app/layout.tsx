@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import Navbar, { ScheduleButton } from '@/components/Navbar';
 import { PAGES_METADATA } from '@/metadata';
 import Analytics from '@/components/Analytics';
+import StoryblokProvider from '@/components/StoryblokProvider';
 
 export const metadata: Metadata = {
   title: PAGES_METADATA.HOME.title,
@@ -21,13 +22,15 @@ export default function RootLayout({
       <body
         className={`${marcellus.variable} ${ibmPlexSans.variable} relative`}
       >
-        <Navbar />
-        {children}
-        <Analytics />
-        <Footer />
-        <div className="fixed bottom-6 right-6 sm:hidden">
-          <ScheduleButton iconOnly iconSize={25} />
-        </div>
+        <StoryblokProvider>
+          <Navbar />
+          {children}
+          <Analytics />
+          <Footer />
+          <div className="fixed bottom-6 right-6 sm:hidden">
+            <ScheduleButton iconOnly iconSize={25} />
+          </div>
+        </StoryblokProvider>
       </body>
     </html>
   );

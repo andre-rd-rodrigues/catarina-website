@@ -4,14 +4,16 @@ import SectionTitle from './Title';
 type SectionProps = {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 };
 
 const Section: React.FC<SectionProps> & { Title: typeof SectionTitle } = ({
   children,
   className,
+  id,
 }) => {
   return (
-    <section className={clsx('py-10 sm:py-24', className)}>
+    <section id={id} className={clsx('py-10 sm:py-24', className)}>
       <div className="mx-auto max-w-7xl px-5">{children}</div>
     </section>
   );

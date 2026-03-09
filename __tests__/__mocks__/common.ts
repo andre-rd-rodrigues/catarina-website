@@ -1,5 +1,7 @@
 import React, { createElement } from 'react';
 
+const storyblokComponentRegistry: Record<string, React.ComponentType<any>> = {};
+
 // Mock Next.js Image component
 export const mockNextImage = () => {
   return function MockImage({
@@ -133,6 +135,100 @@ export const mockAppLink = () => {
       },
       label,
     );
+  };
+};
+
+function renderStoryblokRichTextNode(
+  node: Record<string, any>,
+  key: string,
+): React.ReactNode {
+  if (!node) return null;
+
+  if (node.type === 'text') {
+    let content: React.ReactNode = node.text ?? '';
+
+    for (const mark of node.marks ?? []) {
+      if (mark.type === 'bold') {
+        content = createElement('strong', { key: `${key}-bold` }, content);
+      } else if (mark.type === 'italic') {
+        content = createElement('em', { key: `${key}-italic` }, content);
+      }
+    }
+
+    return content;
+  }
+
+  if (node.type === 'hard_break') {
+    return createElement('br', { key });
+  }
+
+  const children = (node.content ?? [])
+    .map((child: Record<string, any>, index: number) =>
+      renderStoryblokRichTextNode(child, `${key}-${index}`),
+    )
+    .filter((child: React.ReactNode) => child !== null);
+
+  if (node.type === 'paragraph') {
+    return createElement('p', { key }, ...children);
+  }
+
+  if (node.type === 'bullet_list') {
+    return createElement('ul', { key }, ...children);
+  }
+
+  if (node.type === 'list_item') {
+    return createElement('li', { key }, ...children);
+  }
+
+  if (node.type === 'doc') {
+    return createElement(React.Fragment, { key }, ...children);
+  }
+
+  return createElement(React.Fragment, { key }, ...children);
+}
+
+// Mock Storyblok React client package
+export const mockStoryblokReact = () => ({
+  useStoryblokState: (story: unknown) => story,
+  StoryblokRichText: ({ doc }: { doc?: Record<string, any> }) =>
+    createElement(
+      React.Fragment,
+      null,
+      ...((doc?.content ?? []).map((node: Record<string, any>, index: number) =>
+        renderStoryblokRichTextNode(node, `richtext-${index}`),
+      ) as React.ReactNode[]),
+    ),
+});
+
+// Mock Storyblok RSC package
+export const mockStoryblokReactRsc = () => {
+  const StoryblokServerComponent = ({
+    blok,
+  }: {
+    blok?: { component?: string; _uid?: string };
+  }) => {
+    const componentName = blok?.component;
+    const Component = componentName
+      ? storyblokComponentRegistry[componentName]
+      : undefined;
+
+    if (!Component || !blok) return null;
+
+    return createElement(Component, { blok, key: blok._uid });
+  };
+
+  return {
+    apiPlugin: {},
+    storyblokInit: ({
+      components = {},
+    }: {
+      components?: Record<string, React.ComponentType<any>>;
+    }) => {
+      Object.assign(storyblokComponentRegistry, components);
+      return jest.fn();
+    },
+    storyblokEditable: () => ({}),
+    StoryblokServerComponent,
   };
 };
 
@@ -330,6 +426,8 @@ export const mockFramerMotion = () => {
 export const setupCommonMocks = () => {
   jest.mock('next/image', () => mockNextImage());
   jest.mock('next/link', () => mockNextLink());
+  jest.mock('@storyblok/react', () => mockStoryblokReact());
+  jest.mock('@storyblok/react/rsc', () => mockStoryblokReactRsc());
   jest.mock('lucide-react', () => mockLucideReact());
   jest.mock('lucide-react/dynamic', () => mockLucideReactDynamic());
   jest.mock('next/navigation', () => mockNextNavigation());

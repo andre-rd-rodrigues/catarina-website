@@ -1,0 +1,267 @@
+[
+  {
+    "name": "page",
+    "display_name": null,
+    "description": null,
+    "created_at": "2026-03-04T20:17:07.762Z",
+    "updated_at": "2026-03-04T20:17:07.762Z",
+    "id": 151412030519985,
+    "schema": {
+      "body": {
+        "type": "bloks",
+        "id": "Ca6Ypx12TtOCDZDGag85CQ"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "page",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page header",
+    "display_name": null,
+    "description": "Header used on top of pages",
+    "created_at": "2026-03-06T12:31:07.305Z",
+    "updated_at": "2026-03-06T12:31:58.626Z",
+    "id": 152005293291112,
+    "schema": {
+      "image": {
+        "type": "asset",
+        "pos": 0,
+        "required": true,
+        "description": "Background image",
+        "filetypes": ["images"],
+        "id": "IkPvselPTj6yaUSyt5qtxg"
+      },
+      "title": {
+        "type": "text",
+        "pos": 1,
+        "required": true,
+        "id": "BTX8q8FiQdKiy9ebBc3-aQ"
+      },
+      "subtitle": {
+        "type": "text",
+        "pos": 2,
+        "id": "1lt9xGIiRr2FNi4qzuU6Hw"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "page header",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "post",
+    "display_name": null,
+    "description": "Blog article",
+    "created_at": "2026-03-04T21:01:02.306Z",
+    "updated_at": "2026-03-05T11:30:29.234Z",
+    "id": 151422821616509,
+    "schema": {
+      "title": {
+        "type": "text",
+        "pos": 0,
+        "required": true,
+        "description": "Post title.",
+        "tooltip": true,
+        "default_value": "Unkown Title",
+        "id": "gdo-CQh-QtONBKeqAe9WRg"
+      },
+      "image": {
+        "type": "asset",
+        "pos": 1,
+        "id": "Uom8ZfxpTPeaiEeILWHhaQ",
+        "display_name": "",
+        "description": "Post image used in the blog article background.",
+        "tooltip": true,
+        "filetypes": ["images"]
+      },
+      "category": {
+        "type": "option",
+        "pos": 2,
+        "use_uuid": true,
+        "id": "I4QQzCFoQkuQg21S031E1g",
+        "required": true,
+        "description": "The category where the blog belongs.",
+        "tooltip": true,
+        "options": [],
+        "default_value": "lifestyle",
+        "source": "internal",
+        "datasource_slug": "categories"
+      },
+      "summary": {
+        "type": "text",
+        "pos": 3,
+        "id": "0Eo8XNECTumoKZCrNFFUPQ",
+        "required": true,
+        "description": "Post summary used for the preview and metadata.",
+        "tooltip": true,
+        "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      "body": {
+        "type": "richtext",
+        "pos": 4,
+        "id": "fGomJ4l_RimEaAehx_E5qw",
+        "required": true,
+        "description": "Post content.",
+        "default_value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "allow_target_blank": true
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": true,
+    "preview_tmpl": null,
+    "is_nestable": false,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "post",
+    "component_group_uuid": null,
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "text image section",
+    "display_name": "Text Image Section",
+    "schema": {
+      "title": { "type": "text", "required": true },
+      "subtitle": { "type": "text" },
+      "tagline": {
+        "type": "text",
+        "description": "Short quote in accent color below the title (e.g. service tagline)"
+      },
+      "layout": {
+        "type": "option",
+        "options": [
+          { "name": "Text First", "value": "text_first" },
+          { "name": "Image First", "value": "image_first" }
+        ],
+        "default_value": "text_first"
+      },
+      "image": { "type": "asset", "filetypes": ["images"] },
+      "body": { "type": "richtext" },
+      "cta_label": { "type": "text" },
+      "cta_href": { "type": "text" },
+      "anchor_id": {
+        "type": "text",
+        "description": "HTML id for deep linking (e.g. consulta-medicina-funcional-integrativa)"
+      }
+    },
+    "is_root": false,
+    "is_nestable": true
+  },
+  {
+    "name": "section",
+    "display_name": "Section",
+    "description": "Generic content section with optional heading and background color",
+    "schema": {
+      "title": {
+        "type": "text",
+        "description": "Optional section title"
+      },
+      "subtitle": {
+        "type": "text",
+        "description": "Optional section subtitle or kicker"
+      },
+      "title_animation": {
+        "type": "option",
+        "description": "Animation style for the section title",
+        "default_value": "left",
+        "options": [
+          { "name": "Slide Left", "value": "left" },
+          { "name": "Slide Top", "value": "top" }
+        ]
+      },
+      "heading_align": {
+        "type": "option",
+        "description": "Alignment of the section heading",
+        "default_value": "left",
+        "options": [
+          { "name": "Left", "value": "left" },
+          { "name": "Center", "value": "center" }
+        ]
+      },
+      "section_id": {
+        "type": "text",
+        "description": "Optional HTML id for anchor links"
+      },
+      "background_color": {
+        "type": "option",
+        "description": "Choose a predefined section background color",
+        "default_value": "transparent",
+        "options": [
+          { "name": "Transparent", "value": "transparent" },
+          { "name": "Background Default", "value": "background_default" },
+          { "name": "Background Alt", "value": "background_alt" }
+        ]
+      },
+      "body": {
+        "type": "bloks",
+        "description": "Nested blocks rendered inside the section container"
+      }
+    },
+    "is_root": false,
+    "is_nestable": true
+  },
+  {
+    "name": "hero",
+    "display_name": "Hero",
+    "description": "Hero section with quote or call-to-action",
+    "schema": {
+      "title": {
+        "type": "text",
+        "required": true,
+        "description": "Main quote or title"
+      },
+      "subtitle": {
+        "type": "text",
+        "description": "Optional subtitle above the title"
+      },
+      "content": {
+        "type": "text",
+        "required": true,
+        "description": "Author or attribution text"
+      },
+      "action_label": {
+        "type": "text",
+        "description": "Optional button label"
+      },
+      "action_href": {
+        "type": "text",
+        "description": "Optional button link"
+      },
+      "class_name": {
+        "type": "text",
+        "description": "Optional CSS classes (e.g. bg-[var(--color-background-alt)])"
+      }
+    },
+    "is_root": false,
+    "is_nestable": true
+  }
+]
